@@ -38,7 +38,7 @@ const NAV = [
   ["Applications", "#applications"],
   ["Development", "#development"],
   ["Safety", "#safety"],
-  ["Reserve", "#reserve"],
+  ["Register interest", "#reserve"],
   ["Contact", "#contact"],
 ] as const;
 
@@ -49,7 +49,7 @@ const MODELS = [
   },
   {
     name: "SENTINEL-1 Next-Stop",
-    body: "A separate development configuration exploring a controlled response after a verified theft event. This remains unvalidated and requires independent automotive safety validation before operational testing.",
+    body: "A separate development concept exploring whether an authorised vehicle could be prevented from restarting after it has come to a complete stop following a verified theft event. No such capability is validated or available.",
   },
   {
     name: "SENTINEL-1 Fleet",
@@ -147,7 +147,8 @@ const PARKED = [
 
 const NEXT_STOP = [
   "Next-Stop is an early development concept, not an available feature.",
-  "A restraint must not engage while a vehicle is moving.",
+  "It may explore preventing a vehicle from restarting only after it has come to a complete stop following a verified theft event.",
+  "No restraint is designed or authorised to engage while a vehicle is moving.",
   "Any future response concept requires independent automotive safety validation before operational testing.",
   "No moving-vehicle testing or public-road deployment is authorised at this stage.",
 ];
@@ -480,16 +481,18 @@ function Home() {
           </a>
           <nav className="hidden items-center gap-6 text-xs tracking-widest text-fg/80 uppercase xl:flex">
             {NAV.map(([label, href]) => (
-              <a key={href} href={href} className="transition-colors duration-200 hover:text-fg">
+              <a
+                key={href}
+                href={href}
+                className={
+                  href === "#reserve"
+                    ? "inline-flex min-h-11 items-center bg-bronze px-4 text-bg"
+                    : "transition-colors duration-200 hover:text-fg"
+                }
+              >
                 {label}
               </a>
             ))}
-            <a
-              href="#reserve"
-              className="inline-flex min-h-11 items-center bg-bronze px-4 text-bg"
-            >
-              Reserve
-            </a>
           </nav>
           <button
             type="button"
@@ -511,9 +514,6 @@ function Home() {
                 {label}
               </a>
             ))}
-            <a href="#reserve" className="py-3 text-bronze" onClick={() => setOpen(false)}>
-              Reserve
-            </a>
           </nav>
         )}
       </header>
@@ -542,20 +542,6 @@ function Home() {
           <p className="mt-1 ml-auto font-display text-2xl text-bronze">
             A different physical layer of vehicle security.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3 md:justify-end">
-            <a
-              href="#reserve"
-              className="inline-flex min-h-11 items-center bg-bronze px-6 text-sm tracking-widest text-bg uppercase"
-            >
-              Reserve your SENTINEL-1
-            </a>
-            <a
-              href="#features"
-              className="inline-flex min-h-11 items-center border border-fg/40 px-6 text-sm tracking-widest uppercase"
-            >
-              Explore the technology
-            </a>
-          </div>
         </div>
       </section>
 
@@ -661,10 +647,11 @@ function Home() {
                 validated in a vehicle.
               </p>
               <p>
-                <strong>02 — Next-Stop.</strong> A future, validated configuration could explore a
-                controlled response following a verified theft event. This remains a development
-                feature requiring independent automotive safety validation. No restraint is
-                designed or authorised to engage while a vehicle is moving.
+                <strong>02 — Next-Stop concept.</strong> A future configuration may explore
+                preventing an authorised vehicle from restarting after it has come to a complete
+                stop following a verified theft event. No restraint is designed or authorised to
+                engage while a vehicle is moving. This remains an unvalidated development concept
+                requiring independent automotive safety validation.
               </p>
               <p className="border-l-2 border-photo-bronze pl-4">
                 Next-Stop is not a production feature or operational claim. No public-road testing
@@ -724,51 +711,21 @@ function Home() {
                 {model.name === "SENTINEL-1 Vehicle" && (
                   <>
                     <p className="mt-4 text-sm text-bronze">
-                      Base commercial unit: from $795 + fitting
+                      Target production price: from $795 + fitting
                     </p>
                     <p className="mt-2 text-xs leading-5 text-muted">
-                      Indicative starting price only; not a current offer or confirmed price.
+                      Indicative target for the base commercial unit only; not an offer or confirmed price.
                     </p>
-                    <a
-                      href="#reserve"
-                      className="mt-5 inline-flex min-h-11 items-center border border-bronze px-5 text-xs tracking-widest text-bronze uppercase"
-                    >
-                      Register interest
-                    </a>
                   </>
                 )}
                 {model.name === "SENTINEL-1 Next-Stop" && (
                   <p className="mt-4 text-sm text-bronze">Next-Stop configuration: POA</p>
                 )}
-                {model.name === "SENTINEL-1 Fleet" && (
-                  <a
-                    href="#fleet"
-                    className="mt-5 inline-flex min-h-11 items-center border border-bronze px-5 text-xs tracking-widest text-bronze uppercase"
-                  >
-                    Request fleet pricing
-                  </a>
-                )}
-                {model.name === "SENTINEL-1 Defence" && (
-                  <a
-                    href="#defence"
-                    className="mt-5 inline-flex min-h-11 items-center border border-bronze px-5 text-xs tracking-widest text-bronze uppercase"
-                  >
-                    Request a briefing
-                  </a>
-                )}
                 {model.name === "SENTINEL-1 Defence" && (
                   <p className="mt-4 text-sm text-bronze">Military and government pricing: POA</p>
                 )}
                 {model.name === "SENTINEL-1 HGV" && (
-                  <>
-                    <p className="mt-4 text-sm text-bronze">Truck / HGV pricing: POA</p>
-                    <a
-                      href={`mailto:${EMAIL}?subject=${encodeURIComponent("SENTINEL-1 HGV enquiry")}`}
-                      className="mt-5 inline-flex min-h-11 items-center border border-bronze px-5 text-xs tracking-widest text-bronze uppercase"
-                    >
-                      HGV enquiry
-                    </a>
-                  </>
+                  <p className="mt-4 text-sm text-bronze">Truck / HGV pricing: POA</p>
                 )}
               </article>
               {model.name === "SENTINEL-1 HGV" && (
@@ -868,12 +825,6 @@ function Home() {
                   No military certification or operational deployment is claimed. Applications
                   require separate safety evidence and evaluation.
                 </p>
-                <a
-                  href={`mailto:${EMAIL}?subject=${encodeURIComponent("SENTINEL-1 defence and government enquiry")}`}
-                  className="mt-5 inline-flex min-h-11 items-center border border-bronze px-5 text-xs tracking-widest text-bronze uppercase"
-                >
-                  Defence / government enquiry
-                </a>
               </div>
             </article>
 
@@ -901,12 +852,6 @@ function Home() {
                   fault behavior all require specialist review and validation before any fitting
                   is considered.
                 </p>
-                <a
-                  href={`mailto:${EMAIL}?subject=${encodeURIComponent("SENTINEL-1 HGV enquiry")}`}
-                  className="mt-5 inline-flex min-h-11 items-center border border-bronze px-5 text-xs tracking-widest text-bronze uppercase"
-                >
-                  HGV enquiry
-                </a>
               </div>
             </article>
           </div>
@@ -1026,9 +971,10 @@ function Home() {
               ))}
             </ol>
             <p className="mt-8 border-l-2 border-sage pl-4 text-base leading-7 text-photo-muted">
-              Next-Stop is a development feature, not a production claim. Any future response
-              concept must not engage a restraint while the vehicle is moving and requires
-              independent automotive safety validation before operational testing.
+              Next-Stop is a development concept, not an available feature or production claim.
+              Any future concept may only be evaluated for a post-stop response; it must not engage
+              a restraint while the vehicle is moving and requires independent automotive safety
+              validation before any operational testing.
             </p>
           </div>
         </div>
@@ -1116,19 +1062,22 @@ function Home() {
             <div>
               <p className="text-xs tracking-widest text-bronze uppercase">Join the programme</p>
               <h2 className="mt-3 font-display text-5xl leading-none sm:text-6xl">
-                Reserve your SENTINEL-1
+                Register interest in SENTINEL-1
               </h2>
               <p className="mt-5 max-w-xl text-sm leading-6 text-muted">
                 Register a vehicle configuration, or enquire about a fleet, defence, government or
                 development-partner pathway. This form records interest only; it does not place an
                 order or collect payment.
               </p>
-              <h3 className="mt-8 font-display text-4xl text-bronze">From $795</h3>
+              <h3 className="mt-8 font-display text-4xl text-bronze">
+                Target production price: from $795
+              </h3>
               <p className="mt-1 text-base text-muted">Base commercial unit, plus fitting.</p>
               <p className="mt-4 max-w-xl text-sm leading-6 text-fg/80">
-                The $795 + fitting starting price applies to the base commercial unit only and is
-                indicative, not a confirmed offer. Next-Stop, military, truck/HGV and government
-                configurations are POA and require separate assessment.
+                The $795 + fitting figure is an indicative target production price for the base
+                commercial unit only—not a current offer, deposit or confirmed price. Next-Stop,
+                fleet, military, truck/HGV and government configurations are POA and require
+                separate assessment.
               </p>
               <p className="mt-4 max-w-xl text-sm leading-6 text-fg/80">
                 Compatibility, final pricing and production timing depend on engineering validation
