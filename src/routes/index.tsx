@@ -35,8 +35,10 @@ const NAV = [
   ["Problem", "#problem"],
   ["Solution", "#solution"],
   ["Models", "#models"],
+  ["Applications", "#applications"],
   ["Safety", "#safety"],
   ["Specifications", "#specs"],
+  ["Pricing", "#pricing"],
   ["Contact", "#contact"],
 ] as const;
 
@@ -90,6 +92,10 @@ const MODELS = [
   {
     name: "SENTINEL-1 Fleet",
     body: "Common security architecture across multiple vehicles, with per-vehicle fitting packages. Scaled protection for operators managing cars, vans, utes, and light commercial fleets.",
+  },
+  {
+    name: "SENTINEL-1 HGV",
+    body: "A separate heavy-vehicle concept exploring pneumatic operation from a dedicated, isolated auxiliary air reservoir. It would not draw from or connect to the truck’s shared service or parking-brake air circuits. The design, fitment, and safe failure behavior remain unvalidated.",
   },
   {
     name: "SENTINEL-1 Development Platform",
@@ -591,10 +597,10 @@ function Home() {
               </a>
             ))}
             <a
-              href="#preorder"
+              href="#contact"
               className="inline-flex min-h-11 items-center bg-bronze px-4 text-bg"
             >
-              Pre-order
+              Send an enquiry
             </a>
           </nav>
           <button
@@ -617,8 +623,8 @@ function Home() {
                 {label}
               </a>
             ))}
-            <a href="#preorder" className="py-3 text-bronze" onClick={() => setOpen(false)}>
-              Pre-order
+            <a href="#contact" className="py-3 text-bronze" onClick={() => setOpen(false)}>
+              Send an enquiry
             </a>
           </nav>
         )}
@@ -644,10 +650,10 @@ function Home() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="#preorder"
+              href="#contact"
               className="inline-flex min-h-11 items-center bg-bronze px-6 text-sm tracking-widest text-bg uppercase"
             >
-              Pre-order today
+              Send an enquiry
             </a>
             <a
               href="#problem"
@@ -786,8 +792,8 @@ function Home() {
         <div className="bg-photo-surface text-photo-ink">
           <div className="mx-auto grid max-w-7xl gap-12 px-5 py-24 sm:px-8 lg:grid-cols-2 lg:items-center">
             <img
-              src="/img/unit-bench.jpg"
-              alt="SENTINEL-1 machined enclosure with mechanical linkage on a workbench"
+              src="/img/parking-lot-aftermath.svg"
+              alt="Illustrative parking-lot aftermath: an empty space with broken glass among parked cars"
               className="photo-clarity w-full object-cover outline outline-1 -outline-offset-1 outline-photo-border"
             />
             <div>
@@ -860,7 +866,10 @@ function Home() {
         <h2 className="mt-3 font-display text-5xl leading-none sm:text-6xl">Choose the layer.</h2>
         <div className="mt-12 grid gap-px bg-border md:grid-cols-2">
           {MODELS.map((model, i) => (
-            <article key={model.name} className="bg-bg p-8">
+            <article
+              key={model.name}
+              className={`bg-bg p-8 ${model.name === "SENTINEL-1 HGV" ? "md:col-span-2" : ""}`}
+            >
               <p className="text-xs tracking-widest text-muted">0{i + 1}</p>
               <h3 className="mt-4 font-display text-4xl">{model.name}</h3>
               <p className="mt-4 max-w-md text-sm leading-6 text-muted">{model.body}</p>
@@ -905,15 +914,124 @@ function Home() {
           </ul>
           <p className="mt-6 max-w-md text-sm leading-6 text-fg/80">
             Not a universal-fit system. Each application uses a vehicle-specific interface kit
-            engineered for that make and model. Register your vehicle to confirm availability for
-            your platform.
+            engineered for that make and model. Ask us about your vehicle and planned platform.
           </p>
           <a
-            href="#preorder"
+            href="#contact"
             className="mt-8 inline-flex min-h-11 w-fit items-center border border-fg/40 px-6 text-sm tracking-widest uppercase"
           >
-            Register your vehicle
+            Ask about your vehicle
           </a>
+        </div>
+      </section>
+
+      <section id="applications" className="scroll-mt-20 border-y border-border bg-surface">
+        <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
+          <p className="text-xs tracking-widest text-bronze uppercase">Specialist applications</p>
+          <h2 className="mt-3 max-w-3xl font-display text-5xl leading-none sm:text-6xl">
+            Separate vehicle. Separate engineering path.
+          </h2>
+          <p className="mt-5 max-w-3xl text-sm leading-6 text-muted">
+            These are exploratory applications, not available products or validated vehicle
+            installations. Each requires its own controlled design review and safety evidence.
+          </p>
+
+          <div className="mt-12 grid gap-8 lg:grid-cols-2">
+            <article className="border border-border bg-bg">
+              <figure>
+                <img
+                  src="/img/military-hmmwv.jpg"
+                  alt="A camouflaged HMMWV displayed at an outdoor vehicle show"
+                  className="photo-moody aspect-[16/10] w-full object-cover"
+                  loading="lazy"
+                />
+                <figcaption className="px-5 pt-3 text-xs leading-5 text-muted">
+                  Illustrative vehicle only; SENTINEL-1 is not installed. Photo by{" "}
+                  <a
+                    href="https://commons.wikimedia.org/wiki/File:High_Mobility_Multipurpose_Wheeled_Vehicle_(7859195840).jpg"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="underline"
+                  >
+                    Tobias Nordhausen
+                  </a>
+                  , licensed under{" "}
+                  <a
+                    href="https://creativecommons.org/licenses/by/2.0/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="underline"
+                  >
+                    CC BY 2.0
+                  </a>
+                  .
+                </figcaption>
+              </figure>
+              <div className="p-6 sm:p-8">
+                <p className="text-xs tracking-widest text-bronze uppercase">
+                  Exploratory pathway
+                </p>
+                <h3 className="mt-3 font-display text-4xl">Military applications</h3>
+                <p className="mt-4 text-sm leading-6 text-muted">
+                  A separate, exploratory dual-use pathway—not a fielded military product or
+                  defence system. Any military variant would need its own controlled design review
+                  and government engagement after a civilian bench demonstrator exists.
+                </p>
+                <p className="mt-4 border-l-2 border-bronze pl-4 text-sm leading-6 text-muted">
+                  Not part of the first-product scope. No deployment, protection, or operational
+                  capability is claimed.
+                </p>
+              </div>
+            </article>
+
+            <article className="border border-border bg-bg">
+              <figure>
+                <img
+                  src="/img/hgv-parking.jpg"
+                  alt="A DAF heavy goods vehicle illuminated by street lamps at night"
+                  className="photo-moody aspect-[16/10] w-full object-cover"
+                  loading="lazy"
+                />
+                <figcaption className="px-5 pt-3 text-xs leading-5 text-muted">
+                  Illustrative HGV only; SENTINEL-1 is not installed. Photo by{" "}
+                  <a
+                    href="https://commons.wikimedia.org/wiki/File:Daf_night_illumination._Dnipro.jpg"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="underline"
+                  >
+                    Alex Blokha
+                  </a>
+                  , licensed under{" "}
+                  <a
+                    href="https://creativecommons.org/licenses/by-sa/4.0/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="underline"
+                  >
+                    CC BY-SA 4.0
+                  </a>
+                  .
+                </figcaption>
+              </figure>
+              <div className="p-6 sm:p-8">
+                <p className="text-xs tracking-widest text-bronze uppercase">
+                  Separate heavy-vehicle concept
+                </p>
+                <h3 className="mt-3 font-display text-4xl">SENTINEL-1 HGV</h3>
+                <p className="mt-4 text-sm leading-6 text-muted">
+                  A dedicated HGV version is being explored around pneumatic operation from its
+                  own isolated auxiliary air reservoir.
+                </p>
+                <p className="mt-4 border-l-2 border-bronze pl-4 text-sm leading-6 text-muted">
+                  The concept must remain separate from the truck’s shared service- and
+                  parking-brake air circuits. Air-system design, vehicle compatibility, and safe
+                  fault behavior all require specialist review and validation before any fitting
+                  is considered.
+                </p>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -1147,15 +1265,17 @@ function Home() {
             coverage would be published before any sale.
           </p>
         </div>
-        <div id="preorder" className="scroll-mt-24 bg-surface p-6 sm:p-8">
-          <p className="text-xs tracking-widest text-bronze uppercase">Register interest</p>
-          <h2 className="mt-3 font-display text-5xl leading-none">Prototype-stage enquiry.</h2>
-          <p className="mt-4 text-sm leading-6 text-muted">
-            This form records an enquiry only. It does not reserve a unit, create an order, or take
-            payment. Availability depends on independent safety review and future validation.
-          </p>
-          <InquiryForm type="pre-order" />
-        </div>
+        <figure className="self-center">
+          <img
+            src="/img/unit-bench.jpg"
+            alt="SENTINEL-1 prototype concept unit displayed on a workbench"
+            className="photo-clarity aspect-[4/3] w-full object-cover outline outline-1 -outline-offset-1 outline-border"
+          />
+          <figcaption className="mt-3 text-xs leading-5 text-muted">
+            Prototype concept image. Final product configuration and pricing remain subject to
+            validation.
+          </figcaption>
+        </figure>
       </section>
 
       <section id="contact" className="scroll-mt-20 border-t border-border bg-surface">

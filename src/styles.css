@@ -28,6 +28,10 @@
   .photo-clarity {
     filter: brightness(1.28) saturate(1.08);
   }
+
+  .photo-moody {
+    filter: brightness(0.64) saturate(0.64) contrast(1.08) sepia(0.14);
+  }
 }
 
 @layer base {
