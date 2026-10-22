@@ -8,3 +8,5 @@ attachments/
 screenshots/
 .node_modules.lock
 *.log
+.env*
+!.env.example

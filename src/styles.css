@@ -10,12 +10,24 @@
   --color-primary-fg: #1c1d1f;
   --color-border: #3b3d40;
   --color-bronze: #c6a36a;
+  --color-photo-surface: #eeeae2;
+  --color-photo-ink: #262724;
+  --color-photo-muted: #565851;
+  --color-photo-border: #d0c9bd;
+  --color-photo-bronze: #896435;
+  --color-sage: #637b68;
   --font-sans: "Barlow", "Segoe UI", sans-serif;
   --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
   --font-word: "Cinzel", "Times New Roman", serif;
   --radius-sm: 0px;
   --radius-md: 0px;
   --radius-lg: 0px;
+}
+
+@layer utilities {
+  .photo-clarity {
+    filter: brightness(1.28) saturate(1.08);
+  }
 }
 
 @layer base {
