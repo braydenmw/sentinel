@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState, type FormEvent } from "react";
+import { Fragment, useEffect, useState, type FormEvent } from "react";
 import { submitInquiry, type InquiryInput } from "@/lib/inquiry";
 
 export const Route = createFileRoute("/")({
@@ -48,6 +48,10 @@ const MODELS = [
     body: "An independent mechanical security concept for passenger vehicles, built around a common core and a vehicle-specific interface. Compatibility and installation require engineering validation.",
   },
   {
+    name: "SENTINEL-1 Next-Stop",
+    body: "A separate development configuration exploring a controlled response after a verified theft event. This remains unvalidated and requires independent automotive safety validation before operational testing.",
+  },
+  {
     name: "SENTINEL-1 Fleet",
     body: "A development pathway for commercial and fleet operators. Each vehicle application needs its own interface assessment; no fleet deployment is currently authorised.",
   },
@@ -86,20 +90,20 @@ const BENEFITS = [
 
 const PARTNERS = [
   [
-    "Passenger vehicles",
-    "Register interest in a vehicle-specific configuration. Compatibility must be assessed before any installation commitment.",
+    "Engineering and safety",
+    "Automotive engineering and functional-safety specialists to assess the architecture, interfaces and safety case.",
   ],
   [
-    "Fleet operators",
-    "Discuss a fleet application and its vehicle mix. Each interface requires engineering assessment; no deployment is currently authorised.",
+    "Testing and validation",
+    "Laboratories and test facilities for a guarded bench demonstrator and a documented, controlled validation programme.",
   ],
   [
-    "Defence and government",
-    "Request a controlled technical discussion about potential applications and a separate development pathway.",
+    "Vehicle and fleet collaborators",
+    "Vehicle owners, operators and specialists to inform vehicle-specific requirements. Any vehicle evaluation would require prior safety approval.",
   ],
   [
-    "Engineering and manufacturing",
-    "Explore technical, testing, manufacturing or development partnerships as the programme progresses through its validation gates.",
+    "Manufacturing and strategic partners",
+    "Production, supply-chain and strategic expertise to help progress the platform after the required engineering and validation gates.",
   ],
 ];
 
@@ -173,11 +177,10 @@ const SOCIAL = [
   ["whatsapp", "WhatsApp"],
 ] as const;
 
-function InquiryForm({ type }: { type: InquiryInput["type"] }) {
+function InquiryForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [message, setMessage] = useState("");
-  const prefix = type === "pre-order" ? "preorder" : "contact";
-  const isPreOrder = type === "pre-order";
+  const prefix = "programme";
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -185,6 +188,8 @@ function InquiryForm({ type }: { type: InquiryInput["type"] }) {
     setStatus("sending");
     setMessage("");
     const data = new FormData(form);
+    const model = String(data.get("model") ?? "");
+    const type: InquiryInput["type"] = model === "SENTINEL-1 Vehicle" ? "pre-order" : "contact";
     try {
       const result = await submitInquiry({
         data: {
@@ -206,7 +211,7 @@ function InquiryForm({ type }: { type: InquiryInput["type"] }) {
       }
       setStatus("sent");
       setMessage(
-        isPreOrder
+        type === "pre-order"
           ? "Thank you. Your interest has been registered. This is not an order or confirmation of availability; we’ll be in touch."
           : "Thank you. Your enquiry has been sent, and we’ll be in touch.",
       );
@@ -275,52 +280,51 @@ function InquiryForm({ type }: { type: InquiryInput["type"] }) {
           className={inputClass}
         />
       </label>
-      {isPreOrder && (
-        <>
-          <label
-            className="grid gap-2 text-xs tracking-widest text-bronze uppercase"
-            htmlFor={`${prefix}-model`}
-          >
-            Model
-            <select
-              id={`${prefix}-model`}
-              name="model"
-              defaultValue={MODELS[0].name}
-              className={inputClass}
-            >
-              {MODELS.map((model) => (
-                <option key={model.name}>{model.name}</option>
-              ))}
-            </select>
-          </label>
-          <label
-            className="grid gap-2 text-xs tracking-widest text-bronze uppercase"
-            htmlFor={`${prefix}-vehicle`}
-          >
-            Vehicle
-            <input
-              id={`${prefix}-vehicle`}
-              required
-              maxLength={120}
-              name="vehicle"
-              placeholder="Make, model, year"
-              className={inputClass}
-            />
-          </label>
-        </>
-      )}
+      <label
+        className="grid gap-2 text-xs tracking-widest text-bronze uppercase"
+        htmlFor={`${prefix}-model`}
+      >
+        Configuration / enquiry area
+        <select
+          id={`${prefix}-model`}
+          name="model"
+          defaultValue={MODELS[0].name}
+          className={inputClass}
+        >
+          {MODELS.map((model) => (
+            <option key={model.name}>{model.name}</option>
+          ))}
+          <option>Engineering / safety-validation partnership</option>
+          <option>Testing / validation facility partnership</option>
+          <option>Vehicle / fleet development partnership</option>
+          <option>Manufacturing / strategic partnership</option>
+        </select>
+      </label>
+      <label
+        className="grid gap-2 text-xs tracking-widest text-bronze uppercase"
+        htmlFor={`${prefix}-vehicle`}
+      >
+        Vehicle / organisation <span className="text-muted normal-case">(optional)</span>
+        <input
+          id={`${prefix}-vehicle`}
+          maxLength={120}
+          name="vehicle"
+          placeholder="Make, model, year, fleet or organisation"
+          className={inputClass}
+        />
+      </label>
       <label
         className="grid gap-2 text-xs tracking-widest text-bronze uppercase"
         htmlFor={`${prefix}-message`}
       >
-        {isPreOrder ? "Variant, intended use, preferred configuration or message" : "How can we help?"}{" "}
+        Variant, intended use, preferred configuration or enquiry details{" "}
         <span className="text-muted normal-case">(optional)</span>
         <textarea
           id={`${prefix}-message`}
           name="message"
           rows={4}
           maxLength={2000}
-          placeholder={isPreOrder ? "Share any details you would like us to consider." : undefined}
+          placeholder="Share any details you would like us to consider."
           className="border border-border bg-bg px-3 py-2 text-sm tracking-normal text-fg normal-case"
         />
       </label>
@@ -362,11 +366,7 @@ function InquiryForm({ type }: { type: InquiryInput["type"] }) {
         disabled={status === "sending"}
         className="mt-2 min-h-11 w-fit bg-bronze px-6 text-sm tracking-widest text-bg uppercase disabled:cursor-wait disabled:opacity-60"
       >
-        {status === "sending"
-          ? "Sending…"
-          : isPreOrder
-            ? "Register my interest"
-            : "Send message"}
+        {status === "sending" ? "Sending…" : "Register interest / send enquiry"}
       </button>
     </form>
   );
@@ -478,7 +478,7 @@ function Home() {
               SENTINEL-1
             </span>
           </a>
-          <nav className="hidden items-center gap-6 text-xs tracking-widest text-fg/80 uppercase lg:flex">
+          <nav className="hidden items-center gap-6 text-xs tracking-widest text-fg/80 uppercase xl:flex">
             {NAV.map(([label, href]) => (
               <a key={href} href={href} className="transition-colors duration-200 hover:text-fg">
                 {label}
@@ -493,7 +493,7 @@ function Home() {
           </nav>
           <button
             type="button"
-            className="min-h-11 px-2 text-xs tracking-widest uppercase lg:hidden"
+            className="min-h-11 px-2 text-xs tracking-widest uppercase xl:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             onClick={() => setOpen((v) => !v)}
@@ -504,7 +504,7 @@ function Home() {
         {open && (
           <nav
             id="mobile-nav"
-            className="flex flex-col border-t border-border px-5 py-2 text-sm tracking-widest uppercase lg:hidden"
+            className="flex flex-col border-t border-border px-5 py-2 text-sm tracking-widest uppercase xl:hidden"
           >
             {NAV.map(([label, href]) => (
               <a key={href} href={href} className="py-3" onClick={() => setOpen(false)}>
@@ -522,28 +522,27 @@ function Home() {
         <img
           src="/img/driveway.jpg"
           alt="A dark sedan parked in a wet suburban driveway at night"
-          className="photo-clarity absolute inset-0 h-full w-full object-cover"
+          className="hero-photo absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-linear-to-t from-bg/75 via-bg/20 to-transparent" />
-        <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pt-28 pb-16 sm:px-8 sm:pb-20">
-          <p className="text-xs tracking-widest text-bronze uppercase">
-            Independent mechanical vehicle security
-          </p>
-          <h1 className="mt-4 max-w-4xl font-display text-6xl leading-none font-medium tracking-tight sm:text-8xl">
-            When electronic security is defeated, the vehicle still needs a physical defence.
+        <div className="absolute inset-0 bg-linear-to-t from-bg/85 via-bg/55 to-bg/15" />
+        <div className="absolute inset-0 bg-linear-to-l from-bg/80 via-bg/45 to-transparent" />
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pt-28 pb-16 sm:px-8 sm:pb-20 md:text-right">
+          <h1 className="mt-4 ml-auto max-w-4xl font-display text-6xl leading-none font-medium tracking-tight sm:text-8xl">
+            When <span className="text-bronze">electronic security is defeated</span>, the vehicle
+            still needs a physical defence.
           </h1>
-          <p className="mt-6 max-w-xl text-lg leading-7 text-fg/90">
+          <p className="mt-6 ml-auto max-w-xl text-lg leading-7 text-fg/90">
             Modern vehicles rely increasingly on electronic security. SENTINEL-1 takes a different
             approach: a concealed, independently powered mechanical security concept designed to add
             a physical restraint layer outside the vehicle’s conventional electronic architecture.
           </p>
-          <p className="mt-5 text-sm leading-7 text-fg/85">
+          <p className="mt-5 ml-auto text-sm leading-7 text-fg/85">
             Not another tracker. Not another alarm. Not another software immobiliser.
           </p>
-          <p className="mt-1 font-display text-2xl text-bronze">
+          <p className="mt-1 ml-auto font-display text-2xl text-bronze">
             A different physical layer of vehicle security.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-wrap gap-3 md:justify-end">
             <a
               href="#reserve"
               className="inline-flex min-h-11 items-center bg-bronze px-6 text-sm tracking-widest text-bg uppercase"
@@ -594,7 +593,7 @@ function Home() {
           alt="An empty driveway at dawn, with tyre marks where a car used to be"
           className="photo-clarity absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-bg/20" />
+        <div className="absolute inset-0 bg-linear-to-t from-bg/95 via-bg/75 to-bg/40" />
         <div className="relative mx-auto flex min-h-[70vh] max-w-4xl flex-col justify-end px-5 py-20 sm:px-8">
           <h2 className="font-display text-5xl leading-none sm:text-7xl">
             The vehicle itself can be part of the security system.
@@ -717,53 +716,75 @@ function Home() {
         </h2>
         <div className="mt-12 grid gap-px bg-border md:grid-cols-2">
           {MODELS.map((model, i) => (
-            <article
-              key={model.name}
-              className="bg-bg p-8"
-            >
-              <p className="text-xs tracking-widest text-muted">0{i + 1}</p>
-              <h3 className="mt-4 font-display text-4xl">{model.name}</h3>
-              <p className="mt-4 max-w-md text-sm leading-6 text-muted">{model.body}</p>
-              {model.name === "SENTINEL-1 Vehicle" && (
-                <>
-                  <p className="mt-4 text-sm text-bronze">Indicative planning price: from $795 + fitting</p>
-                  <p className="mt-2 text-xs leading-5 text-muted">
-                    Not a current offer or confirmed price. Final pricing and availability depend
-                    on engineering validation and production approval.
-                  </p>
+            <Fragment key={model.name}>
+              <article className="bg-bg p-8">
+                <p className="text-xs tracking-widest text-muted">0{i + 1}</p>
+                <h3 className="mt-4 font-display text-4xl">{model.name}</h3>
+                <p className="mt-4 max-w-md text-sm leading-6 text-muted">{model.body}</p>
+                {model.name === "SENTINEL-1 Vehicle" && (
+                  <>
+                    <p className="mt-4 text-sm text-bronze">
+                      Base commercial unit: from $795 + fitting
+                    </p>
+                    <p className="mt-2 text-xs leading-5 text-muted">
+                      Indicative starting price only; not a current offer or confirmed price.
+                    </p>
+                    <a
+                      href="#reserve"
+                      className="mt-5 inline-flex min-h-11 items-center border border-bronze px-5 text-xs tracking-widest text-bronze uppercase"
+                    >
+                      Register interest
+                    </a>
+                  </>
+                )}
+                {model.name === "SENTINEL-1 Next-Stop" && (
+                  <p className="mt-4 text-sm text-bronze">Next-Stop configuration: POA</p>
+                )}
+                {model.name === "SENTINEL-1 Fleet" && (
                   <a
-                    href="#reserve"
+                    href="#fleet"
                     className="mt-5 inline-flex min-h-11 items-center border border-bronze px-5 text-xs tracking-widest text-bronze uppercase"
                   >
-                    Register interest
+                    Request fleet pricing
                   </a>
-                </>
-              )}
-              {model.name === "SENTINEL-1 Fleet" && (
-                <a
-                  href="#fleet"
-                  className="mt-5 inline-flex min-h-11 items-center border border-bronze px-5 text-xs tracking-widest text-bronze uppercase"
-                >
-                  Request fleet pricing
-                </a>
-              )}
-              {model.name === "SENTINEL-1 Defence" && (
-                <a
-                  href="#defence"
-                  className="mt-5 inline-flex min-h-11 items-center border border-bronze px-5 text-xs tracking-widest text-bronze uppercase"
-                >
-                  Request a briefing
-                </a>
-              )}
+                )}
+                {model.name === "SENTINEL-1 Defence" && (
+                  <a
+                    href="#defence"
+                    className="mt-5 inline-flex min-h-11 items-center border border-bronze px-5 text-xs tracking-widest text-bronze uppercase"
+                  >
+                    Request a briefing
+                  </a>
+                )}
+                {model.name === "SENTINEL-1 Defence" && (
+                  <p className="mt-4 text-sm text-bronze">Military and government pricing: POA</p>
+                )}
+                {model.name === "SENTINEL-1 HGV" && (
+                  <>
+                    <p className="mt-4 text-sm text-bronze">Truck / HGV pricing: POA</p>
+                    <a
+                      href={`mailto:${EMAIL}?subject=${encodeURIComponent("SENTINEL-1 HGV enquiry")}`}
+                      className="mt-5 inline-flex min-h-11 items-center border border-bronze px-5 text-xs tracking-widest text-bronze uppercase"
+                    >
+                      HGV enquiry
+                    </a>
+                  </>
+                )}
+              </article>
               {model.name === "SENTINEL-1 HGV" && (
-                <a
-                  href={`mailto:${EMAIL}?subject=${encodeURIComponent("SENTINEL-1 HGV enquiry")}`}
-                  className="mt-5 inline-flex min-h-11 items-center border border-bronze px-5 text-xs tracking-widest text-bronze uppercase"
+                <figure
+                  key="hgv-unit-photo"
+                  className="min-h-full overflow-hidden border border-border bg-surface"
                 >
-                  HGV enquiry
-                </a>
+                  <img
+                    src="/img/unit-bench.jpg"
+                    alt="SENTINEL-1 unit shown on a workshop bench"
+                    className="h-full min-h-64 w-full object-cover"
+                    loading="lazy"
+                  />
+                </figure>
               )}
-            </article>
+            </Fragment>
           ))}
         </div>
       </section>
@@ -774,7 +795,7 @@ function Home() {
           alt="A sedan, pickup, and van parked outside an industrial building at dusk"
           className="photo-clarity absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-linear-to-r from-bg/60 via-bg/25 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-r from-bg/90 via-bg/70 to-bg/30" />
         <div className="relative mx-auto flex min-h-[68vh] max-w-7xl flex-col justify-center px-5 py-20 sm:px-8">
           <p className="text-xs tracking-widest text-bronze uppercase">For fleets</p>
           <h2 className="mt-3 max-w-xl font-display text-5xl leading-none sm:text-6xl">
@@ -827,32 +848,11 @@ function Home() {
             <article className="border border-border bg-bg">
               <figure>
                 <img
-                  src="/img/military-hmmwv.jpg"
-                  alt="A camouflaged HMMWV displayed at an outdoor vehicle show"
-                  className="photo-moody aspect-[16/10] w-full object-cover"
+                  src="/img/defence-vehicle-concept.svg"
+                  alt="Illustrative concept artwork of a military utility vehicle in a dark woodland setting"
+                  className="aspect-[16/10] w-full object-cover"
                   loading="lazy"
                 />
-                <figcaption className="px-5 pt-3 text-xs leading-5 text-muted">
-                  Illustrative vehicle only; SENTINEL-1 is not installed. Photo by{" "}
-                  <a
-                    href="https://commons.wikimedia.org/wiki/File:High_Mobility_Multipurpose_Wheeled_Vehicle_(7859195840).jpg"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="underline"
-                  >
-                    Tobias Nordhausen
-                  </a>
-                  , licensed under{" "}
-                  <a
-                    href="https://creativecommons.org/licenses/by/2.0/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="underline"
-                  >
-                    CC BY 2.0
-                  </a>
-                  .
-                </figcaption>
               </figure>
               <div className="p-6 sm:p-8">
                 <p className="text-xs tracking-widest text-bronze uppercase">
@@ -880,32 +880,11 @@ function Home() {
             <article className="border border-border bg-bg">
               <figure>
                 <img
-                  src="/img/hgv-parking.jpg"
-                  alt="A DAF heavy goods vehicle illuminated by street lamps at night"
-                  className="photo-moody aspect-[16/10] w-full object-cover"
+                  src="/img/hgv-concept.svg"
+                  alt="Illustrative concept artwork of a heavy goods truck and trailer at dusk"
+                  className="aspect-video w-full object-cover"
                   loading="lazy"
                 />
-                <figcaption className="px-5 pt-3 text-xs leading-5 text-muted">
-                  Illustrative HGV only; SENTINEL-1 is not installed. Photo by{" "}
-                  <a
-                    href="https://commons.wikimedia.org/wiki/File:Daf_night_illumination._Dnipro.jpg"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="underline"
-                  >
-                    Alex Blokha
-                  </a>
-                  , licensed under{" "}
-                  <a
-                    href="https://creativecommons.org/licenses/by-sa/4.0/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="underline"
-                  >
-                    CC BY-SA 4.0
-                  </a>
-                  .
-                </figcaption>
               </figure>
               <div className="p-6 sm:p-8">
                 <p className="text-xs tracking-widest text-bronze uppercase">
@@ -1131,165 +1110,91 @@ function Home() {
         </div>
       </section>
 
-      <section
-        id="reserve"
-        className="scroll-mt-20 mx-auto grid max-w-7xl gap-12 px-5 py-24 sm:px-8 lg:grid-cols-2"
-      >
-        <div>
-          <p className="text-xs tracking-widest text-bronze uppercase">Reserve your SENTINEL-1</p>
-          <h2 className="mt-3 font-display text-6xl leading-none text-bronze sm:text-7xl">
-            From $795
-          </h2>
-          <p className="mt-4 text-lg text-muted">plus fitting.</p>
-          <p className="mt-6 max-w-md text-sm leading-6 text-fg/80">
-            This is an indicative planning price, not a confirmed offer. Register your interest in
-            the first production programme; this form does not place an order or collect payment.
-            Product availability, compatibility, final pricing and timing depend on engineering
-            validation and production approval.
-          </p>
-          <p className="mt-6 max-w-md text-sm leading-6 text-fg/80">
-            Vehicle make, model, year, variant, intended use and preferred configuration can be
-            shared below. Compatibility must be confirmed before any final installation commitment.
-          </p>
-          <h3 className="mt-10 font-display text-3xl">Reservation process</h3>
-          <ol className="mt-5 space-y-3 text-sm leading-6 text-muted">
-            <li><strong className="text-bronze">01 — Register:</strong> Share your interest and vehicle details.</li>
-            <li><strong className="text-bronze">02 — Vehicle check:</strong> Assess the vehicle and intended configuration.</li>
-            <li><strong className="text-bronze">03 — Engineering:</strong> Progress the applicable interface through validation.</li>
-            <li><strong className="text-bronze">04 — Production:</strong> Only approved configurations proceed to production.</li>
-            <li><strong className="text-bronze">05 — Fitting:</strong> Installation follows an appropriate approved pathway.</li>
-          </ol>
-          <p className="mt-5 text-xs leading-5 text-muted">
-            Production timing depends on engineering validation and the availability of the
-            applicable vehicle interface.
-          </p>
-        </div>
-        <div className="bg-surface p-6 sm:p-8">
-          <h3 className="font-display text-3xl">Register your interest</h3>
-          <InquiryForm type="pre-order" />
-        </div>
-      </section>
-
-      <section id="contact" className="scroll-mt-20 border-t border-border bg-surface">
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 py-24 sm:px-8 lg:grid-cols-2">
-          <div>
-            <p className="text-xs tracking-widest text-bronze uppercase">Join the programme</p>
-            <h2 className="mt-3 font-display text-5xl leading-none sm:text-6xl">
-              Private owners. Fleets. Government. Development partners.
-            </h2>
-            <p className="mt-5 max-w-xl text-sm leading-6 text-muted">
-              Register vehicle interest, discuss a fleet or government application, or explore an
-              engineering and manufacturing partnership. SENTINEL-1 remains under active
-              development; compatibility, production timing and final pricing remain subject to
-              engineering validation and production approval.
-            </p>
-            <dl className="mt-8 grid gap-5 text-sm sm:grid-cols-2">
-              <div>
-                <dt className="text-xs tracking-widest text-bronze uppercase">Project lead</dt>
-                <dd className="mt-1">Brayden Mark Walls</dd>
-              </div>
-              <div>
-                <dt className="text-xs tracking-widest text-bronze uppercase">Email</dt>
-                <dd className="mt-1">
-                  <a className="underline" href={`mailto:${EMAIL}`}>
-                    {EMAIL}
-                  </a>
-                </dd>
-              </div>
-              <div>
-                <dt className="text-xs tracking-widest text-bronze uppercase">Phone</dt>
-                <dd className="mt-1">
-                  <a className="underline" href="tel:+639608354283">
-                    +63 960 835 4283
-                  </a>
-                </dd>
-              </div>
-              <div>
-                <dt className="text-xs tracking-widest text-bronze uppercase">Organisation</dt>
-                <dd className="mt-1">ADVERSIQ Intelligence</dd>
-              </div>
-            </dl>
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-8 inline-flex min-h-11 items-center gap-2 border border-sage px-5 text-xs tracking-widest text-fg uppercase transition-colors hover:bg-sage/15"
-            >
-              Message us on WhatsApp
-            </a>
-            <div className="mt-12">
-              <h3 className="font-display text-3xl">Frequently asked questions</h3>
-              <div className="mt-5 divide-y divide-border border-y border-border">
-                {FAQS.map(([question, answer]) => (
-                  <details key={question} className="group">
-                    <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-5 py-4 text-sm font-medium">
-                      {question}
-                      <span className="text-bronze group-open:rotate-45" aria-hidden="true">
-                        +
-                      </span>
-                    </summary>
-                    <p className="pb-4 text-sm leading-6 text-muted">{answer}</p>
-                  </details>
-                ))}
-              </div>
+      <section id="reserve" className="scroll-mt-20 border-t border-border bg-surface">
+        <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
+          <div id="contact" className="grid gap-12 lg:grid-cols-2">
+            <div>
+              <p className="text-xs tracking-widest text-bronze uppercase">Join the programme</p>
+              <h2 className="mt-3 font-display text-5xl leading-none sm:text-6xl">
+                Reserve your SENTINEL-1
+              </h2>
+              <p className="mt-5 max-w-xl text-sm leading-6 text-muted">
+                Register a vehicle configuration, or enquire about a fleet, defence, government or
+                development-partner pathway. This form records interest only; it does not place an
+                order or collect payment.
+              </p>
+              <h3 className="mt-8 font-display text-4xl text-bronze">From $795</h3>
+              <p className="mt-1 text-base text-muted">Base commercial unit, plus fitting.</p>
+              <p className="mt-4 max-w-xl text-sm leading-6 text-fg/80">
+                The $795 + fitting starting price applies to the base commercial unit only and is
+                indicative, not a confirmed offer. Next-Stop, military, truck/HGV and government
+                configurations are POA and require separate assessment.
+              </p>
+              <p className="mt-4 max-w-xl text-sm leading-6 text-fg/80">
+                Compatibility, final pricing and production timing depend on engineering validation
+                and production approval. Vehicle details and intended configuration can be included
+                with your enquiry.
+              </p>
+              <h3 className="mt-8 font-display text-3xl">What happens next</h3>
+              <ol className="mt-4 grid gap-3 text-sm leading-6 text-muted sm:grid-cols-2">
+                <li><strong className="text-bronze">01 — Register:</strong> Share your enquiry and details.</li>
+                <li><strong className="text-bronze">02 — Assess:</strong> Review the vehicle and intended configuration.</li>
+                <li><strong className="text-bronze">03 — Engineer:</strong> Progress a suitable interface through validation.</li>
+                <li><strong className="text-bronze">04 — Approve:</strong> Only validated configurations can proceed.</li>
+              </ol>
+            </div>
+            <div id="programme-form" className="bg-bg p-6 sm:p-8">
+              <h3 className="font-display text-3xl">Register interest or send an enquiry</h3>
+              <InquiryForm />
             </div>
           </div>
-          <div className="bg-bg p-6 sm:p-8">
-            <h3 className="font-display text-3xl">Send a general enquiry</h3>
-            <InquiryForm type="contact" />
-          </div>
-        </div>
-      </section>
 
-      <section id="partners" className="scroll-mt-20 border-t border-border bg-surface">
-        <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
-          <p className="text-xs tracking-widest text-bronze uppercase">
-            Partnership and development
-          </p>
-          <h2 className="mt-3 max-w-3xl font-display text-5xl leading-none sm:text-6xl">
-            Find your SENTINEL-1 pathway.
-          </h2>
-          <p className="mt-6 max-w-3xl text-base leading-7 text-fg/85">
-            Whether you want to register a vehicle configuration, discuss a fleet or defence
-            application, or participate in development, begin with the pathway that fits your
-            interest.
-          </p>
-          <ul className="mt-12 grid gap-px bg-border md:grid-cols-2">
-            {PARTNERS.map(([title, body]) => {
-              const isVehicle = title === "Passenger vehicles";
-              const href = isVehicle
-                ? "#reserve"
-                : `mailto:${EMAIL}?subject=${encodeURIComponent(`SENTINEL-1 ${title} enquiry`)}`;
-              const label = isVehicle
-                ? "Register interest"
-                : title === "Fleet operators"
-                  ? "Fleet enquiry"
-                  : title === "Defence and government"
-                    ? "Defence enquiry"
-                    : "Partner with SENTINEL-1";
-              return (
-                <li key={title} className="bg-surface p-6 sm:p-8">
-                  <h3 className="font-display text-3xl">{title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-muted">{body}</p>
-                  <a
-                    href={href}
-                    className="mt-5 inline-flex min-h-11 items-center border border-bronze px-5 text-xs tracking-widest text-bronze uppercase"
-                  >
-                    {label}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-          <div className="mt-12 max-w-3xl border-l-2 border-bronze pl-5">
-            <p className="text-sm tracking-widest text-bronze uppercase">Development status</p>
-            <p className="mt-3 text-base leading-7">
-              SENTINEL-1 is under active development. Product configuration, compatibility,
-              production timing and final pricing remain subject to engineering validation and
-              production approval. No moving-vehicle testing or public-road deployment is authorised
-              until the required independent safety gates are satisfied.
+          <div id="partners" className="scroll-mt-20 mt-16 border-t border-border pt-12">
+            <p className="text-xs tracking-widest text-bronze uppercase">
+              Partnership and development
             </p>
+            <h3 className="mt-3 font-display text-4xl">We’re seeking partners.</h3>
+            <p className="mt-4 max-w-3xl text-sm leading-6 text-muted">
+              Work with us to progress SENTINEL-1 through engineering review, controlled testing
+              and production validation. We welcome expertise and collaboration at the stages below.
+            </p>
+            <ul className="mt-6 grid gap-px bg-border md:grid-cols-2">
+              {PARTNERS.map(([title, body]) => (
+                <li key={title} className="bg-surface p-6 sm:p-8">
+                  <h4 className="font-display text-3xl">{title}</h4>
+                  <p className="mt-3 text-sm leading-6 text-muted">{body}</p>
+                </li>
+              ))}
+            </ul>
+            <a
+              href="#programme-form"
+              className="mt-6 inline-flex min-h-11 items-center bg-bronze px-6 text-sm tracking-widest text-bg uppercase"
+            >
+              Discuss a partnership
+            </a>
           </div>
+
+          <div className="mt-12 border-t border-border pt-10">
+            <h3 className="font-display text-3xl">Frequently asked questions</h3>
+            <div className="mt-4 divide-y divide-border border-y border-border">
+              {FAQS.map(([question, answer]) => (
+                <details key={question} className="group">
+                  <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-5 py-4 text-sm font-medium">
+                    {question}
+                    <span className="text-bronze group-open:rotate-45" aria-hidden="true">
+                      +
+                    </span>
+                  </summary>
+                  <p className="pb-4 text-sm leading-6 text-muted">{answer}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+
+          <p className="mt-8 border-l-2 border-bronze pl-5 text-sm leading-6 text-muted">
+            SENTINEL-1 is under active development. No moving-vehicle testing or public-road
+            deployment is authorised until the required independent safety gates are satisfied.
+          </p>
         </div>
       </section>
 
@@ -1299,7 +1204,7 @@ function Home() {
           alt=""
           className="photo-clarity absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-bg/25" />
+        <div className="absolute inset-0 bg-bg/75" />
         <div className="relative mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-8 md:grid-cols-2">
           <div>
             <p className="font-word text-3xl tracking-widest text-bronze">SENTINEL-1</p>
