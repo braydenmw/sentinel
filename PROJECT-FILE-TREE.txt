@@ -1,0 +1,289 @@
+﻿grok-workspace-extracted/
+├── PROJECT-FILE-TREE.txt
+
+Project files and folders (excluding installed dependencies and generated build/cache directories).
+├── .grok/
+│   ├── references/
+│   │   ├── browser-qa.md
+│   │   ├── data-and-auth.md
+│   │   ├── deploy-target.md
+│   │   ├── generated-art.md
+│   │   ├── hibernate-revive.md
+│   │   └── scaffold.md
+│   ├── skills/
+│   │   ├── auth/
+│   │   │   ├── references/
+│   │   │   │   ├── grok-identity.md
+│   │   │   │   ├── per-user-data.md
+│   │   │   │   ├── prewired-and-env.md
+│   │   │   │   ├── session-ui.md
+│   │   │   │   ├── sign-in-methods.md
+│   │   │   │   └── wiring.md
+│   │   │   └── SKILL.md
+│   │   ├── building-games/
+│   │   │   ├── references/
+│   │   │   │   ├── genres/
+│   │   │   │   │   ├── board-card-chess.md
+│   │   │   │   │   ├── endless-runner.md
+│   │   │   │   │   ├── fps.md
+│   │   │   │   │   ├── platformer-2d.md
+│   │   │   │   │   ├── puzzle-match3-tetris.md
+│   │   │   │   │   ├── racing-kart.md
+│   │   │   │   │   ├── topdown-twin-stick.md
+│   │   │   │   │   ├── tower-defense.md
+│   │   │   │   │   └── voxel-minecraft.md
+│   │   │   │   ├── 3d-libs.md
+│   │   │   │   ├── ai-pathfinding.md
+│   │   │   │   ├── audio.md
+│   │   │   │   ├── babylon.md
+│   │   │   │   ├── collision-physics.md
+│   │   │   │   ├── ecs-architecture.md
+│   │   │   │   ├── game-feel-juice.md
+│   │   │   │   ├── input.md
+│   │   │   │   ├── phaser.md
+│   │   │   │   ├── procedural-generation.md
+│   │   │   │   ├── save-persistence.md
+│   │   │   │   └── threejs-foundational.md
+│   │   │   └── SKILL.md
+│   │   ├── controls/
+│   │   │   └── SKILL.md
+│   │   ├── design-ui/
+│   │   │   ├── references/
+│   │   │   │   ├── animations.md
+│   │   │   │   ├── performance.md
+│   │   │   │   ├── refined-ui.md
+│   │   │   │   ├── surfaces.md
+│   │   │   │   └── typography.md
+│   │   │   └── SKILL.md
+│   │   ├── game-animation-frames/
+│   │   │   └── SKILL.md
+│   │   ├── game-asset-core/
+│   │   │   └── SKILL.md
+│   │   ├── game-character-consistency/
+│   │   │   └── SKILL.md
+│   │   ├── game-tilesets/
+│   │   │   └── SKILL.md
+│   │   ├── game-ui-icons/
+│   │   │   └── SKILL.md
+│   │   ├── generate2dmap/
+│   │   │   ├── references/
+│   │   │   │   ├── deliverables.md
+│   │   │   │   ├── layered-map-contract.md
+│   │   │   │   ├── map-strategies.md
+│   │   │   │   ├── object-production-gate.md
+│   │   │   │   ├── pipeline.md
+│   │   │   │   ├── prop-pack-contract.md
+│   │   │   │   └── side-scroll-stages.md
+│   │   │   ├── scripts/
+│   │   │   │   ├── compose_layered_preview.py
+│   │   │   │   └── extract_prop_pack.py
+│   │   │   ├── LICENSE
+│   │   │   ├── SKILL.md
+│   │   │   └── SOURCE.md
+│   │   ├── generate2dsprite/
+│   │   │   ├── references/
+│   │   │   │   ├── modes.md
+│   │   │   │   └── prompt-rules.md
+│   │   │   ├── scripts/
+│   │   │   │   ├── generate2dsprite.py
+│   │   │   │   └── make_layout_guide.py
+│   │   │   ├── LICENSE
+│   │   │   ├── SKILL.md
+│   │   │   └── SOURCE.md
+│   │   ├── imagine-grok-build/
+│   │   │   └── SKILL.md
+│   │   ├── multiplayer-p2p/
+│   │   │   ├── references/
+│   │   │   │   ├── react-binding.md
+│   │   │   │   └── signaling-relay.md
+│   │   │   └── SKILL.md
+│   │   ├── neon/
+│   │   │   └── SKILL.md
+│   │   ├── og/
+│   │   │   ├── references/
+│   │   │   │   ├── brand-pass.md
+│   │   │   │   ├── custom-card.md
+│   │   │   │   ├── favicon-and-icons.md
+│   │   │   │   ├── og-type-contract.md
+│   │   │   │   ├── placeholder-card.md
+│   │   │   │   └── x-banner.md
+│   │   │   └── SKILL.md
+│   │   ├── threejs/
+│   │   │   ├── references/
+│   │   │   │   └── llms-full.txt
+│   │   │   └── SKILL.md
+│   │   ├── video2dsprite/
+│   │   │   ├── references/
+│   │   │   │   ├── pipeline.md
+│   │   │   │   └── prompt-rules.md
+│   │   │   ├── scripts/
+│   │   │   │   └── video2dsprite.py
+│   │   │   ├── LICENSE
+│   │   │   ├── SKILL.md
+│   │   │   └── SOURCE.md
+│   │   └── xai-api/
+│   │       └── SKILL.md
+│   ├── app-env.json
+│   ├── favicon-128.png
+│   ├── favicon-16-zoom.png
+│   ├── favicon-32.png
+│   ├── favicon-64.png
+│   ├── favicon-preview.html
+│   ├── og-tag-crop.jpg
+│   ├── og-title-contrast.jpg
+│   ├── og-title-crop.jpg
+│   ├── preview.log
+│   └── status
+├── artifacts/
+│   └── imagine_images/
+│       ├── 04f334f1-a07d-4125-b9cb-c68ab3cd9b91.jpg
+│       └── 4758725a-c368-46e5-a2bb-07f477d7242b.jpg
+├── attachments/
+│   └── noRTQKhDS1jGW30n-grok-workspace.zip
+├── migrations/
+│   └── auth/
+│       └── 0001_auth.sql
+├── public/
+│   ├── __grok/
+│   │   ├── install/
+│   │   │   ├── assets/
+│   │   │   │   └── homescreen/
+│   │   │   │       ├── glass-puzzle.svg
+│   │   │   │       ├── glass-share.svg
+│   │   │   │       ├── logo-grok.svg
+│   │   │   │       ├── ob-ipad.png
+│   │   │   │       ├── ob-phone.png
+│   │   │   │       └── plus.svg
+│   │   │   └── styles.css
+│   │   └── icon-180.png
+│   ├── img/
+│   │   ├── driveway.jpg
+│   │   ├── empty.jpg
+│   │   ├── fleet.jpg
+│   │   ├── relay.jpg
+│   │   ├── relay-attack.jpg
+│   │   ├── restraint.jpg
+│   │   ├── secure.jpg
+│   │   ├── unit.jpg
+│   │   ├── unit-bench.jpg
+│   │   └── world-map.jpg
+│   ├── favicon.svg
+│   ├── logo.svg
+│   └── og.jpg
+├── screenshots/
+│   ├── .gitkeep
+│   ├── app-builder-built.json
+│   ├── app-builder-built.png
+│   ├── app-builder-built-mobile.png
+│   ├── app-builder-preview.json
+│   ├── app-builder-preview.png
+│   ├── app-builder-preview-mobile.png
+│   ├── compare-mobile.png
+│   ├── difference.png
+│   ├── footer.png
+│   ├── hero-desktop.png
+│   ├── hero-mobile.png
+│   ├── menu-mobile.png
+│   ├── menu-open.png
+│   ├── models.png
+│   ├── operate.png
+│   ├── partners.png
+│   ├── pricing.png
+│   ├── relay-attack-section.png
+│   └── restraint-section.png
+├── scripts/
+│   ├── app-env-plugin.mjs
+│   ├── brand-check.mjs
+│   ├── brand-check.test.mjs
+│   ├── browser-guard.mjs
+│   ├── browser-smoke.mjs
+│   ├── browser-smoke-verdict.mjs
+│   ├── browser-smoke-verdict.test.mjs
+│   ├── check-auth-invariant.mjs
+│   ├── check-auth-invariant.test.mjs
+│   ├── grok-pwa-plugin.mjs
+│   ├── grok-pwa-plugin.test.mjs
+│   ├── grok-pwa-shared.d.mts
+│   ├── grok-pwa-shared.mjs
+│   ├── install-page.html
+│   ├── migrate.mjs
+│   ├── migration-plan.mjs
+│   ├── migration-plan.test.mjs
+│   ├── preview.mjs
+│   ├── preview.test.mjs
+│   ├── preview-thumbnail.mjs
+│   ├── sign-out-plan.mjs
+│   ├── sign-out-plan.test.mjs
+│   ├── with-app-env.mjs
+│   ├── with-app-env.test.mjs
+│   ├── write-atomic.mjs
+│   └── write-atomic.test.mjs
+├── server/
+│   ├── middleware/
+│   │   └── grok-pwa.ts
+│   └── virtual-grok-og-identity.d.ts
+├── src/
+│   ├── components/
+│   │   └── preview-host-bridge.tsx
+│   ├── lib/
+│   │   ├── app-data/
+│   │   │   ├── app-data.test.ts
+│   │   │   ├── client.server.ts
+│   │   │   ├── errors.ts
+│   │   │   ├── index.ts
+│   │   │   ├── login.ts
+│   │   │   ├── readiness.ts
+│   │   │   ├── readiness-schedule.test.ts
+│   │   │   ├── readiness-schedule.ts
+│   │   │   ├── server-only.ts
+│   │   │   ├── types.ts
+│   │   │   └── use-connector-readiness.ts
+│   │   ├── auth/
+│   │   │   ├── client.ts
+│   │   │   ├── email-password.ts
+│   │   │   ├── gate-identity.server.ts
+│   │   │   ├── gate-identity.test.ts
+│   │   │   ├── gates.tsx
+│   │   │   ├── gate-session.server.ts
+│   │   │   ├── gate-session-marker.ts
+│   │   │   ├── isolation.server.ts
+│   │   │   ├── middleware.ts
+│   │   │   ├── pglite-dialect.ts
+│   │   │   ├── popup.server.ts
+│   │   │   ├── preview.ts
+│   │   │   ├── provider.tsx
+│   │   │   ├── providers.ts
+│   │   │   ├── server.ts
+│   │   │   ├── sign-in-gate.test.ts
+│   │   │   ├── sign-in-gate.ts
+│   │   │   ├── use-current-user.ts
+│   │   │   └── verify.server.ts
+│   │   ├── multiplayer/
+│   │   │   ├── index.ts
+│   │   │   └── p2p.ts
+│   │   ├── og/
+│   │   │   └── site.json
+│   │   ├── db.ts
+│   │   ├── env.server.ts
+│   │   ├── error-component.tsx
+│   │   ├── preview-embedder-origin.ts
+│   │   ├── preview-host-bridge.ts
+│   │   ├── preview-path-prefix.test.ts
+│   │   └── preview-path-prefix.ts
+│   ├── routes/
+│   │   ├── __root.tsx
+│   │   ├── file.jpe
+│   │   └── index.tsx
+│   ├── router.tsx
+│   ├── routeTree.gen.ts
+│   └── styles.css
+├── .node_modules.lock
+├── .prettierrc
+├── AGENTS.md
+├── eslint.config.mjs
+├── package.json
+├── package-lock.json
+├── startup.sh
+├── tsconfig.json
+├── vercel.json
+└── vite.config.ts

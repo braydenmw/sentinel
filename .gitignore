@@ -1,0 +1,10 @@
+node_modules/
+.tanstack/
+.vercel/
+.grok/
+AGENTS.md
+artifacts/
+attachments/
+screenshots/
+.node_modules.lock
+*.log
