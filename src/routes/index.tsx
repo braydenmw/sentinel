@@ -782,108 +782,48 @@ function Home() {
         </div>
       </section>
 
-      <section id="applications" className="scroll-mt-20 border-y border-border bg-surface">
-        <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
-          <p className="text-xs tracking-widest text-bronze uppercase">Defence &amp; government</p>
-          <h2 className="mt-3 max-w-3xl font-display text-5xl leading-none sm:text-6xl">
-            Security beyond the civilian vehicle.
-          </h2>
-          <p className="mt-5 max-w-3xl text-sm leading-6 text-muted">
-            SENTINEL-1 is being explored as a dual-use platform. Any defence or government
-            application would follow a separate engineering, safety, evaluation and procurement
-            pathway.
-          </p>
-          <ul className="mt-6 grid gap-3 text-sm leading-6 text-fg/85 sm:grid-cols-2 lg:grid-cols-3">
-            <li>Military and tactical vehicles</li>
-            <li>Government and police fleets</li>
-            <li>Secure logistics</li>
-            <li>High-value transport</li>
-            <li>Specialist vehicle applications</li>
-          </ul>
-
-          <div className="mt-12 grid gap-8 lg:grid-cols-2">
-            <article className="border border-border bg-bg">
-              <figure>
-                <img
-                  src="/img/defence-vehicle-concept.svg"
-                  alt="Illustrative concept artwork of a military utility vehicle in a dark woodland setting"
-                  className="aspect-[16/10] w-full object-cover"
-                  loading="lazy"
-                />
-              </figure>
-              <div className="p-6 sm:p-8">
-                <p className="text-xs tracking-widest text-bronze uppercase">
-                  Exploratory pathway
-                </p>
-                <h3 className="mt-3 font-display text-4xl">Exploratory defence pathway</h3>
-                <p className="mt-4 text-sm leading-6 text-muted">
-                  A potential dual-use pathway—not a fielded military product or defence system.
-                  Any variant would require its own controlled design review and government
-                  engagement after a civilian bench demonstrator exists.
-                </p>
-                <p className="mt-4 border-l-2 border-bronze pl-4 text-sm leading-6 text-muted">
-                  No military certification or operational deployment is claimed. Applications
-                  require separate safety evidence and evaluation.
-                </p>
-              </div>
-            </article>
-
-            <article className="border border-border bg-bg">
-              <figure>
-                <img
-                  src="/img/hgv-concept.svg"
-                  alt="Illustrative concept artwork of a heavy goods truck and trailer at dusk"
-                  className="aspect-video w-full object-cover"
-                  loading="lazy"
-                />
-              </figure>
-              <div className="p-6 sm:p-8">
-                <p className="text-xs tracking-widest text-bronze uppercase">
-                  Separate heavy-vehicle concept
-                </p>
-                <h3 className="mt-3 font-display text-4xl">SENTINEL-1 HGV</h3>
-                <p className="mt-4 text-sm leading-6 text-muted">
-                  A dedicated HGV version is being explored around pneumatic operation from its
-                  own isolated auxiliary air reservoir.
-                </p>
-                <p className="mt-4 border-l-2 border-bronze pl-4 text-sm leading-6 text-muted">
-                  The concept must remain separate from the truck’s shared service- and
-                  parking-brake air circuits. Air-system design, vehicle compatibility, and safe
-                  fault behavior all require specialist review and validation before any fitting
-                  is considered.
-                </p>
-              </div>
-            </article>
+      <section id="applications" className="scroll-mt-20">
+        <div className="relative isolate min-h-[70vh] overflow-hidden">
+          <img
+            src="/img/military-application.png"
+            alt="Illustrative military scene at sunset with a service member, military vehicle and helicopter"
+            className="photo-clarity absolute inset-0 -z-20 h-full w-full object-cover"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 -z-10 bg-linear-to-r from-bg/95 via-bg/75 to-bg/20" />
+          <div className="mx-auto flex min-h-[70vh] max-w-7xl items-center px-5 py-24 sm:px-8">
+            <div id="defence" className="max-w-2xl scroll-mt-24">
+              <p className="text-xs tracking-widest text-bronze uppercase">
+                Exploratory military pathway
+              </p>
+              <h2 className="mt-3 font-display text-5xl leading-none sm:text-6xl">
+                Military applications
+              </h2>
+              <p className="mt-5 text-base leading-7 text-fg/90">
+                SENTINEL-1 is being explored as a potential dual-use concept for military and
+                specialist vehicles. It is not a fielded military product or defence system.
+                Any application would require a separate controlled design review, government
+                evaluation and independent safety evidence.
+              </p>
+              <p className="mt-6 font-display text-3xl text-bronze">
+                Military unit pricing: POA
+              </p>
+              <p className="mt-3 text-sm leading-6 text-fg/80">
+                No military certification, operational deployment or vehicle compatibility is
+                claimed. Detailed discussion can begin after a civilian bench demonstrator.
+              </p>
+              <a
+                href={`mailto:${EMAIL}?subject=${encodeURIComponent("SENTINEL-1 military application enquiry")}`}
+                className="mt-7 inline-flex min-h-11 items-center border border-fg/50 px-5 text-sm tracking-widest uppercase transition-colors hover:border-bronze hover:text-bronze"
+              >
+                Military application enquiry
+              </a>
+            </div>
           </div>
         </div>
-      </section>
-
-      <section id="defence" className="scroll-mt-20 border-y border-border bg-surface">
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-8 lg:grid-cols-[1fr_2fr] lg:items-start">
-          <div>
-            <p className="text-xs tracking-widest text-bronze uppercase">For defence</p>
-            <h2 className="mt-3 font-display text-4xl leading-tight sm:text-5xl">
-              Begin a controlled technical discussion.
-            </h2>
-          </div>
-          <div className="space-y-4 text-sm leading-7 text-muted">
-            <p>
-              Government and defence organisations can request a dedicated briefing on the concept
-              architecture, potential vehicle applications and development pathway.
-            </p>
-            <p>
-              Detailed technical information may be provided through controlled disclosure
-              arrangements where appropriate. No military certification or operational deployment
-              is currently claimed.
-            </p>
-            <a
-              href={`mailto:${EMAIL}?subject=${encodeURIComponent("SENTINEL-1 defence briefing request")}`}
-              className="mt-3 inline-flex min-h-11 items-center bg-bronze px-5 text-xs tracking-widest text-bg uppercase"
-            >
-              Request defence briefing
-            </a>
-          </div>
-        </div>
+        <p className="mx-auto max-w-7xl px-5 py-3 text-xs leading-5 text-muted sm:px-8">
+          Illustrative AI-generated image; SENTINEL-1 is not installed on the depicted vehicle.
+        </p>
       </section>
 
       <section id="safety" className="scroll-mt-20 border-b border-border">
