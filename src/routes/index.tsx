@@ -341,8 +341,8 @@ function InquiryForm() {
           className="mt-1 size-4 accent-bronze"
         />
         <span>
-          I understand this is an enquiry about a development-stage concept, and agree that my details
-          may be used to respond to this request. See the{" "}
+          I understand this is an enquiry about a development-stage concept, and agree that my
+          details may be used to respond to this request. See the{" "}
           <a href="#privacy" className="underline">
             Privacy notice
           </a>
@@ -548,7 +548,7 @@ function Home() {
       <section id="problem" className="scroll-mt-20 bg-photo-surface text-photo-ink">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-24 sm:px-8 lg:grid-cols-2 lg:items-center">
           <div>
-            <p className="text-xs tracking-widest text-sage uppercase">The idea</p>
+            <p className="section-kicker text-xs tracking-widest text-sage uppercase">The idea</p>
             <h2 className="mt-3 font-display text-5xl leading-none sm:text-6xl">
               Protect the vehicle itself.
             </h2>
@@ -568,7 +568,7 @@ function Home() {
           <img
             src="/img/relay.jpg"
             alt="A key fob beside a small electronic relay device on a car seat"
-            className="photo-clarity h-full max-h-96 w-full object-cover outline outline-1 -outline-offset-1 outline-photo-border"
+            className="photo-clarity photo-angle-right h-full max-h-96 w-full object-cover outline outline-1 -outline-offset-1 outline-photo-border"
           />
         </div>
       </section>
@@ -577,9 +577,9 @@ function Home() {
         <img
           src="/img/empty.jpg"
           alt="An empty driveway at dawn, with tyre marks where a car used to be"
-          className="photo-clarity absolute inset-0 h-full w-full object-cover"
+          className="photo-clarity absolute inset-0 h-full w-full object-cover object-[56%_center]"
         />
-        <div className="absolute inset-0 bg-linear-to-t from-bg/95 via-bg/75 to-bg/40" />
+        <div className="absolute inset-0 bg-linear-to-t from-bg/85 via-bg/55 to-bg/20" />
         <div className="relative mx-auto flex min-h-[70vh] max-w-4xl flex-col justify-end px-5 py-20 sm:px-8">
           <h2 className="font-display text-5xl leading-none sm:text-7xl">
             The vehicle itself can be part of the security system.
@@ -598,14 +598,16 @@ function Home() {
               id="unitImage"
               src="/img/unit.jpg"
               alt="Concept image of the SENTINEL-1 mechanical security enclosure"
-              className="photo-clarity w-full object-cover outline outline-1 -outline-offset-1 outline-border"
+              className="photo-clarity photo-angle-left w-full object-cover outline outline-1 -outline-offset-1 outline-border"
             />
             <figcaption className="mt-3 text-xs tracking-widest text-muted uppercase">
               Concept image — prototype performance has not been validated.
             </figcaption>
           </figure>
           <div>
-            <p className="text-xs tracking-widest text-bronze uppercase">The security core</p>
+            <p className="section-kicker text-xs tracking-widest text-bronze uppercase">
+              The security core
+            </p>
             <h2 className="mt-3 font-display text-5xl leading-none sm:text-6xl">
               One platform. Vehicle-specific interfaces.
             </h2>
@@ -618,7 +620,9 @@ function Home() {
             <ul className="mt-6 space-y-3 text-sm leading-6 text-muted">
               <li>A common security core is paired with vehicle-specific mechanical interfaces.</li>
               <li>Local recovery and service access are part of the development requirements.</li>
-              <li>No public-road deployment or moving-vehicle testing is authorised at this stage.</li>
+              <li>
+                No public-road deployment or moving-vehicle testing is authorised at this stage.
+              </li>
             </ul>
             <a
               href="#safety"
@@ -633,7 +637,7 @@ function Home() {
       <section className="bg-photo-surface text-photo-ink">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 py-24 sm:px-8 lg:grid-cols-2 lg:items-center">
           <div>
-            <p className="text-xs tracking-widest text-sage uppercase">
+            <p className="section-kicker text-xs tracking-widest text-sage uppercase">
               Two layers of protection — development concepts
             </p>
             <h2 className="mt-3 font-display text-5xl leading-none sm:text-6xl">
@@ -663,7 +667,7 @@ function Home() {
             <img
               src="/img/relay-attack.jpg"
               alt="A person at a car door at night using a small electronic relay device"
-              className="photo-clarity w-full object-cover outline outline-1 -outline-offset-1 outline-photo-border"
+              className="photo-clarity photo-angle-right w-full object-cover object-[58%_center] outline outline-1 -outline-offset-1 outline-photo-border"
             />
             <figcaption className="mt-3 text-xs tracking-widest text-photo-bronze uppercase">
               Illustrative security scenario. No SENTINEL-1 performance claim.
@@ -675,7 +679,9 @@ function Home() {
       <section id="difference" className="scroll-mt-20 border-y border-border bg-surface">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-24 sm:px-8 lg:grid-cols-2 lg:items-center">
           <div>
-            <p className="text-xs tracking-widest text-bronze uppercase">Why SENTINEL-1?</p>
+            <p className="section-kicker text-xs tracking-widest text-bronze uppercase">
+              Why SENTINEL-1?
+            </p>
             <h2 className="mt-3 font-display text-5xl leading-none sm:text-6xl">
               Because the vehicle is still physical.
             </h2>
@@ -697,7 +703,9 @@ function Home() {
       </section>
 
       <section id="models" className="scroll-mt-20 mx-auto max-w-7xl px-5 py-24 sm:px-8">
-        <p className="text-xs tracking-widest text-bronze uppercase">The SENTINEL-1 family</p>
+        <p className="section-kicker text-xs tracking-widest text-bronze uppercase">
+          The SENTINEL-1 family
+        </p>
         <h2 className="mt-3 font-display text-5xl leading-none sm:text-6xl">
           One platform. Multiple markets.
         </h2>
@@ -714,7 +722,8 @@ function Home() {
                       Target production price: from $795 + fitting
                     </p>
                     <p className="mt-2 text-xs leading-5 text-muted">
-                      Indicative target for the base commercial unit only; not an offer or confirmed price.
+                      Indicative target for the base commercial unit only; not an offer or confirmed
+                      price.
                     </p>
                   </>
                 )}
@@ -750,11 +759,11 @@ function Home() {
         <img
           src="/img/fleet.jpg"
           alt="A sedan, pickup, and van parked outside an industrial building at dusk"
-          className="photo-clarity absolute inset-0 h-full w-full object-cover"
+          className="photo-clarity absolute inset-0 h-full w-full object-cover object-[center_54%]"
         />
-        <div className="absolute inset-0 bg-linear-to-r from-bg/90 via-bg/70 to-bg/30" />
+        <div className="absolute inset-0 bg-linear-to-r from-bg/75 via-bg/50 to-bg/20" />
         <div className="relative mx-auto flex min-h-[68vh] max-w-7xl flex-col justify-center px-5 py-20 sm:px-8">
-          <p className="text-xs tracking-widest text-bronze uppercase">For fleets</p>
+          <p className="section-kicker text-xs tracking-widest text-bronze uppercase">For fleets</p>
           <h2 className="mt-3 max-w-xl font-display text-5xl leading-none sm:text-6xl">
             Protect more than one vehicle.
           </h2>
@@ -787,13 +796,13 @@ function Home() {
           <img
             src="/img/military-application.png"
             alt="Illustrative military scene at sunset with a service member, military vehicle and helicopter"
-            className="photo-clarity absolute inset-0 -z-20 h-full w-full object-cover"
+            className="photo-clarity absolute inset-0 -z-20 h-full w-full object-cover object-[62%_center]"
             loading="lazy"
           />
-          <div className="absolute inset-0 -z-10 bg-linear-to-r from-bg/95 via-bg/75 to-bg/20" />
-          <div className="mx-auto flex min-h-[70vh] max-w-7xl items-center px-5 py-24 sm:px-8">
-            <div id="defence" className="max-w-2xl scroll-mt-24">
-              <p className="text-xs tracking-widest text-bronze uppercase">
+          <div className="absolute inset-0 -z-10 bg-linear-to-t from-bg/90 via-bg/45 to-bg/10 lg:bg-linear-to-l lg:from-bg/90 lg:via-bg/60 lg:to-bg/10" />
+          <div className="mx-auto flex min-h-[70vh] max-w-7xl items-end px-5 py-16 sm:px-8 lg:items-center lg:py-24">
+            <div id="defence" className="max-w-2xl scroll-mt-24 lg:ml-auto lg:text-right">
+              <p className="section-kicker text-xs tracking-widest text-bronze uppercase">
                 Exploratory military pathway
               </p>
               <h2 className="mt-3 font-display text-5xl leading-none sm:text-6xl">
@@ -801,34 +810,32 @@ function Home() {
               </h2>
               <p className="mt-5 text-base leading-7 text-fg/90">
                 SENTINEL-1 is being explored as a potential dual-use concept for military and
-                specialist vehicles. It is not a fielded military product or defence system.
-                Any application would require a separate controlled design review, government
-                evaluation and independent safety evidence.
+                specialist vehicles. It is not a fielded military product or defence system. Any
+                application would require a separate controlled design review, government evaluation
+                and independent safety evidence.
               </p>
-              <p className="mt-6 font-display text-3xl text-bronze">
-                Military unit pricing: POA
-              </p>
+              <p className="mt-6 font-display text-3xl text-bronze">Military unit pricing: POA</p>
               <p className="mt-3 text-sm leading-6 text-fg/80">
                 No military certification, operational deployment or vehicle compatibility is
                 claimed. Detailed discussion can begin after a civilian bench demonstrator.
               </p>
               <a
                 href={`mailto:${EMAIL}?subject=${encodeURIComponent("SENTINEL-1 military application enquiry")}`}
-                className="mt-7 inline-flex min-h-11 items-center border border-fg/50 px-5 text-sm tracking-widest uppercase transition-colors hover:border-bronze hover:text-bronze"
+                className="mt-7 inline-flex min-h-11 items-center border border-fg/50 bg-bg/30 px-5 text-sm tracking-widest uppercase transition-colors hover:border-bronze hover:text-bronze"
               >
                 Military application enquiry
               </a>
             </div>
           </div>
         </div>
-        <p className="mx-auto max-w-7xl px-5 py-3 text-xs leading-5 text-muted sm:px-8">
+        <p className="photo-caption mx-auto max-w-7xl px-5 py-3 pl-4 text-xs leading-5 text-muted sm:px-8">
           Illustrative AI-generated image; SENTINEL-1 is not installed on the depicted vehicle.
         </p>
       </section>
 
       <section id="safety" className="scroll-mt-20 border-b border-border">
         <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
-          <p className="text-xs tracking-widest text-bronze uppercase">Safety</p>
+          <p className="section-kicker text-xs tracking-widest text-bronze uppercase">Safety</p>
           <h2 className="mt-3 max-w-3xl font-display text-5xl leading-none sm:text-6xl">
             Security cannot compromise vehicle safety.
           </h2>
@@ -876,16 +883,20 @@ function Home() {
       <section id="operate" className="scroll-mt-20 bg-photo-surface text-photo-ink">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 py-24 sm:px-8 lg:grid-cols-2">
           <div>
-            <p className="text-xs tracking-widest text-sage uppercase">01 — Parked security</p>
+            <p className="section-kicker text-xs tracking-widest text-sage uppercase">
+              01 — Parked security
+            </p>
             <img
               src="/img/secure.jpg"
               alt="A driver walking away from a parked car toward a lit front door at night"
-              className="photo-clarity mt-6 mb-8 w-full object-cover outline outline-1 -outline-offset-1 outline-photo-border"
+              className="photo-clarity photo-angle-left mt-6 mb-8 w-full object-cover object-[center_58%] outline outline-1 -outline-offset-1 outline-photo-border"
             />
             <p className="text-xs tracking-widest text-photo-bronze uppercase">
               Intended mechanical restraint
             </p>
-            <h2 className="mt-3 font-display text-5xl leading-none">Designed for parked vehicles.</h2>
+            <h2 className="mt-3 font-display text-5xl leading-none">
+              Designed for parked vehicles.
+            </h2>
             <ol className="mt-6 space-y-3 text-sm leading-6 text-photo-muted">
               {PARKED.map((step, i) => (
                 <li key={step}>
@@ -896,9 +907,7 @@ function Home() {
             </ol>
           </div>
           <div className="lg:pt-16">
-            <p className="text-xs tracking-widest text-photo-bronze uppercase">
-              02 — Next-Stop
-            </p>
+            <p className="text-xs tracking-widest text-photo-bronze uppercase">02 — Next-Stop</p>
             <h2 className="mt-3 font-display text-5xl leading-none">
               A new theft-response concept.
             </h2>
@@ -911,9 +920,9 @@ function Home() {
               ))}
             </ol>
             <p className="mt-8 border-l-2 border-sage pl-4 text-base leading-7 text-photo-muted">
-              Next-Stop is a development concept, not an available feature or production claim.
-              Any future concept may only be evaluated for a post-stop response; it must not engage
-              a restraint while the vehicle is moving and requires independent automotive safety
+              Next-Stop is a development concept, not an available feature or production claim. Any
+              future concept may only be evaluated for a post-stop response; it must not engage a
+              restraint while the vehicle is moving and requires independent automotive safety
               validation before any operational testing.
             </p>
           </div>
@@ -922,7 +931,9 @@ function Home() {
 
       <section id="development" className="scroll-mt-20 border-y border-border">
         <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
-          <p className="text-xs tracking-widest text-bronze uppercase">Development status</p>
+          <p className="section-kicker text-xs tracking-widest text-bronze uppercase">
+            Development status
+          </p>
           <h2 className="mt-3 max-w-3xl font-display text-5xl leading-none sm:text-6xl">
             Built to be proven — not simply claimed.
           </h2>
@@ -975,7 +986,7 @@ function Home() {
 
       <section id="features" className="scroll-mt-20 border-y border-border bg-surface">
         <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
-          <p className="text-xs tracking-widest text-bronze uppercase">
+          <p className="section-kicker text-xs tracking-widest text-bronze uppercase">
             Built outside the electronic attack surface
           </p>
           <h2 className="mt-3 max-w-3xl font-display text-5xl leading-none sm:text-6xl">
@@ -1026,10 +1037,22 @@ function Home() {
               </p>
               <h3 className="mt-8 font-display text-3xl">What happens next</h3>
               <ol className="mt-4 grid gap-3 text-sm leading-6 text-muted sm:grid-cols-2">
-                <li><strong className="text-bronze">01 — Register:</strong> Share your enquiry and details.</li>
-                <li><strong className="text-bronze">02 — Assess:</strong> Review the vehicle and intended configuration.</li>
-                <li><strong className="text-bronze">03 — Engineer:</strong> Progress a suitable interface through validation.</li>
-                <li><strong className="text-bronze">04 — Approve:</strong> Only validated configurations can proceed.</li>
+                <li>
+                  <strong className="text-bronze">01 — Register:</strong> Share your enquiry and
+                  details.
+                </li>
+                <li>
+                  <strong className="text-bronze">02 — Assess:</strong> Review the vehicle and
+                  intended configuration.
+                </li>
+                <li>
+                  <strong className="text-bronze">03 — Engineer:</strong> Progress a suitable
+                  interface through validation.
+                </li>
+                <li>
+                  <strong className="text-bronze">04 — Approve:</strong> Only validated
+                  configurations can proceed.
+                </li>
               </ol>
             </div>
             <div id="programme-form" className="bg-bg p-6 sm:p-8">
@@ -1044,8 +1067,8 @@ function Home() {
             </p>
             <h3 className="mt-3 font-display text-4xl">We’re seeking partners.</h3>
             <p className="mt-4 max-w-3xl text-sm leading-6 text-muted">
-              Work with us to progress SENTINEL-1 through engineering review, controlled testing
-              and production validation. We welcome expertise and collaboration at the stages below.
+              Work with us to progress SENTINEL-1 through engineering review, controlled testing and
+              production validation. We welcome expertise and collaboration at the stages below.
             </p>
             <ul className="mt-6 grid gap-px bg-border md:grid-cols-2">
               {PARTNERS.map(([title, body]) => (
@@ -1152,8 +1175,8 @@ function Home() {
         <p className="relative mx-auto max-w-7xl px-5 pb-10 text-xs leading-5 text-muted sm:px-8">
           SENTINEL-1 is under active development. Product configuration, vehicle compatibility,
           production timing and final pricing remain subject to engineering validation and
-          production approval. No certification or operational deployment is claimed. © 2026
-          PROJECT SENTINEL-1. All rights reserved.
+          production approval. No certification or operational deployment is claimed. © 2026 PROJECT
+          SENTINEL-1. All rights reserved.
         </p>
         <nav
           aria-label="Legal information"

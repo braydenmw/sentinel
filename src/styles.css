@@ -1,21 +1,24 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #1c1d1f;
-  --color-surface: #252629;
-  --color-raised: #2e3033;
+  --color-bg: #192127;
+  --color-surface: #222c33;
+  --color-raised: #2c3941;
   --color-fg: #f3f1ec;
-  --color-muted: #a39e96;
-  --color-primary: #c6a36a;
-  --color-primary-fg: #1c1d1f;
-  --color-border: #3b3d40;
-  --color-bronze: #c6a36a;
+  --color-muted: #b0b5b5;
+  --color-primary: #d1ae73;
+  --color-primary-fg: #192127;
+  --color-border: #3c4a52;
+  --color-bronze: #d1ae73;
+  --color-teal: #76b9b1;
+  --color-teal-deep: #356f6b;
+  --color-blue-steel: #7fa5ba;
   --color-photo-surface: #eeeae2;
   --color-photo-ink: #262724;
   --color-photo-muted: #4b4c47;
   --color-photo-border: #d0c9bd;
-  --color-photo-bronze: #765326;
-  --color-sage: #4c6652;
+  --color-photo-bronze: #725126;
+  --color-sage: #356f6b;
   --font-sans: "Barlow", "Segoe UI", sans-serif;
   --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
   --font-word: "Cinzel", "Times New Roman", serif;
@@ -31,15 +34,40 @@
   }
 
   .photo-clarity {
-    filter: brightness(1.28) saturate(1.08);
+    filter: brightness(1.42) saturate(1.12) contrast(1.02);
   }
 
   .hero-photo {
-    filter: brightness(1.42) saturate(1.08);
+    filter: brightness(1.58) saturate(1.14) contrast(1.03);
   }
 
   .photo-moody {
     filter: brightness(0.64) saturate(0.64) contrast(1.08) sepia(0.14);
+  }
+
+  .photo-angle-right {
+    clip-path: polygon(0 0, 100% 0, 100% 88%, 92% 100%, 0 100%);
+  }
+
+  .photo-angle-left {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 8% 100%, 0 88%);
+  }
+
+  .section-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+  }
+
+  .section-kicker::before {
+    width: 1.6rem;
+    height: 2px;
+    background: var(--color-teal);
+    content: "";
+  }
+
+  .photo-caption {
+    border-left: 2px solid var(--color-teal-deep);
   }
 }
 
