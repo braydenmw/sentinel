@@ -528,19 +528,14 @@ function Home() {
         <div className="absolute inset-0 bg-linear-to-l from-bg/80 via-bg/45 to-transparent" />
         <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pt-28 pb-16 sm:px-8 sm:pb-20 md:text-right">
           <h1 className="mt-4 ml-auto max-w-4xl font-display text-6xl leading-none font-medium tracking-tight sm:text-8xl">
-            When <span className="text-bronze">electronic security is defeated</span>, the vehicle
-            still needs a physical defence.
+            Security beyond <span className="text-bronze">electronics.</span>
           </h1>
           <p className="mt-6 ml-auto max-w-xl text-lg leading-7 text-fg/90">
-            Modern vehicles rely increasingly on electronic security. SENTINEL-1 takes a different
-            approach: a concealed, independently powered mechanical security concept designed to add
-            a physical restraint layer outside the vehicle’s conventional electronic architecture.
+            SENTINEL-1 is a development-stage concept for an independently powered mechanical
+            restraint, designed to work apart from a vehicle’s conventional electronic security.
           </p>
-          <p className="mt-5 ml-auto text-sm leading-7 text-fg/85">
-            Not another tracker. Not another alarm. Not another software immobiliser.
-          </p>
-          <p className="mt-1 ml-auto font-display text-2xl text-bronze">
-            A different physical layer of vehicle security.
+          <p className="mt-5 ml-auto font-display text-2xl text-bronze">
+            A physical layer of protection.
           </p>
         </div>
       </section>
