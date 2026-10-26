@@ -9,7 +9,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Discover SENTINEL-1: an independently powered mechanical vehicle-security concept in development, with separate pathways for passenger vehicles, fleets, defence and HGVs.",
+          "Discover SENTINEL-1, a mechanical vehicle-security concept in development. Register a vehicle expression of interest or explore engineering and validation partnerships.",
       },
       { property: "og:type", content: "website" },
       { property: "og:title", content: "SENTINEL-1 | Independent Mechanical Vehicle Security" },
@@ -32,12 +32,13 @@ export const Route = createFileRoute("/")({
 });
 
 const NAV = [
-  ["The idea", "#problem"],
-  ["Technology", "#features"],
+  ["The opportunity", "#problem"],
+  ["The concept", "#features"],
   ["Family", "#models"],
   ["Applications", "#applications"],
   ["Development", "#development"],
   ["Safety", "#safety"],
+  ["Partners", "#partners"],
   ["Register interest", "#reserve"],
   ["Contact", "#contact"],
 ] as const;
@@ -45,112 +46,109 @@ const NAV = [
 const MODELS = [
   {
     name: "SENTINEL-1 Vehicle",
-    body: "An independent mechanical security concept for passenger vehicles, built around a common core and a vehicle-specific interface. Compatibility and installation require engineering validation.",
+    body: "The first product pathway: a mechanical security concept for passenger vehicles, with an interface engineered for each vehicle rather than a universal-fit promise.",
   },
   {
     name: "SENTINEL-1 Next-Stop",
-    body: "A separate development concept exploring whether an authorised vehicle could be prevented from restarting after it has come to a complete stop following a verified theft event. No such capability is validated or available.",
+    body: "A future option exploring a controlled response after a verified theft event. Any concept would act only after the vehicle has stopped; it is not a current capability.",
   },
   {
     name: "SENTINEL-1 Fleet",
-    body: "A development pathway for commercial and fleet operators. Each vehicle application needs its own interface assessment; no fleet deployment is currently authorised.",
+    body: "A pathway for operators who want to help define vehicle priorities, operating needs and the evidence required before any fleet application could proceed.",
   },
   {
     name: "SENTINEL-1 Defence",
-    body: "A separate exploratory pathway for military, government and specialist vehicles. It is not a fielded defence product; any variant would need dedicated engineering review and government evaluation.",
+    body: "A separate exploratory programme for government and specialist applications, subject to dedicated engineering, safety and government evaluation.",
   },
   {
     name: "SENTINEL-1 HGV",
-    body: "A separate heavy-vehicle development concept exploring an isolated auxiliary pneumatic architecture. It must not connect to shared service- or parking-brake circuits. Design, compatibility and safe failure behaviour remain unvalidated.",
+    body: "A distinct heavy-vehicle concept exploring a dedicated auxiliary air supply, fully separate from shared service- and parking-brake circuits. Specialist design and safe-failure review come first.",
   },
 ];
 
 const BENEFITS = [
   [
-    "Independent power",
-    "A dedicated power architecture is part of the design concept; performance and behaviour remain to be validated.",
+    "A separate power concept",
+    "Explores a dedicated power architecture alongside—not dependent on—the vehicle’s normal security electronics.",
   ],
   [
-    "Mechanical restraint",
-    "The intended security function is based on physical restraint, not software alone. No working vehicle installation is validated.",
+    "A physical layer",
+    "The idea is to explore mechanical restraint as a complement to alarms, immobilisers and tracking—not a replacement.",
   ],
   [
-    "Vehicle-specific interface",
-    "Each application requires an engineered interface for the relevant vehicle rather than a universal-fit installation.",
+    "Engineered for the vehicle",
+    "Each vehicle platform needs its own interface assessment. SENTINEL-1 is not presented as a universal-fit device.",
   ],
   [
-    "Local recovery",
-    "Authorised mechanical recovery and service access are design requirements that need validation.",
+    "Recovery considered from day one",
+    "Service access, authorised recovery and safe failure behaviour are core engineering questions.",
   ],
   [
-    "Optional telemetry",
-    "GNSS and cellular functions may provide supervisory information; telemetry is not the fundamental mechanical security mechanism.",
+    "A clear role for technology",
+    "Optional telemetry may support oversight; the core concept is mechanical, not another tracking promise.",
   ],
 ];
 
 const PARTNERS = [
   [
-    "Engineering and safety",
-    "Automotive engineering and functional-safety specialists to assess the architecture, interfaces and safety case.",
+    "Engineering & safety",
+    "Help challenge the concept, define vehicle interfaces and build an independent safety and verification plan.",
   ],
   [
-    "Testing and validation",
-    "Laboratories and test facilities for a guarded bench demonstrator and a documented, controlled validation programme.",
+    "Prototype testing",
+    "Work with us on a controlled bench demonstrator and the test evidence needed before any vehicle integration.",
   ],
   [
-    "Vehicle and fleet collaborators",
-    "Vehicle owners, operators and specialists to inform vehicle-specific requirements. Any vehicle evaluation would require prior safety approval.",
+    "Vehicle & fleet collaborators",
+    "Share vehicle priorities, use cases and operating constraints to help guide which interfaces should be assessed first.",
   ],
   [
-    "Manufacturing and strategic partners",
-    "Production, supply-chain and strategic expertise to help progress the platform after the required engineering and validation gates.",
+    "Manufacturing & strategic partners",
+    "Bring design-for-manufacture, supply-chain or commercial expertise into the programme at the right development stage.",
   ],
 ];
 
 const FAQS = [
   [
-    "Will SENTINEL-1 affect my new-car warranty?",
-    "No vehicle-specific installation has been validated. Warranty impact depends on the vehicle, installer, and jurisdiction; ask your vehicle manufacturer or dealer before considering any future installation.",
+    "Can I buy or pre-order a unit now?",
+    "No. Production units have not been built and SENTINEL-1 is not available to purchase. You can register a non-binding expression of interest; it does not place an order, secure a unit or collect payment.",
   ],
   [
-    "What if I lose my fob?",
-    "A mechanical override is part of the design brief, but recovery behavior has not been validated in a working product.",
+    "What does the $795 + fitting price mean?",
+    "It is an indicative target production price for the base commercial unit only—not a current offer or confirmed price. Final pricing depends on engineering and production approval.",
   ],
   [
-    "Can thieves disable it?",
-    "SENTINEL-1 is a development-stage concept. Its tamper resistance and protection against attacks have not been independently tested, so we cannot claim it is undefeatable.",
+    "What happens after I register?",
+    "Your details help us understand vehicle interest and the mix of applications people want. We can review your enquiry, but registration does not guarantee compatibility, availability or a production place.",
   ],
   [
-    "Do I need to change how I park or use my car?",
-    "There is no product available to use yet. Any future operating routine will depend on validated engineering and safety approval.",
+    "When will it be available?",
+    "There is no confirmed launch date. A product can only be considered after the required engineering, safety, vehicle-interface and production validation.",
   ],
   [
-    "Is it visible from outside the vehicle?",
-    "A concealed under-chassis mounting approach is a design concept, not a validated installation.",
+    "Is the vehicle compatibility known?",
+    "Not yet. Each make, model, year and variant needs a separate engineering assessment; no universal fit or approved installation is claimed.",
   ],
   [
-    "Will my insurer recognise it?",
-    "There is no insurer recognition or premium reduction at this stage. Ask your insurer directly about any security device before making a policy decision.",
+    "Can my organisation become a development partner?",
+    "Yes. We welcome relevant engineering, functional-safety, test-facility, fleet and manufacturing enquiries through the form below.",
   ],
   [
-    "What happens if I sell the car?",
-    "Transferability has not been tested. A future installation would require a vehicle-specific engineering assessment.",
+    "Is Next-Stop part of the first product?",
+    "No. It is a separate future concept and has not been validated. Any future response would require the vehicle to be fully stopped and independent automotive safety approval.",
   ],
 ];
 
 const PARKED = [
-  "The parked-state mode is a design objective, not a validated feature.",
-  "Two intended restraint paths are being developed around vehicle-specific steering and parking-brake interfaces.",
-  "Engagement logic, vehicle interaction and safe failure behaviour require independent verification.",
-  "No vehicle installation is available for owners to use; recovery behaviour must be validated before integration.",
+  "The first use case: a mechanical restraint concept for a parked, secured vehicle.",
+  "Vehicle-specific interfaces and engagement logic must be engineered and verified.",
+  "Recovery, power-loss and safe-failure behaviour must be proven before any installation.",
 ];
 
 const NEXT_STOP = [
-  "Next-Stop is an early development concept, not an available feature.",
-  "It may explore preventing a vehicle from restarting only after it has come to a complete stop following a verified theft event.",
-  "No restraint is designed or authorised to engage while a vehicle is moving.",
-  "Any future response concept requires independent automotive safety validation before operational testing.",
-  "No moving-vehicle testing or public-road deployment is authorised at this stage.",
+  "A separate future concept—not part of an available product.",
+  "Explores preventing a restart only after a verified theft event and complete stop.",
+  "No restraint may engage while a vehicle is moving; independent safety validation is essential.",
 ];
 
 const EMAIL = "brayden@adversiq.xyz";
@@ -190,7 +188,8 @@ function InquiryForm() {
     setMessage("");
     const data = new FormData(form);
     const model = String(data.get("model") ?? "");
-    const type: InquiryInput["type"] = model === "SENTINEL-1 Vehicle" ? "pre-order" : "contact";
+    const isVehicleInterest = model === "SENTINEL-1 Vehicle";
+    const type: InquiryInput["type"] = "contact";
     try {
       const result = await submitInquiry({
         data: {
@@ -212,8 +211,8 @@ function InquiryForm() {
       }
       setStatus("sent");
       setMessage(
-        type === "pre-order"
-          ? "Thank you. Your interest has been registered. This is not an order or confirmation of availability; we’ll be in touch."
+        isVehicleInterest
+          ? "Thanks for registering your interest. This is not an order or reservation; we’ll review your vehicle details and be in touch."
           : "Thank you. Your enquiry has been sent, and we’ll be in touch.",
       );
       form.reset();
@@ -285,7 +284,7 @@ function InquiryForm() {
         className="grid gap-2 text-xs tracking-widest text-bronze uppercase"
         htmlFor={`${prefix}-model`}
       >
-        Configuration / enquiry area
+        I’m interested in / enquiring about
         <select
           id={`${prefix}-model`}
           name="model"
@@ -367,7 +366,7 @@ function InquiryForm() {
         disabled={status === "sending"}
         className="mt-2 min-h-11 w-fit bg-bronze px-6 text-sm tracking-widest text-bg uppercase disabled:cursor-wait disabled:opacity-60"
       >
-        {status === "sending" ? "Sending…" : "Register interest / send enquiry"}
+        {status === "sending" ? "Sending…" : "Send my enquiry"}
       </button>
     </form>
   );
@@ -528,14 +527,14 @@ function Home() {
         <div className="absolute inset-0 bg-linear-to-l from-bg/80 via-bg/45 to-transparent" />
         <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pt-28 pb-16 sm:px-8 sm:pb-20 md:text-right">
           <h1 className="mt-4 ml-auto max-w-4xl font-display text-6xl leading-none font-medium tracking-tight sm:text-8xl">
-            Security beyond <span className="text-bronze">electronics.</span>
+            A new layer for vehicle <span className="text-bronze">security.</span>
           </h1>
           <p className="mt-6 ml-auto max-w-xl text-lg leading-7 text-fg/90">
-            SENTINEL-1 is a development-stage concept for an independently powered mechanical
-            restraint, designed to work apart from a vehicle’s conventional electronic security.
+            SENTINEL-1 explores an independently powered mechanical restraint to complement the
+            alarms, immobilisers and tracking drivers already rely on.
           </p>
           <p className="mt-5 ml-auto font-display text-2xl text-bronze">
-            A physical layer of protection.
+            The vehicle itself, part of the defence.
           </p>
         </div>
       </section>
@@ -543,20 +542,21 @@ function Home() {
       <section id="problem" className="scroll-mt-20 bg-photo-surface text-photo-ink">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-24 sm:px-8 lg:grid-cols-2 lg:items-center">
           <div>
-            <p className="section-kicker text-xs tracking-widest text-sage uppercase">The idea</p>
+            <p className="section-kicker text-xs tracking-widest text-sage uppercase">
+              The opportunity
+            </p>
             <h2 className="mt-3 font-display text-5xl leading-none sm:text-6xl">
-              Protect the vehicle itself.
+              Alerts tell you. A physical layer could do more.
             </h2>
             <div className="mt-6 space-y-4 text-base leading-7 text-photo-muted">
               <p>
-                Electronic security can authenticate. Software can immobilise. A tracker can locate.
+                Alarms alert. Trackers locate. SENTINEL-1 asks a different question: could a
+                vehicle have an independent mechanical layer as well?
               </p>
               <p>
-                SENTINEL-1 is being developed around a different proposition: physically restricting
-                unauthorised vehicle movement through an independent mechanical security
-                architecture. The concept combines a common security core with vehicle-specific
-                mechanical interfaces, intended to operate separately from the vehicle’s normal
-                electronic security environment.
+                The concept is designed to complement—not replace—a vehicle’s existing security.
+                Its aim is a vehicle-specific mechanical restraint, developed separately from the
+                vehicle’s conventional electronic architecture.
               </p>
             </div>
           </div>
@@ -577,11 +577,12 @@ function Home() {
         <div className="absolute inset-0 bg-linear-to-t from-bg/85 via-bg/55 to-bg/20" />
         <div className="relative mx-auto flex min-h-[70vh] max-w-4xl flex-col justify-end px-5 py-20 sm:px-8">
           <h2 className="font-display text-5xl leading-none sm:text-7xl">
-            The vehicle itself can be part of the security system.
+            More than a notification.
           </h2>
           <p className="mt-6 max-w-xl text-lg leading-7">
-            SENTINEL-1 is a development-stage concept, not a validated product. Its intended
-            architecture adds a separate physical layer alongside a vehicle’s existing security.
+            For an owner, a fleet or a business, a stolen vehicle means lost time as well as lost
+            property. SENTINEL-1 is exploring whether mechanical restraint can add another layer to
+            the security conversation.
           </p>
         </div>
       </section>
@@ -596,7 +597,7 @@ function Home() {
               className="photo-clarity photo-angle-left w-full object-cover outline outline-1 -outline-offset-1 outline-border"
             />
             <figcaption className="mt-3 text-xs tracking-widest text-muted uppercase">
-              Concept image — prototype performance has not been validated.
+              Early concept image — no production unit or vehicle installation is available.
             </figcaption>
           </figure>
           <div>
@@ -604,26 +605,23 @@ function Home() {
               The security core
             </p>
             <h2 className="mt-3 font-display text-5xl leading-none sm:text-6xl">
-              One platform. Vehicle-specific interfaces.
+              One security core. A fit engineered for each vehicle.
             </h2>
             <p className="mt-6 text-base leading-7 text-fg/85">
-              SENTINEL-1 is being developed as a concealed, independently powered mechanical
-              security concept designed to sit outside the vehicle’s conventional electronic
-              security architecture. The concept remains subject to engineering review and
-              controlled validation.
+              The ambition is simple: develop a compact mechanical security core, then engineer the
+              right interface for each vehicle. That vehicle-specific approach is intended to keep
+              SENTINEL-1 separate from the vehicle’s conventional electronic security systems.
             </p>
             <ul className="mt-6 space-y-3 text-sm leading-6 text-muted">
-              <li>A common security core is paired with vehicle-specific mechanical interfaces.</li>
-              <li>Local recovery and service access are part of the development requirements.</li>
-              <li>
-                No public-road deployment or moving-vehicle testing is authorised at this stage.
-              </li>
+              <li>One core concept, with a tailored interface for each approved vehicle platform.</li>
+              <li>Independent power, service access and authorised recovery are design priorities.</li>
+              <li>Bench testing and safety evidence must come before any vehicle installation.</li>
             </ul>
             <a
               href="#safety"
               className="mt-8 inline-flex min-h-11 items-center border border-bronze px-5 text-xs tracking-widest text-bronze uppercase"
             >
-              Review the safety gates
+              See what must be proven
             </a>
           </div>
         </div>
@@ -633,28 +631,26 @@ function Home() {
         <div className="mx-auto grid max-w-7xl gap-12 px-5 py-24 sm:px-8 lg:grid-cols-2 lg:items-center">
           <div>
             <p className="section-kicker text-xs tracking-widest text-sage uppercase">
-              Two layers of protection — development concepts
+              Two development pathways
             </p>
             <h2 className="mt-3 font-display text-5xl leading-none sm:text-6xl">
-              Parked security and Next-Stop.
+              Start with parked security. Explore what comes next.
             </h2>
             <div className="mt-6 space-y-4 text-base leading-7 text-photo-muted">
               <p>
-                <strong>01 — Parked security.</strong> When a vehicle is parked and secured,
-                SENTINEL-1 is being developed to establish an independent mechanical restraint. The
-                objective is to make unauthorised movement physically harder; this has not been
-                validated in a vehicle.
+                <strong>01 — Parked security.</strong> The first pathway explores a mechanical
+                restraint for a parked, secured vehicle—adding a physical design layer alongside
+                its existing electronic protection.
               </p>
               <p>
-                <strong>02 — Next-Stop concept.</strong> A future configuration may explore
-                preventing an authorised vehicle from restarting after it has come to a complete
-                stop following a verified theft event. No restraint is designed or authorised to
-                engage while a vehicle is moving. This remains an unvalidated development concept
-                requiring independent automotive safety validation.
+                <strong>02 — Next-Stop.</strong> A future, separate concept could explore
+                preventing a restart after a verified theft event and a complete stop. No
+                mechanism may engage while a vehicle is moving; this pathway needs independent
+                automotive safety validation.
               </p>
               <p className="border-l-2 border-photo-bronze pl-4">
-                Next-Stop is not a production feature or operational claim. No public-road testing
-                or deployment is authorised.
+                Neither pathway is a validated product feature. No moving-vehicle or public-road
+                testing is authorised.
               </p>
             </div>
           </div>
@@ -678,20 +674,24 @@ function Home() {
               Why SENTINEL-1?
             </p>
             <h2 className="mt-3 font-display text-5xl leading-none sm:text-6xl">
-              Because the vehicle is still physical.
+              A different layer. A clear purpose.
             </h2>
           </div>
           <div className="space-y-4 text-base leading-7 text-muted">
-            <p>Electronic security can be attacked electronically. Tracking can report location.</p>
             <p>
-              SENTINEL-1 is being developed around the proposition that the vehicle itself can also
-              become part of its security system, through a separate mechanical layer.
+              A security concept is only valuable if it fits the way a vehicle is actually used.
+            </p>
+            <p>
+              That is why the first questions are practical: which vehicles should be prioritised,
+              how should service and recovery work, and what evidence would make a physical layer
+              worth trusting?
             </p>
             <p className="font-display text-2xl tracking-wide text-bronze">
-              Independent. Mechanical. Concealed. Vehicle-specific.
+              The right questions come before the first installation.
             </p>
             <p className="text-sm">
-              These are design intentions, not validated capabilities or guarantees.
+              Vehicle owners, fleet operators and technical partners can help shape those
+              priorities now.
             </p>
           </div>
         </div>
@@ -702,7 +702,7 @@ function Home() {
           The SENTINEL-1 family
         </p>
         <h2 className="mt-3 font-display text-5xl leading-none sm:text-6xl">
-          One platform. Multiple markets.
+          Different vehicles. A tailored development path.
         </h2>
         <div className="mt-12 grid gap-px bg-border md:grid-cols-2">
           {MODELS.map((model, i) => (
@@ -714,7 +714,7 @@ function Home() {
                 {model.name === "SENTINEL-1 Vehicle" && (
                   <>
                     <p className="mt-4 text-sm text-bronze">
-                      Target production price: from $795 + fitting
+                      Indicative target: $795 + fitting
                     </p>
                     <p className="mt-2 text-xs leading-5 text-muted">
                       Indicative target for the base commercial unit only; not an offer or confirmed
@@ -739,10 +739,13 @@ function Home() {
                 >
                   <img
                     src="/img/unit-bench.jpg"
-                    alt="SENTINEL-1 unit shown on a workshop bench"
+                    alt="Illustrative rendering of a possible SENTINEL-1 enclosure on a workshop bench; no physical unit has been built"
                     className="h-full min-h-64 w-full object-cover"
                     loading="lazy"
                   />
+                      <figcaption className="px-4 py-3 text-xs leading-5 text-muted">
+                        Illustrative concept rendering—not a built or tested unit.
+                      </figcaption>
                 </figure>
               )}
             </Fragment>
@@ -752,36 +755,39 @@ function Home() {
 
       <section id="fleet" className="relative min-h-[68vh] scroll-mt-20">
         <img
-          src="/img/fleet.jpg"
-          alt="A sedan, pickup, and van parked outside an industrial building at dusk"
+          src="/img/fleet-operations.jpeg"
+          alt="A range of fleet vehicles including cars, vans, a truck, bus, heavy equipment and agricultural machinery at dusk"
           className="photo-clarity absolute inset-0 h-full w-full object-cover object-[center_54%]"
         />
         <div className="absolute inset-0 bg-linear-to-r from-bg/75 via-bg/50 to-bg/20" />
         <div className="relative mx-auto flex min-h-[68vh] max-w-7xl flex-col justify-center px-5 py-20 sm:px-8">
-          <p className="section-kicker text-xs tracking-widest text-bronze uppercase">For fleets</p>
+          <p className="section-kicker text-xs tracking-widest text-bronze uppercase">
+            For fleet operators
+          </p>
           <h2 className="mt-3 max-w-xl font-display text-5xl leading-none sm:text-6xl">
-            Protect more than one vehicle.
+            Explore applications beyond passenger cars.
           </h2>
           <p className="mt-6 max-w-md text-sm leading-6 text-fg/80">
-            Fleet operators can register interest in the SENTINEL-1 fleet programme. Each vehicle
-            application requires its own engineering assessment; fleet deployment is not currently
-            authorised.
+            SENTINEL-1 is being explored as a vehicle-security concept for a wider range of vehicles
+            and fleets. Register interest and share the vehicle types, operating conditions and
+            requirements that should guide future assessment.
           </p>
           <ul className="mt-6 max-w-md space-y-3 text-sm leading-6">
             <li>Passenger, rental and commercial vehicle fleets</li>
-            <li>Pickups and utes</li>
-            <li>High-value transport and specialist vehicles</li>
-            <li>Government and security-sensitive operations</li>
+            <li>Pickups, utes, vans, trucks and heavy goods vehicles</li>
+            <li>Specialist, high-value transport and other operational vehicles</li>
+            <li>Government and security-sensitive fleets</li>
           </ul>
           <p className="mt-6 max-w-md text-sm leading-6 text-fg/80">
-            Vehicle-specific engineering remains essential. No universal-fit compatibility or
-            validated fleet installation is claimed.
+            No fleet-ready product or installation is currently available, and fleet deployment is
+            not authorised. Each vehicle platform requires its own engineering and safety
+            assessment; no universal-fit compatibility or validated fleet installation is claimed.
           </p>
           <a
             href={`mailto:${EMAIL}?subject=${encodeURIComponent("SENTINEL-1 fleet programme enquiry")}`}
             className="mt-8 inline-flex min-h-11 w-fit items-center border border-fg/40 px-6 text-sm tracking-widest uppercase"
           >
-            Request fleet programme details
+            Register fleet interest
           </a>
         </div>
       </section>
@@ -798,27 +804,26 @@ function Home() {
           <div className="mx-auto flex min-h-[70vh] max-w-7xl items-end px-5 py-16 sm:px-8 lg:items-center lg:py-24">
             <div id="defence" className="max-w-2xl scroll-mt-24 lg:ml-auto lg:text-right">
               <p className="section-kicker text-xs tracking-widest text-bronze uppercase">
-                Exploratory military pathway
+                Government & specialist applications
               </p>
               <h2 className="mt-3 font-display text-5xl leading-none sm:text-6xl">
-                Military applications
+                A dedicated military pathway.
               </h2>
               <p className="mt-5 text-base leading-7 text-fg/90">
-                SENTINEL-1 is being explored as a potential dual-use concept for military and
-                specialist vehicles. It is not a fielded military product or defence system. Any
-                application would require a separate controlled design review, government evaluation
-                and independent safety evidence.
+                We are open to controlled discussions with government and defence organisations
+                about specialist vehicle needs and what a separate evaluation pathway would
+                require.
               </p>
               <p className="mt-6 font-display text-3xl text-bronze">Military unit pricing: POA</p>
               <p className="mt-3 text-sm leading-6 text-fg/80">
-                No military certification, operational deployment or vehicle compatibility is
-                claimed. Detailed discussion can begin after a civilian bench demonstrator.
+                This is an exploratory concept, not a fielded or certified defence product. Any
+                application requires its own engineering, safety and government review.
               </p>
               <a
                 href={`mailto:${EMAIL}?subject=${encodeURIComponent("SENTINEL-1 military application enquiry")}`}
                 className="mt-7 inline-flex min-h-11 items-center border border-fg/50 bg-bg/30 px-5 text-sm tracking-widest uppercase transition-colors hover:border-bronze hover:text-bronze"
               >
-                Military application enquiry
+                Discuss a military application
               </a>
             </div>
           </div>
@@ -832,12 +837,11 @@ function Home() {
         <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
           <p className="section-kicker text-xs tracking-widest text-bronze uppercase">Safety</p>
           <h2 className="mt-3 max-w-3xl font-display text-5xl leading-none sm:text-6xl">
-            Security cannot compromise vehicle safety.
+            Safety is a gate, not a footnote.
           </h2>
           <p className="mt-5 max-w-3xl text-sm leading-6 text-muted">
-            Every vehicle-installed configuration must pass the appropriate independent engineering
-            and safety assessment before operational use. These are development requirements, not
-            evidence of completed validation.
+            Any future installation must pass independent engineering and safety assessment before
+            operational use. The checks below are development requirements—not completed tests.
           </p>
           <ul className="mt-10 grid gap-px bg-border md:grid-cols-2">
             {[
@@ -915,10 +919,8 @@ function Home() {
               ))}
             </ol>
             <p className="mt-8 border-l-2 border-sage pl-4 text-base leading-7 text-photo-muted">
-              Next-Stop is a development concept, not an available feature or production claim. Any
-              future concept may only be evaluated for a post-stop response; it must not engage a
-              restraint while the vehicle is moving and requires independent automotive safety
-              validation before any operational testing.
+              Next-Stop is not available. Any further work requires independent automotive safety
+              validation; no moving-vehicle testing or public-road deployment is authorised.
             </p>
           </div>
         </div>
@@ -927,46 +929,46 @@ function Home() {
       <section id="development" className="scroll-mt-20 border-y border-border">
         <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
           <p className="section-kicker text-xs tracking-widest text-bronze uppercase">
-            Development status
+            From concept to evidence
           </p>
           <h2 className="mt-3 max-w-3xl font-display text-5xl leading-none sm:text-6xl">
-            Built to be proven — not simply claimed.
+            The milestones that turn an idea into a product.
           </h2>
           <p className="mt-5 max-w-2xl text-sm leading-6 text-muted">
-            SENTINEL-1 is progressing through staged engineering gates. Each stage must produce
-            evidence before the next claim or activity.
+            SENTINEL-1 remains at concept stage. No units have been built, and nothing is available
+            to install or buy. These are the planned gates to earn a safe, production-ready design.
           </p>
           <ol className="mt-10 grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
             {[
               [
                 "01",
-                "Engineering review",
-                "Review the mechanical architecture, interfaces, hazards and safety case.",
+                "Define the design",
+                "Set the requirements, review the architecture and identify hazards before building.",
               ],
               [
                 "02",
-                "Bench demonstrator",
-                "Build and assess a demonstrator in a controlled test environment.",
+                "Build a bench demonstrator",
+                "Create the first testable unit for controlled, off-vehicle evaluation.",
               ],
               [
                 "03",
-                "Mechanical validation",
-                "Generate documented evidence for mechanical function and failure behaviour.",
+                "Prove core functions",
+                "Test mechanical operation, failure behaviour, power loss and recovery.",
               ],
               [
                 "04",
-                "Vehicle-specific development",
-                "Assess each intended vehicle interface independently before vehicle testing.",
+                "Engineer a vehicle interface",
+                "Assess one vehicle platform at a time; no universal fit is assumed.",
               ],
               [
                 "05",
-                "Controlled testing",
-                "Proceed only under the required safety controls and independent authorisation.",
+                "Complete safety review",
+                "Use independent review and controlled test plans before any vehicle testing.",
               ],
               [
                 "06",
-                "Production validation",
-                "Confirm the applicable design, manufacturing and safety evidence before any production approval.",
+                "Prepare for production",
+                "Confirm design, manufacturing and safety evidence before any production decision.",
               ],
             ].map(([number, title, body]) => (
               <li key={number} className="bg-surface p-6 sm:p-8">
@@ -982,14 +984,14 @@ function Home() {
       <section id="features" className="scroll-mt-20 border-y border-border bg-surface">
         <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
           <p className="section-kicker text-xs tracking-widest text-bronze uppercase">
-            Built outside the electronic attack surface
+            The design principles
           </p>
           <h2 className="mt-3 max-w-3xl font-display text-5xl leading-none sm:text-6xl">
-            A physical architecture designed for independence.
+            What the concept must prove.
           </h2>
           <p className="mt-5 max-w-3xl text-sm leading-6 text-muted">
-            The following describe the concept's intended direction. They are not validated
-            capabilities, security guarantees, or certified product features.
+            These are the questions guiding development—not product features or security
+            guarantees.
           </p>
           <ul className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
             {BENEFITS.map(([title, body]) => (
@@ -1002,83 +1004,88 @@ function Home() {
         </div>
       </section>
 
+      <section id="partners" className="scroll-mt-20 border-t border-border bg-surface">
+        <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
+          <p className="text-xs tracking-widest text-bronze uppercase">
+            Build the programme with us
+          </p>
+          <h2 className="mt-3 max-w-3xl font-display text-5xl leading-none sm:text-6xl">
+            The right partners can turn this concept into evidence.
+          </h2>
+          <p className="mt-4 max-w-3xl text-sm leading-6 text-muted">
+            We’re looking for people and organisations who can help define the design, challenge
+            the assumptions and establish what it would take to validate SENTINEL-1 responsibly.
+          </p>
+          <ul className="mt-8 grid gap-px bg-border md:grid-cols-2">
+            {PARTNERS.map(([title, body]) => (
+              <li key={title} className="bg-bg p-6 sm:p-8">
+                <h3 className="font-display text-3xl">{title}</h3>
+                <p className="mt-3 text-sm leading-6 text-muted">{body}</p>
+              </li>
+            ))}
+          </ul>
+          <a
+            href="#programme-form"
+            className="mt-7 inline-flex min-h-11 items-center bg-bronze px-6 text-sm tracking-widest text-bg uppercase"
+          >
+            Explore a partnership
+          </a>
+        </div>
+      </section>
+
       <section id="reserve" className="scroll-mt-20 border-t border-border bg-surface">
         <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
           <div id="contact" className="grid gap-12 lg:grid-cols-2">
             <div>
-              <p className="text-xs tracking-widest text-bronze uppercase">Join the programme</p>
+              <p className="text-xs tracking-widest text-bronze uppercase">
+                For early supporters
+              </p>
               <h2 className="mt-3 font-display text-5xl leading-none sm:text-6xl">
-                Register interest in SENTINEL-1
+                Help shape what comes next.
               </h2>
               <p className="mt-5 max-w-xl text-sm leading-6 text-muted">
-                Register a vehicle configuration, or enquire about a fleet, defence, government or
-                development-partner pathway. This form records interest only; it does not place an
-                order or collect payment.
+                Tell us which vehicle or application matters to you. Expressions of interest help
+                us understand demand and prioritise future engineering work.
+              </p>
+              <p className="mt-3 max-w-xl text-sm leading-6 text-fg/80">
+                This is a non-binding expression of interest—not a pre-order or reservation. No
+                payment or purchase commitment is taken.
               </p>
               <h3 className="mt-8 font-display text-4xl text-bronze">
-                Target production price: from $795
+                Target production price: $795 + fitting
               </h3>
-              <p className="mt-1 text-base text-muted">Base commercial unit, plus fitting.</p>
+              <p className="mt-1 text-base text-muted">Base commercial unit only.</p>
               <p className="mt-4 max-w-xl text-sm leading-6 text-fg/80">
-                The $795 + fitting figure is an indicative target production price for the base
-                commercial unit only—not a current offer, deposit or confirmed price. Next-Stop,
-                fleet, military, truck/HGV and government configurations are POA and require
-                separate assessment.
-              </p>
-              <p className="mt-4 max-w-xl text-sm leading-6 text-fg/80">
-                Compatibility, final pricing and production timing depend on engineering validation
-                and production approval. Vehicle details and intended configuration can be included
-                with your enquiry.
+                An indicative target only—not a current offer or confirmed price. Next-Stop, fleet,
+                military, HGV and government applications are POA and require separate assessment.
               </p>
               <h3 className="mt-8 font-display text-3xl">What happens next</h3>
               <ol className="mt-4 grid gap-3 text-sm leading-6 text-muted sm:grid-cols-2">
                 <li>
-                  <strong className="text-bronze">01 — Register:</strong> Share your enquiry and
-                  details.
+                  <strong className="text-bronze">01 — Tell us:</strong> Share the vehicle or
+                  partnership you have in mind.
                 </li>
                 <li>
-                  <strong className="text-bronze">02 — Assess:</strong> Review the vehicle and
-                  intended configuration.
+                  <strong className="text-bronze">02 — Understand:</strong> We review the use case
+                  and the questions it raises.
                 </li>
                 <li>
-                  <strong className="text-bronze">03 — Engineer:</strong> Progress a suitable
-                  interface through validation.
+                  <strong className="text-bronze">03 — Develop:</strong> Suitable concepts must
+                  pass engineering and safety gates.
                 </li>
                 <li>
-                  <strong className="text-bronze">04 — Approve:</strong> Only validated
-                  configurations can proceed.
+                  <strong className="text-bronze">04 — Decide:</strong> Availability, timing and
+                  final pricing follow validation—not before.
                 </li>
               </ol>
             </div>
             <div id="programme-form" className="bg-bg p-6 sm:p-8">
-              <h3 className="font-display text-3xl">Register interest or send an enquiry</h3>
+              <h3 className="font-display text-3xl">Register interest or start a conversation</h3>
+              <p className="mt-3 text-sm leading-6 text-muted">
+                Tell us what matters to you. No payment or purchase commitment is taken.
+              </p>
               <InquiryForm />
             </div>
-          </div>
-
-          <div id="partners" className="scroll-mt-20 mt-16 border-t border-border pt-12">
-            <p className="text-xs tracking-widest text-bronze uppercase">
-              Partnership and development
-            </p>
-            <h3 className="mt-3 font-display text-4xl">We’re seeking partners.</h3>
-            <p className="mt-4 max-w-3xl text-sm leading-6 text-muted">
-              Work with us to progress SENTINEL-1 through engineering review, controlled testing and
-              production validation. We welcome expertise and collaboration at the stages below.
-            </p>
-            <ul className="mt-6 grid gap-px bg-border md:grid-cols-2">
-              {PARTNERS.map(([title, body]) => (
-                <li key={title} className="bg-surface p-6 sm:p-8">
-                  <h4 className="font-display text-3xl">{title}</h4>
-                  <p className="mt-3 text-sm leading-6 text-muted">{body}</p>
-                </li>
-              ))}
-            </ul>
-            <a
-              href="#programme-form"
-              className="mt-6 inline-flex min-h-11 items-center bg-bronze px-6 text-sm tracking-widest text-bg uppercase"
-            >
-              Discuss a partnership
-            </a>
           </div>
 
           <div className="mt-12 border-t border-border pt-10">
