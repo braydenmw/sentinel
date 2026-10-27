@@ -1,24 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #192127;
-  --color-surface: #222c33;
-  --color-raised: #2c3941;
+  --color-bg: #171d19;
+  --color-surface: #202a23;
+  --color-raised: #2b382f;
   --color-fg: #f3f1ec;
   --color-muted: #b0b5b5;
   --color-primary: #d1ae73;
   --color-primary-fg: #192127;
-  --color-border: #3c4a52;
+  --color-border: #3f4c42;
   --color-bronze: #d1ae73;
-  --color-teal: #76b9b1;
-  --color-teal-deep: #356f6b;
+  --color-teal: #83aa98;
+  --color-teal-deep: #4f7461;
   --color-blue-steel: #7fa5ba;
   --color-photo-surface: #eeeae2;
   --color-photo-ink: #262724;
   --color-photo-muted: #4b4c47;
   --color-photo-border: #d0c9bd;
   --color-photo-bronze: #725126;
-  --color-sage: #356f6b;
+  --color-sage: #91a77e;
+  --color-copper: #b9855a;
   --font-sans: "Barlow", "Segoe UI", sans-serif;
   --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
   --font-word: "Cinzel", "Times New Roman", serif;
@@ -67,12 +68,12 @@
   .section-kicker::before {
     width: 1.6rem;
     height: 2px;
-    background: var(--color-teal);
+    background: var(--color-bronze);
     content: "";
   }
 
   .photo-caption {
-    border-left: 2px solid var(--color-teal-deep);
+    border-left: 2px solid var(--color-bronze);
   }
 }
 
