@@ -489,24 +489,30 @@ function Home() {
 
   return (
     <main className="bg-bg text-fg">
-      <header className="fixed inset-x-0 top-0 z-20 border-b border-bronze/40 bg-bg/80 backdrop-blur-md">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
+      <header className="fixed inset-x-0 top-0 z-20 border-b border-fg/10 bg-bg/75 backdrop-blur-lg">
+        <div className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between px-5 sm:px-8">
           <a href="#top" className="flex items-center gap-3">
             <img src="/logo.svg" alt="" className="h-9 w-auto" />
-            <span className="font-word text-lg tracking-widest text-bronze sm:text-xl">
+            <span className="font-word text-base tracking-[0.2em] text-bronze transition-colors hover:text-fg sm:text-lg">
               SENTINEL-1
             </span>
           </a>
           <div className="flex items-center gap-3">
             <a
               href="#reserve"
-              className="inline-flex min-h-11 items-center bg-bronze px-4 text-xs tracking-widest text-bg uppercase"
+              className="group inline-flex min-h-11 items-center gap-3 bg-bronze px-4 text-xs tracking-widest text-bg uppercase transition-colors hover:bg-fg"
             >
-              Register interest
+              Register interest{" "}
+              <span
+                aria-hidden="true"
+                className="text-base transition-transform group-hover:translate-x-1"
+              >
+                →
+              </span>
             </a>
             <button
               type="button"
-              className="min-h-11 border border-border px-4 text-xs tracking-widest uppercase"
+              className="min-h-11 border border-fg/20 px-4 text-xs tracking-widest uppercase transition-colors hover:border-bronze hover:text-bronze"
               aria-expanded={open}
               aria-controls="site-menu"
               onClick={() => setOpen((v) => !v)}
@@ -535,57 +541,92 @@ function Home() {
         )}
       </header>
 
-      <section id="top" className="relative isolate min-h-dvh overflow-hidden border-b border-border bg-bg pt-16">
+      <section
+        id="top"
+        className="relative isolate min-h-dvh overflow-hidden border-b border-border bg-bg pt-[4.5rem]"
+      >
         <img
           src="/img/driveway.jpg"
           alt=""
           aria-hidden="true"
-          className="hero-photo absolute inset-0 -z-20 h-full w-full object-cover object-center"
+          className="hero-photo absolute inset-0 -z-20 h-full w-full object-cover object-[58%_center]"
         />
-        <div className="absolute inset-0 -z-10 bg-bg/10" />
-        <div className="absolute inset-0 -z-10 bg-linear-to-r from-bg/30 via-bg/5 to-bg/15" />
-        <div className="relative mx-auto flex min-h-dvh max-w-7xl items-center px-5 py-16 sm:px-8">
-          <div className="max-w-3xl border-l-2 border-bronze bg-bg/45 p-5 backdrop-blur-sm sm:p-8">
-            <p className="text-xs tracking-widest text-bronze uppercase">
+        <div className="absolute inset-0 -z-10 bg-linear-to-r from-bg/95 via-bg/70 to-bg/20" />
+        <div className="absolute inset-0 -z-10 bg-linear-to-t from-bg/80 via-transparent to-bg/15" />
+        <div className="relative mx-auto grid min-h-[calc(100svh-4.5rem)] max-w-7xl items-center gap-12 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-16">
+          <div className="max-w-4xl">
+            <p className="inline-flex items-center gap-3 text-xs tracking-[0.22em] text-bronze uppercase">
+              <span className="h-px w-9 bg-bronze" aria-hidden="true" />
               Independent mechanical vehicle security
             </p>
-            <h1 className="mt-4 whitespace-nowrap font-word text-4xl tracking-widest text-fg sm:text-6xl">
+            <p className="mt-8 font-word text-sm tracking-[0.32em] text-fg/80 sm:text-base">
               SENTINEL-1
+            </p>
+            <h1 className="mt-4 max-w-4xl font-display text-5xl leading-[0.9] tracking-tight text-fg sm:text-7xl lg:text-8xl">
+              A physical layer
+              <span className="mt-2 block text-bronze">for vehicle security.</span>
             </h1>
-            <h2 className="mt-4 max-w-2xl font-display text-5xl leading-none sm:text-6xl">
-              Add a physical layer to vehicle <span className="text-bronze">security.</span>
-            </h2>
-            <p className="mt-6 max-w-xl text-lg leading-7 text-fg/90">
-              Your vehicle already has alarms, an immobiliser and electronic security. SENTINEL-1 is
-              being developed around a different idea: an independently powered mechanical restraint
-              for parked vehicles, designed to complement—not replace—existing protection.
+            <p className="mt-7 max-w-2xl text-base leading-7 text-fg/85 sm:text-lg sm:leading-8">
+              A proposed, independently powered mechanical restraint for parked vehicles—designed to
+              complement existing protection, not replace it.
             </p>
-            <p className="mt-3 max-w-xl text-sm leading-6 text-muted">
-              Passenger-vehicle development pathway · Indicative target production price
-            </p>
-            <p className="mt-1 font-display text-4xl text-bronze">
-              $795 <span className="text-2xl">+ fitting</span>
-            </p>
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap gap-3">
               <a
                 href="#reserve"
-                className="inline-flex min-h-11 items-center bg-bronze px-5 text-xs tracking-widest text-bg uppercase"
+                className="group inline-flex min-h-12 items-center gap-3 bg-bronze px-5 text-xs tracking-widest text-bg uppercase transition-colors hover:bg-fg"
               >
-                Register pre-order interest
+                Register interest
+                <span
+                  aria-hidden="true"
+                  className="text-base transition-transform group-hover:translate-x-1"
+                >
+                  →
+                </span>
               </a>
               <a
                 href="#product"
-                className="inline-flex min-h-11 items-center border border-fg/50 px-5 text-xs tracking-widest uppercase transition-colors hover:border-bronze hover:text-bronze"
+                className="inline-flex min-h-12 items-center border border-fg/40 bg-bg/20 px-5 text-xs tracking-widest uppercase backdrop-blur-sm transition-colors hover:border-bronze hover:text-bronze"
               >
-                Explore the product
+                Explore the concept
               </a>
             </div>
-            <p className="mt-4 max-w-xl text-xs leading-5 text-fg/75">
-              Planning target only—not a confirmed retail price or offer. Development-stage project;
-              no production units are available. Price, fit, timing and availability remain
-              unconfirmed. Registration is free and non-binding; no payment is taken.
+            <p className="mt-5 max-w-2xl text-xs leading-5 text-fg/70">
+              Development-stage concept. No production units are available; registration is free and
+              non-binding, and no payment is taken.
             </p>
           </div>
+
+          <aside className="relative max-w-sm border border-fg/20 bg-bg/75 p-6 shadow-2xl shadow-black/20 backdrop-blur-md sm:p-7 lg:justify-self-end">
+            <div className="absolute inset-x-0 top-0 h-px bg-bronze" />
+            <p className="flex items-center gap-2 text-[0.7rem] tracking-[0.2em] text-bronze uppercase">
+              <span className="size-1.5 bg-bronze" aria-hidden="true" />
+              Concept in development
+            </p>
+            <p className="mt-8 text-xs tracking-widest text-muted uppercase">
+              First development pathway
+            </p>
+            <h2 className="mt-2 font-display text-3xl leading-tight">Passenger vehicles</h2>
+            <div className="my-6 h-px bg-fg/15" />
+            <p className="text-xs tracking-widest text-muted uppercase">
+              Indicative target · not an offer
+            </p>
+            <p className="mt-2 font-display text-5xl text-bronze">
+              $795 <span className="text-2xl text-fg/80">+ fitting</span>
+            </p>
+            <p className="mt-3 text-xs leading-5 text-muted">
+              Planning target only—not a confirmed retail price. Final price, vehicle fit, timing
+              and availability remain unconfirmed.
+            </p>
+            <a
+              href="#reserve"
+              className="mt-6 inline-flex min-h-11 w-full items-center justify-between border-t border-fg/15 pt-4 text-xs tracking-widest uppercase transition-colors hover:text-bronze"
+            >
+              Share your vehicle interest
+              <span aria-hidden="true" className="text-base">
+                →
+              </span>
+            </a>
+          </aside>
         </div>
       </section>
 
@@ -622,9 +663,9 @@ function Home() {
               ))}
             </div>
             <p className="mt-8 max-w-3xl border-l-2 border-bronze pl-5 text-base leading-7 text-fg/80">
-              The engineering proposition is to investigate whether a mechanical layer can add
-              value alongside existing protection. This is a development objective—not a claim of
-              proven theft prevention or demonstrated performance.
+              The engineering proposition is to investigate whether a mechanical layer can add value
+              alongside existing protection. This is a development objective—not a claim of proven
+              theft prevention or demonstrated performance.
             </p>
             <a
               href="#product"
@@ -701,7 +742,10 @@ function Home() {
         </div>
       </section>
 
-      <section id="how" className="relative isolate scroll-mt-20 overflow-hidden border-y border-border">
+      <section
+        id="how"
+        className="relative isolate scroll-mt-20 overflow-hidden border-y border-border"
+      >
         <img
           src="/img/secure.jpg"
           alt=""
@@ -711,16 +755,16 @@ function Home() {
         <div className="absolute inset-0 -z-10 bg-bg/55" />
         <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-8">
           <div>
-              <p className="section-kicker text-xs tracking-widest text-bronze uppercase">
-                How it works
-              </p>
-              <h2 className="mt-3 max-w-4xl font-display text-5xl leading-none sm:text-6xl">
-                Designed around the moment a vehicle is parked.
-              </h2>
-              <p className="mt-5 max-w-3xl text-base leading-7 text-muted">
-                The first development priority is parked-vehicle security. These are intended
-                stages and requirements—not confirmed product operation.
-              </p>
+            <p className="section-kicker text-xs tracking-widest text-bronze uppercase">
+              How it works
+            </p>
+            <h2 className="mt-3 max-w-4xl font-display text-5xl leading-none sm:text-6xl">
+              Designed around the moment a vehicle is parked.
+            </h2>
+            <p className="mt-5 max-w-3xl text-base leading-7 text-muted">
+              The first development priority is parked-vehicle security. These are intended stages
+              and requirements—not confirmed product operation.
+            </p>
           </div>
           <ol className="mt-10 grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
             {[
@@ -900,7 +944,10 @@ function Home() {
         </div>
       </section>
 
-      <section id="safety" className="relative isolate scroll-mt-20 overflow-hidden border-b border-border">
+      <section
+        id="safety"
+        className="relative isolate scroll-mt-20 overflow-hidden border-b border-border"
+      >
         <img
           src="/img/relay-attack.jpg"
           alt=""
@@ -1046,7 +1093,10 @@ function Home() {
         </div>
       </section>
 
-      <section id="reserve" className="relative isolate scroll-mt-20 overflow-hidden border-t border-border">
+      <section
+        id="reserve"
+        className="relative isolate scroll-mt-20 overflow-hidden border-t border-border"
+      >
         <img
           src="/img/empty.jpg"
           alt=""
@@ -1078,8 +1128,8 @@ function Home() {
                 </p>
                 <p className="mt-2 text-sm leading-6 text-muted">
                   Planning target only—not a confirmed retail price or current offer. Fit,
-                  configuration, warranty, timing and availability remain unconfirmed. No
-                  production units are available, and this website takes no payment.
+                  configuration, warranty, timing and availability remain unconfirmed. No production
+                  units are available, and this website takes no payment.
                 </p>
               </div>
               <ol className="mt-6 grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
@@ -1112,9 +1162,9 @@ function Home() {
                 <div>
                   <h3 className="font-display text-3xl">Tell us what you’re interested in</h3>
                   <p className="mt-2 text-sm leading-6 text-muted">
-                Tell us which vehicle or application interests you. All vehicle details are
-                optional; fleet, HGV, government and specialist requests are recorded for separate
-                assessment.
+                    Tell us which vehicle or application interests you. All vehicle details are
+                    optional; fleet, HGV, government and specialist requests are recorded for
+                    separate assessment.
                   </p>
                 </div>
               </div>
