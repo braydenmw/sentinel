@@ -33,16 +33,21 @@
     line-height: 1.4;
   }
 
+  .text-sm {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
   .photo-clarity {
     filter: brightness(1.42) saturate(1.12) contrast(1.02);
   }
 
   .hero-photo {
-    filter: brightness(1.58) saturate(1.14) contrast(1.03);
+    filter: brightness(1.85) saturate(1.16) contrast(1.03);
   }
 
   .photo-moody {
-    filter: brightness(0.64) saturate(0.64) contrast(1.08) sepia(0.14);
+    filter: brightness(1.25) saturate(0.95) contrast(1.02);
   }
 
   .photo-angle-right {

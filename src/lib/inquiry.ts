@@ -12,6 +12,7 @@ const inquirySchema = z
       .refine((value) => !/[\r\n]/.test(value)),
     email: z.string().trim().pipe(z.email().max(254)),
     phone: z.string().trim().max(40),
+    country: z.string().trim().max(80),
     model: z.string().trim().max(100),
     vehicle: z.string().trim().max(120),
     message: z.string().trim().max(2000),

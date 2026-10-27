@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Fragment, useEffect, useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { submitInquiry, type InquiryInput } from "@/lib/inquiry";
 
 export const Route = createFileRoute("/")({
@@ -9,21 +9,22 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Discover SENTINEL-1, a mechanical vehicle-security concept in development. Register a vehicle expression of interest or explore engineering and validation partnerships.",
+          "Explore SENTINEL-1, an independent mechanical vehicle-security concept in development. Register non-binding passenger-vehicle interest or discuss a partnership.",
       },
       { property: "og:type", content: "website" },
       { property: "og:title", content: "SENTINEL-1 | Independent Mechanical Vehicle Security" },
       {
         property: "og:description",
         content:
-          "A physical security layer for a connected vehicle world. Explore the SENTINEL-1 development programme and its vehicle-specific pathways.",
+          "A proposed mechanical security concept for parked vehicles, designed to complement existing protection. No production units are available.",
       },
       { property: "og:image", content: "/og.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "SENTINEL-1 | Independent Mechanical Vehicle Security" },
       {
         name: "twitter:description",
-        content: "A physical security layer for a connected vehicle world.",
+        content:
+          "A proposed mechanical security concept for parked vehicles, designed to complement existing protection. No production units are available.",
       },
       { name: "twitter:image", content: "/og.jpg" },
     ],
@@ -32,123 +33,90 @@ export const Route = createFileRoute("/")({
 });
 
 const NAV = [
-  ["The opportunity", "#problem"],
-  ["The concept", "#features"],
-  ["Family", "#models"],
+  ["The product", "#product"],
+  ["How it works", "#how"],
   ["Applications", "#applications"],
+  ["Engineering", "#engineering"],
   ["Development", "#development"],
-  ["Safety", "#safety"],
-  ["Partners", "#partners"],
-  ["Register interest", "#reserve"],
+  ["FAQ", "#faq"],
   ["Contact", "#contact"],
 ] as const;
 
 const MODELS = [
   {
     name: "SENTINEL-1 Vehicle",
-    body: "The first product pathway: a mechanical security concept for passenger vehicles, with an interface engineered for each vehicle rather than a universal-fit promise.",
-  },
-  {
-    name: "SENTINEL-1 Next-Stop",
-    body: "A future option exploring a controlled response after a verified theft event. Any concept would act only after the vehicle has stopped; it is not a current capability.",
+    label: "Passenger vehicles · first pathway",
+    body: "The first commercial development priority: a proposed mechanical security concept for passenger vehicles, with an interface assessment for each vehicle platform.",
+    action: "Register vehicle interest",
   },
   {
     name: "SENTINEL-1 Fleet",
-    body: "A pathway for operators who want to help define vehicle priorities, operating needs and the evidence required before any fleet application could proceed.",
-  },
-  {
-    name: "SENTINEL-1 Defence",
-    body: "A separate exploratory programme for government and specialist applications, subject to dedicated engineering, safety and government evaluation.",
+    label: "For fleet operators",
+    body: "An exploratory pathway for rental, commercial and operational fleets. Share your vehicle mix and requirements to inform future assessment.",
+    action: "Discuss a fleet application",
   },
   {
     name: "SENTINEL-1 HGV",
-    body: "A distinct heavy-vehicle concept exploring a dedicated auxiliary air supply, fully separate from shared service- and parking-brake circuits. Specialist design and safe-failure review come first.",
+    label: "Heavy vehicles · separate assessment",
+    body: "A distinct heavy-vehicle pathway requiring its own vehicle-architecture, interface and safety assessment. Heavy vehicles are not simply larger passenger cars.",
+    action: "Discuss an HGV application",
   },
-];
-
-const BENEFITS = [
-  [
-    "A separate power concept",
-    "Explores a dedicated power architecture alongside—not dependent on—the vehicle’s normal security electronics.",
-  ],
-  [
-    "A physical layer",
-    "The idea is to explore mechanical restraint as a complement to alarms, immobilisers and tracking—not a replacement.",
-  ],
-  [
-    "Engineered for the vehicle",
-    "Each vehicle platform needs its own interface assessment. SENTINEL-1 is not presented as a universal-fit device.",
-  ],
-  [
-    "Recovery considered from day one",
-    "Service access, authorised recovery and safe failure behaviour are core engineering questions.",
-  ],
-  [
-    "A clear role for technology",
-    "Optional telemetry may support oversight; the core concept is mechanical, not another tracking promise.",
-  ],
 ];
 
 const PARTNERS = [
   [
-    "Engineering & safety",
-    "Help challenge the concept, define vehicle interfaces and build an independent safety and verification plan.",
+    "Automotive engineering",
+    "Assess mechanical feasibility, vehicle interfaces, loads and installation constraints.",
   ],
   [
-    "Prototype testing",
-    "Work with us on a controlled bench demonstrator and the test evidence needed before any vehicle integration.",
+    "Safety and testing",
+    "Define hazard assessment, controlled test plans and independent review requirements.",
   ],
   [
-    "Vehicle & fleet collaborators",
-    "Share vehicle priorities, use cases and operating constraints to help guide which interfaces should be assessed first.",
+    "Vehicle and fleet partners",
+    "Share operating requirements, vehicle priorities and maintenance needs.",
   ],
   [
-    "Manufacturing & strategic partners",
-    "Bring design-for-manufacture, supply-chain or commercial expertise into the programme at the right development stage.",
+    "Manufacturing partners",
+    "Contribute design-for-manufacture, sourcing, quality and service expertise.",
+  ],
+  [
+    "Insurance and risk specialists",
+    "Help identify the evidence and risk questions relevant to a future vehicle-security product.",
+  ],
+  [
+    "Strategic and funding partners",
+    "Support a defined feasibility programme, independent assessment and development milestones.",
   ],
 ];
+
+const PREORDER_REQUEST = "SENTINEL-1 Vehicle — pre-order request";
 
 const FAQS = [
   [
-    "Can I buy or pre-order a unit now?",
-    "No. Production units have not been built and SENTINEL-1 is not available to purchase. You can register a non-binding expression of interest; it does not place an order, secure a unit or collect payment.",
+    "Can I buy SENTINEL-1 or register interest now?",
+    "Production units are not available to buy or install. You can submit a free, non-binding expression of interest for the proposed passenger-vehicle pathway; it is not an order or reservation, and no payment is taken.",
   ],
   [
-    "What does the $795 + fitting price mean?",
-    "It is an indicative target production price for the base commercial unit only—not a current offer or confirmed price. Final pricing depends on engineering and production approval.",
+    "What does the $795 + fitting target mean?",
+    "It is an indicative planning target for the proposed base passenger-vehicle configuration, not a confirmed retail price or current offer. Final price depends on engineering, vehicle-specific interfaces, manufacturing and production approval.",
   ],
   [
-    "What happens after I register?",
-    "Your details help us understand vehicle interest and the mix of applications people want. We can review your enquiry, but registration does not guarantee compatibility, availability or a production place.",
+    "Which vehicles are compatible?",
+    "No approved compatibility list is established. Each make, model, year and variant needs an engineering assessment before installation could be considered.",
   ],
   [
-    "When will it be available?",
-    "There is no confirmed launch date. A product can only be considered after the required engineering, safety, vehicle-interface and production validation.",
+    "Has SENTINEL-1 been built or tested?",
+    "No completed production unit or validated vehicle installation is being claimed. The concept remains in development; controlled testing and independent safety review must happen before any installation or launch is considered. There is no confirmed availability date.",
   ],
   [
-    "Is the vehicle compatibility known?",
-    "Not yet. Each make, model, year and variant needs a separate engineering assessment; no universal fit or approved installation is claimed.",
+    "What happens after I send a request?",
+    "We review your vehicle use case or partnership proposal and may contact you to discuss it. A pre-order request does not guarantee compatibility, availability or a production place, and does not require payment.",
   ],
   [
-    "Can my organisation become a development partner?",
-    "Yes. We welcome relevant engineering, functional-safety, test-facility, fleet and manufacturing enquiries through the form below.",
+    "Does it replace my existing alarm or immobiliser?",
+    "No. The concept is intended to complement existing vehicle security rather than replace factory systems, alarms, immobilisers or tracking equipment.",
   ],
-  [
-    "Is Next-Stop part of the first product?",
-    "No. It is a separate future concept and has not been validated. Any future response would require the vehicle to be fully stopped and independent automotive safety approval.",
-  ],
-];
-
-const PARKED = [
-  "The first use case: a mechanical restraint concept for a parked, secured vehicle.",
-  "Vehicle-specific interfaces and engagement logic must be engineered and verified.",
-  "Recovery, power-loss and safe-failure behaviour must be proven before any installation.",
-];
-
-const NEXT_STOP = [
-  "A separate future concept—not part of an available product.",
-  "Explores preventing a restart only after a verified theft event and complete stop.",
-  "No restraint may engage while a vehicle is moving; independent safety validation is essential.",
 ];
 
 const EMAIL = "brayden@adversiq.xyz";
@@ -176,9 +144,10 @@ const SOCIAL = [
   ["whatsapp", "WhatsApp"],
 ] as const;
 
-function InquiryForm() {
+function InquiryForm({ onPrivacy }: { onPrivacy: () => void }) {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [message, setMessage] = useState("");
+  const [selectedModel, setSelectedModel] = useState("");
   const prefix = "programme";
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -188,8 +157,8 @@ function InquiryForm() {
     setMessage("");
     const data = new FormData(form);
     const model = String(data.get("model") ?? "");
-    const isVehicleInterest = model === "SENTINEL-1 Vehicle";
-    const type: InquiryInput["type"] = "contact";
+    const isPreorderRequest = model === PREORDER_REQUEST;
+    const type: InquiryInput["type"] = isPreorderRequest ? "pre-order" : "contact";
     try {
       const result = await submitInquiry({
         data: {
@@ -197,8 +166,17 @@ function InquiryForm() {
           name: String(data.get("name") ?? ""),
           email: String(data.get("email") ?? ""),
           phone: String(data.get("phone") ?? ""),
+          country: String(data.get("country") ?? ""),
           model: String(data.get("model") ?? ""),
-          vehicle: String(data.get("vehicle") ?? ""),
+          vehicle: [
+            ["Make", data.get("vehicleMake")],
+            ["Model", data.get("vehicleModel")],
+            ["Year", data.get("vehicleYear")],
+            ["Variant", data.get("vehicleVariant")],
+          ]
+            .filter(([, value]) => String(value ?? "").trim())
+            .map(([label, value]) => `${label}: ${String(value).trim()}`)
+            .join("; "),
           message: String(data.get("message") ?? ""),
           termsAccepted: data.get("termsAccepted") === "on",
           website: String(data.get("website") ?? ""),
@@ -211,8 +189,8 @@ function InquiryForm() {
       }
       setStatus("sent");
       setMessage(
-        isVehicleInterest
-          ? "Thanks for registering your interest. This is not an order or reservation; we’ll review your vehicle details and be in touch."
+        isPreorderRequest
+          ? "Thank you. Your non-binding interest has been submitted for review. It is not an accepted order, reservation or production place, and no payment has been taken. We may contact you about the vehicle pathway."
           : "Thank you. Your enquiry has been sent, and we’ll be in touch.",
       );
       form.reset();
@@ -233,99 +211,131 @@ function InquiryForm() {
   }
 
   const inputClass =
-    "min-h-11 border border-border bg-bg px-3 text-sm tracking-normal text-fg normal-case";
+    "min-h-11 w-full min-w-0 border border-border bg-bg px-3 text-sm tracking-normal text-fg normal-case";
 
   return (
     <form className="mt-8 grid gap-4" onSubmit={handleSubmit}>
+      <div className="grid gap-4 sm:grid-cols-2">
+        <label
+          className="grid min-w-0 gap-2 text-xs tracking-widest text-bronze uppercase"
+          htmlFor={`${prefix}-name`}
+        >
+          Full name
+          <input
+            id={`${prefix}-name`}
+            required
+            maxLength={100}
+            name="name"
+            autoComplete="name"
+            className={inputClass}
+          />
+        </label>
+        <label
+          className="grid min-w-0 gap-2 text-xs tracking-widest text-bronze uppercase"
+          htmlFor={`${prefix}-email`}
+        >
+          Email
+          <input
+            id={`${prefix}-email`}
+            required
+            type="email"
+            maxLength={254}
+            name="email"
+            autoComplete="email"
+            className={inputClass}
+          />
+        </label>
+        <label
+          className="grid min-w-0 gap-2 text-xs tracking-widest text-bronze uppercase"
+          htmlFor={`${prefix}-phone`}
+        >
+          Phone <span className="text-muted normal-case">(optional)</span>
+          <input
+            id={`${prefix}-phone`}
+            type="tel"
+            maxLength={40}
+            name="phone"
+            autoComplete="tel"
+            className={inputClass}
+          />
+        </label>
+        <label
+          className="grid min-w-0 gap-2 text-xs tracking-widest text-bronze uppercase"
+          htmlFor={`${prefix}-country`}
+        >
+          Country <span className="text-muted normal-case">(optional)</span>
+          <input
+            id={`${prefix}-country`}
+            name="country"
+            maxLength={80}
+            autoComplete="country-name"
+            className={inputClass}
+          />
+        </label>
+      </div>
       <label
-        className="grid gap-2 text-xs tracking-widest text-bronze uppercase"
-        htmlFor={`${prefix}-name`}
-      >
-        Name
-        <input
-          id={`${prefix}-name`}
-          required
-          maxLength={100}
-          name="name"
-          autoComplete="name"
-          className={inputClass}
-        />
-      </label>
-      <label
-        className="grid gap-2 text-xs tracking-widest text-bronze uppercase"
-        htmlFor={`${prefix}-email`}
-      >
-        Email
-        <input
-          id={`${prefix}-email`}
-          required
-          type="email"
-          maxLength={254}
-          name="email"
-          autoComplete="email"
-          className={inputClass}
-        />
-      </label>
-      <label
-        className="grid gap-2 text-xs tracking-widest text-bronze uppercase"
-        htmlFor={`${prefix}-phone`}
-      >
-        Phone <span className="text-muted normal-case">(optional)</span>
-        <input
-          id={`${prefix}-phone`}
-          type="tel"
-          maxLength={40}
-          name="phone"
-          autoComplete="tel"
-          className={inputClass}
-        />
-      </label>
-      <label
-        className="grid gap-2 text-xs tracking-widest text-bronze uppercase"
+        className="grid min-w-0 gap-2 text-xs tracking-widest text-bronze uppercase"
         htmlFor={`${prefix}-model`}
       >
-        I’m interested in / enquiring about
+        I’m contacting you about
         <select
           id={`${prefix}-model`}
           name="model"
-          defaultValue={MODELS[0].name}
+          required
+          value={selectedModel}
+          onChange={(event) => setSelectedModel(event.target.value)}
           className={inputClass}
         >
-          {MODELS.map((model) => (
-            <option key={model.name}>{model.name}</option>
-          ))}
-          <option>Engineering / safety-validation partnership</option>
-          <option>Testing / validation facility partnership</option>
-          <option>Vehicle / fleet development partnership</option>
-          <option>Manufacturing / strategic partnership</option>
+          <option value="">Choose an enquiry type</option>
+          <optgroup label="Vehicle interest">
+            <option value={PREORDER_REQUEST}>Passenger-vehicle pre-order interest</option>
+            <option>Fleet application</option>
+            <option>HGV / heavy-vehicle application</option>
+            <option>Government / specialist application</option>
+            <option>General vehicle enquiry</option>
+          </optgroup>
+          <optgroup label="Partnership">
+            <option>Engineering / safety-validation partnership</option>
+            <option>Testing / validation facility partnership</option>
+            <option>Vehicle / fleet partnership</option>
+            <option>Manufacturing / strategic partnership</option>
+          </optgroup>
         </select>
       </label>
-      <label
-        className="grid gap-2 text-xs tracking-widest text-bronze uppercase"
-        htmlFor={`${prefix}-vehicle`}
-      >
-        Vehicle / organisation <span className="text-muted normal-case">(optional)</span>
-        <input
-          id={`${prefix}-vehicle`}
-          maxLength={120}
-          name="vehicle"
-          placeholder="Make, model, year, fleet or organisation"
-          className={inputClass}
-        />
-      </label>
+      <fieldset className="grid gap-3">
+        <legend className="text-xs tracking-widest text-bronze uppercase">
+          Vehicle details <span className="text-muted normal-case">(optional)</span>
+        </legend>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {[
+            ["vehicleMake", "Make", 30],
+            ["vehicleModel", "Model", 30],
+            ["vehicleYear", "Year", 4],
+            ["vehicleVariant", "Variant / drivetrain", 20],
+          ].map(([name, label, maxLength]) => (
+            <label
+              key={name}
+              className="grid min-w-0 gap-2 text-xs tracking-widest text-muted uppercase"
+            >
+              {label}
+              <input name={String(name)} maxLength={Number(maxLength)} className={inputClass} />
+            </label>
+          ))}
+        </div>
+      </fieldset>
       <label
         className="grid gap-2 text-xs tracking-widest text-bronze uppercase"
         htmlFor={`${prefix}-message`}
       >
-        Variant, intended use, preferred configuration or enquiry details{" "}
+        Organisation, fleet size or additional details{" "}
         <span className="text-muted normal-case">(optional)</span>
         <textarea
           id={`${prefix}-message`}
           name="message"
           rows={4}
           maxLength={2000}
-          placeholder="Share any details you would like us to consider."
-          className="border border-border bg-bg px-3 py-2 text-sm tracking-normal text-fg normal-case"
+          placeholder="Share your organisation, fleet size, application or partnership interests."
+          className="min-w-0 border border-border bg-bg px-3 py-2 text-sm tracking-normal text-fg normal-case"
         />
       </label>
       <label className="sr-only" aria-hidden="true">
@@ -340,14 +350,19 @@ function InquiryForm() {
           className="mt-1 size-4 accent-bronze"
         />
         <span>
-          I understand this is an enquiry about a development-stage concept, and agree that my
-          details may be used to respond to this request. See the{" "}
-          <a href="#privacy" className="underline">
-            Privacy notice
-          </a>
-          .
+          I understand this is a non-binding expression of interest or development enquiry, not an
+          accepted order. No payment is taken; compatibility, price, timing and availability are
+          unconfirmed. I agree my details may be used to respond to this enquiry. See the Privacy
+          Notice below.
         </span>
       </label>
+      <button
+        type="button"
+        onClick={onPrivacy}
+        className="min-h-11 w-fit text-sm underline underline-offset-4"
+      >
+        Read the Privacy Notice
+      </button>
       {status === "error" && (
         <p role="alert" className="border border-red-400/40 bg-red-400/10 p-4 text-sm leading-6">
           {message}{" "}
@@ -366,7 +381,11 @@ function InquiryForm() {
         disabled={status === "sending"}
         className="mt-2 min-h-11 w-fit bg-bronze px-6 text-sm tracking-widest text-bg uppercase disabled:cursor-wait disabled:opacity-60"
       >
-        {status === "sending" ? "Sending…" : "Send my enquiry"}
+        {status === "sending"
+          ? "Sending…"
+          : selectedModel === PREORDER_REQUEST
+            ? "Submit my interest"
+            : "Submit my enquiry"}
       </button>
     </form>
   );
@@ -478,38 +497,37 @@ function Home() {
               SENTINEL-1
             </span>
           </a>
-          <nav className="hidden items-center gap-6 text-xs tracking-widest text-fg/80 uppercase xl:flex">
+          <div className="flex items-center gap-3">
+            <a
+              href="#reserve"
+              className="inline-flex min-h-11 items-center bg-bronze px-4 text-xs tracking-widest text-bg uppercase"
+            >
+              Register interest
+            </a>
+            <button
+              type="button"
+              className="min-h-11 border border-border px-4 text-xs tracking-widest uppercase"
+              aria-expanded={open}
+              aria-controls="site-menu"
+              onClick={() => setOpen((v) => !v)}
+            >
+              {open ? "Close" : "Menu"}
+            </button>
+          </div>
+        </div>
+        {open && (
+          <nav
+            id="site-menu"
+            aria-label="Main navigation"
+            className="absolute top-full right-4 z-30 flex w-64 flex-col border border-border bg-surface p-3 text-sm tracking-widest uppercase shadow-xl sm:right-8"
+          >
             {NAV.map(([label, href]) => (
               <a
                 key={href}
                 href={href}
-                className={
-                  href === "#reserve"
-                    ? "inline-flex min-h-11 items-center bg-bronze px-4 text-bg"
-                    : "transition-colors duration-200 hover:text-fg"
-                }
+                className="min-h-11 px-3 py-3 transition-colors hover:bg-raised hover:text-bronze"
+                onClick={() => setOpen(false)}
               >
-                {label}
-              </a>
-            ))}
-          </nav>
-          <button
-            type="button"
-            className="min-h-11 px-2 text-xs tracking-widest uppercase xl:hidden"
-            aria-expanded={open}
-            aria-controls="mobile-nav"
-            onClick={() => setOpen((v) => !v)}
-          >
-            {open ? "Close" : "Menu"}
-          </button>
-        </div>
-        {open && (
-          <nav
-            id="mobile-nav"
-            className="flex flex-col border-t border-border px-5 py-2 text-sm tracking-widest uppercase xl:hidden"
-          >
-            {NAV.map(([label, href]) => (
-              <a key={href} href={href} className="py-3" onClick={() => setOpen(false)}>
                 {label}
               </a>
             ))}
@@ -517,324 +535,380 @@ function Home() {
         )}
       </header>
 
-      <section id="top" className="relative flex min-h-dvh items-end">
+      <section id="top" className="relative isolate min-h-dvh overflow-hidden border-b border-border bg-bg pt-16">
         <img
           src="/img/driveway.jpg"
-          alt="A dark sedan parked in a wet suburban driveway at night"
-          className="hero-photo absolute inset-0 h-full w-full object-cover"
+          alt=""
+          aria-hidden="true"
+          className="hero-photo absolute inset-0 -z-20 h-full w-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-linear-to-t from-bg/85 via-bg/55 to-bg/15" />
-        <div className="absolute inset-0 bg-linear-to-l from-bg/80 via-bg/45 to-transparent" />
-        <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pt-28 pb-16 sm:px-8 sm:pb-20 md:text-right">
-          <h1 className="mt-4 ml-auto max-w-4xl font-display text-6xl leading-none font-medium tracking-tight sm:text-8xl">
-            A new layer for vehicle <span className="text-bronze">security.</span>
-          </h1>
-          <p className="mt-6 ml-auto max-w-xl text-lg leading-7 text-fg/90">
-            SENTINEL-1 explores an independently powered mechanical restraint to complement the
-            alarms, immobilisers and tracking drivers already rely on.
-          </p>
-          <p className="mt-5 ml-auto font-display text-2xl text-bronze">
-            The vehicle itself, part of the defence.
-          </p>
-        </div>
-      </section>
-
-      <section id="problem" className="scroll-mt-20 bg-photo-surface text-photo-ink">
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-24 sm:px-8 lg:grid-cols-2 lg:items-center">
-          <div>
-            <p className="section-kicker text-xs tracking-widest text-sage uppercase">
-              The opportunity
+        <div className="absolute inset-0 -z-10 bg-bg/10" />
+        <div className="absolute inset-0 -z-10 bg-linear-to-r from-bg/30 via-bg/5 to-bg/15" />
+        <div className="relative mx-auto flex min-h-dvh max-w-7xl items-center px-5 py-16 sm:px-8">
+          <div className="max-w-3xl border-l-2 border-bronze bg-bg/45 p-5 backdrop-blur-sm sm:p-8">
+            <p className="text-xs tracking-widest text-bronze uppercase">
+              Independent mechanical vehicle security
             </p>
-            <h2 className="mt-3 font-display text-5xl leading-none sm:text-6xl">
-              Alerts tell you. A physical layer could do more.
+            <h1 className="mt-4 whitespace-nowrap font-word text-4xl tracking-widest text-fg sm:text-6xl">
+              SENTINEL-1
+            </h1>
+            <h2 className="mt-4 max-w-2xl font-display text-5xl leading-none sm:text-6xl">
+              Add a physical layer to vehicle <span className="text-bronze">security.</span>
             </h2>
-            <div className="mt-6 space-y-4 text-base leading-7 text-photo-muted">
-              <p>
-                Alarms alert. Trackers locate. SENTINEL-1 asks a different question: could a
-                vehicle have an independent mechanical layer as well?
-              </p>
-              <p>
-                The concept is designed to complement—not replace—a vehicle’s existing security.
-                Its aim is a vehicle-specific mechanical restraint, developed separately from the
-                vehicle’s conventional electronic architecture.
-              </p>
+            <p className="mt-6 max-w-xl text-lg leading-7 text-fg/90">
+              Your vehicle already has alarms, an immobiliser and electronic security. SENTINEL-1 is
+              being developed around a different idea: an independently powered mechanical restraint
+              for parked vehicles, designed to complement—not replace—existing protection.
+            </p>
+            <p className="mt-3 max-w-xl text-sm leading-6 text-muted">
+              Passenger-vehicle development pathway · Indicative target production price
+            </p>
+            <p className="mt-1 font-display text-4xl text-bronze">
+              $795 <span className="text-2xl">+ fitting</span>
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a
+                href="#reserve"
+                className="inline-flex min-h-11 items-center bg-bronze px-5 text-xs tracking-widest text-bg uppercase"
+              >
+                Register pre-order interest
+              </a>
+              <a
+                href="#product"
+                className="inline-flex min-h-11 items-center border border-fg/50 px-5 text-xs tracking-widest uppercase transition-colors hover:border-bronze hover:text-bronze"
+              >
+                Explore the product
+              </a>
             </div>
+            <p className="mt-4 max-w-xl text-xs leading-5 text-fg/75">
+              Planning target only—not a confirmed retail price or offer. Development-stage project;
+              no production units are available. Price, fit, timing and availability remain
+              unconfirmed. Registration is free and non-binding; no payment is taken.
+            </p>
           </div>
-          <img
-            src="/img/relay.jpg"
-            alt="A key fob beside a small electronic relay device on a car seat"
-            className="photo-clarity photo-angle-right h-full max-h-96 w-full object-cover outline outline-1 -outline-offset-1 outline-photo-border"
-          />
         </div>
       </section>
 
-      <section className="relative min-h-[70vh]">
+      <section id="problem" className="relative isolate scroll-mt-20 overflow-hidden text-fg">
         <img
-          src="/img/empty.jpg"
-          alt="An empty driveway at dawn, with tyre marks where a car used to be"
-          className="photo-clarity absolute inset-0 h-full w-full object-cover object-[56%_center]"
+          src="/img/relay.jpg"
+          alt=""
+          aria-hidden="true"
+          className="photo-moody absolute inset-0 -z-20 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-linear-to-t from-bg/85 via-bg/55 to-bg/20" />
-        <div className="relative mx-auto flex min-h-[70vh] max-w-4xl flex-col justify-end px-5 py-20 sm:px-8">
-          <h2 className="font-display text-5xl leading-none sm:text-7xl">
-            More than a notification.
-          </h2>
-          <p className="mt-6 max-w-xl text-lg leading-7">
-            For an owner, a fleet or a business, a stolen vehicle means lost time as well as lost
-            property. SENTINEL-1 is exploring whether mechanical restraint can add another layer to
-            the security conversation.
-          </p>
-        </div>
-      </section>
-
-      <section id="solution" className="border-y border-border bg-surface">
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 py-24 sm:px-8 lg:grid-cols-2 lg:items-center">
-          <figure>
-            <img
-              id="unitImage"
-              src="/img/unit.jpg"
-              alt="Concept image of the SENTINEL-1 mechanical security enclosure"
-              className="photo-clarity photo-angle-left w-full object-cover outline outline-1 -outline-offset-1 outline-border"
-            />
-            <figcaption className="mt-3 text-xs tracking-widest text-muted uppercase">
-              Early concept image — no production unit or vehicle installation is available.
-            </figcaption>
-          </figure>
+        <div className="absolute inset-0 -z-10 bg-bg/55" />
+        <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-8">
           <div>
             <p className="section-kicker text-xs tracking-widest text-bronze uppercase">
-              The security core
+              The security question
             </p>
-            <h2 className="mt-3 font-display text-5xl leading-none sm:text-6xl">
-              One security core. A fit engineered for each vehicle.
+            <h2 className="mt-3 max-w-4xl font-display text-5xl leading-none sm:text-6xl">
+              Your vehicle has electronic security. What about a physical layer?
             </h2>
-            <p className="mt-6 text-base leading-7 text-fg/85">
-              The ambition is simple: develop a compact mechanical security core, then engineer the
-              right interface for each vehicle. That vehicle-specific approach is intended to keep
-              SENTINEL-1 separate from the vehicle’s conventional electronic security systems.
+            <div className="mt-10 grid gap-px bg-fg/20 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                ["Alarms", "Alert when a security event is detected."],
+                ["Tracking", "Can help locate a vehicle when the system is active and accessible."],
+                ["Immobilisers", "Restrict authorised starting through vehicle electronics."],
+                [
+                  "SENTINEL-1",
+                  "Explores a separately powered mechanical restraint concept for a parked vehicle.",
+                ],
+              ].map(([title, body]) => (
+                <article key={title} className="bg-bg/85 p-6 backdrop-blur-sm">
+                  <h3 className="font-display text-2xl">{title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-fg/80">{body}</p>
+                </article>
+              ))}
+            </div>
+            <p className="mt-8 max-w-3xl border-l-2 border-bronze pl-5 text-base leading-7 text-fg/80">
+              The engineering proposition is to investigate whether a mechanical layer can add
+              value alongside existing protection. This is a development objective—not a claim of
+              proven theft prevention or demonstrated performance.
             </p>
-            <ul className="mt-6 space-y-3 text-sm leading-6 text-muted">
-              <li>One core concept, with a tailored interface for each approved vehicle platform.</li>
-              <li>Independent power, service access and authorised recovery are design priorities.</li>
-              <li>Bench testing and safety evidence must come before any vehicle installation.</li>
-            </ul>
             <a
-              href="#safety"
-              className="mt-8 inline-flex min-h-11 items-center border border-bronze px-5 text-xs tracking-widest text-bronze uppercase"
+              href="#product"
+              className="mt-7 inline-flex min-h-11 items-center border border-fg/50 px-5 text-xs tracking-widest uppercase transition-colors hover:border-bronze hover:text-bronze"
             >
-              See what must be proven
+              Discover SENTINEL-1
             </a>
           </div>
         </div>
       </section>
 
-      <section className="bg-photo-surface text-photo-ink">
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 py-24 sm:px-8 lg:grid-cols-2 lg:items-center">
-          <div>
-            <p className="section-kicker text-xs tracking-widest text-sage uppercase">
-              Two development pathways
-            </p>
-            <h2 className="mt-3 font-display text-5xl leading-none sm:text-6xl">
-              Start with parked security. Explore what comes next.
-            </h2>
-            <div className="mt-6 space-y-4 text-base leading-7 text-photo-muted">
-              <p>
-                <strong>01 — Parked security.</strong> The first pathway explores a mechanical
-                restraint for a parked, secured vehicle—adding a physical design layer alongside
-                its existing electronic protection.
+      <section id="product" className="scroll-mt-20 border-y border-border bg-surface">
+        <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
+          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+            <figure className="border border-border bg-bg p-4 sm:p-6">
+              <img
+                src="/img/unit-bench.jpg"
+                alt="Illustrative rendering of a proposed SENTINEL-1 enclosure on a workshop bench; no physical unit has been built"
+                className="w-full object-contain"
+              />
+              <figcaption className="mt-4 text-center text-xs tracking-widest text-muted uppercase">
+                Product concept visual · not a built or tested unit
+              </figcaption>
+            </figure>
+            <div>
+              <p className="section-kicker text-xs tracking-widest text-bronze uppercase">
+                Meet SENTINEL-1
               </p>
-              <p>
-                <strong>02 — Next-Stop.</strong> A future, separate concept could explore
-                preventing a restart after a verified theft event and a complete stop. No
-                mechanism may engage while a vehicle is moving; this pathway needs independent
-                automotive safety validation.
-              </p>
-              <p className="border-l-2 border-photo-bronze pl-4">
-                Neither pathway is a validated product feature. No moving-vehicle or public-road
-                testing is authorised.
+              <h2 className="mt-3 max-w-4xl font-display text-5xl leading-none sm:text-6xl">
+                A mechanical security concept, designed around the vehicle.
+              </h2>
+              <p className="mt-6 max-w-3xl text-base leading-7 text-fg/85">
+                The proposed system centres on a mechanical restraint, independent power and
+                controlled recovery. These principles guide development; they are not verified
+                capabilities of a finished product.
               </p>
             </div>
           </div>
-          <figure>
-            <img
-              src="/img/relay-attack.jpg"
-              alt="A person at a car door at night using a small electronic relay device"
-              className="photo-clarity photo-angle-right w-full object-cover object-[58%_center] outline outline-1 -outline-offset-1 outline-photo-border"
-            />
-            <figcaption className="mt-3 text-xs tracking-widest text-photo-bronze uppercase">
-              Illustrative security scenario. No SENTINEL-1 performance claim.
-            </figcaption>
-          </figure>
+          <ol className="mt-10 grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              [
+                "01",
+                "Independent architecture",
+                "The primary design objective is to operate separately from conventional vehicle-security electronics.",
+              ],
+              [
+                "02",
+                "Physical restraint",
+                "Explore a mechanical restraint for a parked vehicle as a complement to existing protection.",
+              ],
+              [
+                "03",
+                "Vehicle-specific engineering",
+                "Assess an interface for each selected platform; no universal fit is claimed.",
+              ],
+              [
+                "04",
+                "Controlled authorisation",
+                "Define how authorisation, fault handling and mechanism state should be managed and verified.",
+              ],
+              [
+                "05",
+                "Service and recovery",
+                "Account for maintenance, power loss, mechanical faults and authorised recovery before installation.",
+              ],
+            ].map(([number, title, body]) => (
+              <li key={number} className="bg-bg p-6 sm:p-8">
+                <span className="font-display text-2xl text-bronze">{number}</span>
+                <h3 className="mt-3 font-display text-2xl">{title}</h3>
+                <p className="mt-3 text-sm leading-6 text-muted">{body}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
-      <section id="difference" className="scroll-mt-20 border-y border-border bg-surface">
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-24 sm:px-8 lg:grid-cols-2 lg:items-center">
-          <div>
-            <p className="section-kicker text-xs tracking-widest text-bronze uppercase">
-              Why SENTINEL-1?
-            </p>
-            <h2 className="mt-3 font-display text-5xl leading-none sm:text-6xl">
-              A different layer. A clear purpose.
-            </h2>
-          </div>
-          <div className="space-y-4 text-base leading-7 text-muted">
-            <p>
-              A security concept is only valuable if it fits the way a vehicle is actually used.
-            </p>
-            <p>
-              That is why the first questions are practical: which vehicles should be prioritised,
-              how should service and recovery work, and what evidence would make a physical layer
-              worth trusting?
-            </p>
-            <p className="font-display text-2xl tracking-wide text-bronze">
-              The right questions come before the first installation.
-            </p>
-            <p className="text-sm">
-              Vehicle owners, fleet operators and technical partners can help shape those
-              priorities now.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="models" className="scroll-mt-20 mx-auto max-w-7xl px-5 py-24 sm:px-8">
-        <p className="section-kicker text-xs tracking-widest text-bronze uppercase">
-          The SENTINEL-1 family
-        </p>
-        <h2 className="mt-3 font-display text-5xl leading-none sm:text-6xl">
-          Different vehicles. A tailored development path.
-        </h2>
-        <div className="mt-12 grid gap-px bg-border md:grid-cols-2">
-          {MODELS.map((model, i) => (
-            <Fragment key={model.name}>
-              <article className="bg-bg p-8">
-                <p className="text-xs tracking-widest text-muted">0{i + 1}</p>
-                <h3 className="mt-4 font-display text-4xl">{model.name}</h3>
-                <p className="mt-4 max-w-md text-sm leading-6 text-muted">{model.body}</p>
-                {model.name === "SENTINEL-1 Vehicle" && (
-                  <>
-                    <p className="mt-4 text-sm text-bronze">
-                      Indicative target: $795 + fitting
-                    </p>
-                    <p className="mt-2 text-xs leading-5 text-muted">
-                      Indicative target for the base commercial unit only; not an offer or confirmed
-                      price.
-                    </p>
-                  </>
-                )}
-                {model.name === "SENTINEL-1 Next-Stop" && (
-                  <p className="mt-4 text-sm text-bronze">Next-Stop configuration: POA</p>
-                )}
-                {model.name === "SENTINEL-1 Defence" && (
-                  <p className="mt-4 text-sm text-bronze">Military and government pricing: POA</p>
-                )}
-                {model.name === "SENTINEL-1 HGV" && (
-                  <p className="mt-4 text-sm text-bronze">Truck / HGV pricing: POA</p>
-                )}
-              </article>
-              {model.name === "SENTINEL-1 HGV" && (
-                <figure
-                  key="hgv-unit-photo"
-                  className="min-h-full overflow-hidden border border-border bg-surface"
-                >
-                  <img
-                    src="/img/unit-bench.jpg"
-                    alt="Illustrative rendering of a possible SENTINEL-1 enclosure on a workshop bench; no physical unit has been built"
-                    className="h-full min-h-64 w-full object-cover"
-                    loading="lazy"
-                  />
-                      <figcaption className="px-4 py-3 text-xs leading-5 text-muted">
-                        Illustrative concept rendering—not a built or tested unit.
-                      </figcaption>
-                </figure>
-              )}
-            </Fragment>
-          ))}
-        </div>
-      </section>
-
-      <section id="fleet" className="relative min-h-[68vh] scroll-mt-20">
+      <section id="how" className="relative isolate scroll-mt-20 overflow-hidden border-y border-border">
         <img
-          src="/img/fleet-operations.jpeg"
-          alt="A range of fleet vehicles including cars, vans, a truck, bus, heavy equipment and agricultural machinery at dusk"
-          className="photo-clarity absolute inset-0 h-full w-full object-cover object-[center_54%]"
+          src="/img/secure.jpg"
+          alt=""
+          aria-hidden="true"
+          className="photo-moody absolute inset-0 -z-20 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-linear-to-r from-bg/75 via-bg/50 to-bg/20" />
-        <div className="relative mx-auto flex min-h-[68vh] max-w-7xl flex-col justify-center px-5 py-20 sm:px-8">
-          <p className="section-kicker text-xs tracking-widest text-bronze uppercase">
-            For fleet operators
+        <div className="absolute inset-0 -z-10 bg-bg/55" />
+        <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-8">
+          <div>
+              <p className="section-kicker text-xs tracking-widest text-bronze uppercase">
+                How it works
+              </p>
+              <h2 className="mt-3 max-w-4xl font-display text-5xl leading-none sm:text-6xl">
+                Designed around the moment a vehicle is parked.
+              </h2>
+              <p className="mt-5 max-w-3xl text-base leading-7 text-muted">
+                The first development priority is parked-vehicle security. These are intended
+                stages and requirements—not confirmed product operation.
+              </p>
+          </div>
+          <ol className="mt-10 grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              [
+                "01",
+                "Vehicle secured",
+                "The intended use case begins with a parked vehicle and secure-state conditions to be defined.",
+              ],
+              [
+                "02",
+                "Authorised",
+                "A proposed control architecture would manage authorisation and system state.",
+              ],
+              [
+                "03",
+                "Restraint concept",
+                "A vehicle-specific mechanical restraint is being explored as an additional physical layer.",
+              ],
+              [
+                "04",
+                "Recovery planned",
+                "Service, fault handling, power loss and authorised recovery must be addressed in the design.",
+              ],
+            ].map(([number, title, body]) => (
+              <li key={number} className="bg-surface p-6 sm:p-8">
+                <span className="font-display text-3xl text-bronze">{number}</span>
+                <h3 className="mt-4 font-display text-2xl">{title}</h3>
+                <p className="mt-3 text-sm leading-6 text-muted">{body}</p>
+              </li>
+            ))}
+          </ol>
+          <p className="mt-8 max-w-3xl border-l-2 border-bronze pl-5 text-sm leading-6 text-muted">
+            Operation, safe engagement and disengagement, interface integrity and recovery must be
+            demonstrated and independently assessed before any installation is considered.
           </p>
-          <h2 className="mt-3 max-w-xl font-display text-5xl leading-none sm:text-6xl">
-            Explore applications beyond passenger cars.
-          </h2>
-          <p className="mt-6 max-w-md text-sm leading-6 text-fg/80">
-            SENTINEL-1 is being explored as a vehicle-security concept for a wider range of vehicles
-            and fleets. Register interest and share the vehicle types, operating conditions and
-            requirements that should guide future assessment.
-          </p>
-          <ul className="mt-6 max-w-md space-y-3 text-sm leading-6">
-            <li>Passenger, rental and commercial vehicle fleets</li>
-            <li>Pickups, utes, vans, trucks and heavy goods vehicles</li>
-            <li>Specialist, high-value transport and other operational vehicles</li>
-            <li>Government and security-sensitive fleets</li>
-          </ul>
-          <p className="mt-6 max-w-md text-sm leading-6 text-fg/80">
-            No fleet-ready product or installation is currently available, and fleet deployment is
-            not authorised. Each vehicle platform requires its own engineering and safety
-            assessment; no universal-fit compatibility or validated fleet installation is claimed.
-          </p>
-          <a
-            href={`mailto:${EMAIL}?subject=${encodeURIComponent("SENTINEL-1 fleet programme enquiry")}`}
-            className="mt-8 inline-flex min-h-11 w-fit items-center border border-fg/40 px-6 text-sm tracking-widest uppercase"
-          >
-            Register fleet interest
-          </a>
         </div>
       </section>
 
       <section id="applications" className="scroll-mt-20">
-        <div className="relative isolate min-h-[70vh] overflow-hidden">
+        <div className="relative isolate overflow-hidden">
           <img
-            src="/img/military-application.png"
-            alt="Illustrative military scene at sunset with a service member, military vehicle and helicopter"
-            className="photo-clarity absolute inset-0 -z-20 h-full w-full object-cover object-[62%_center]"
-            loading="lazy"
+            src="/img/fleet-operations.jpeg"
+            alt=""
+            aria-hidden="true"
+            className="photo-moody absolute inset-0 -z-20 h-full w-full object-cover"
           />
-          <div className="absolute inset-0 -z-10 bg-linear-to-t from-bg/90 via-bg/45 to-bg/10 lg:bg-linear-to-l lg:from-bg/90 lg:via-bg/60 lg:to-bg/10" />
-          <div className="mx-auto flex min-h-[70vh] max-w-7xl items-end px-5 py-16 sm:px-8 lg:items-center lg:py-24">
-            <div id="defence" className="max-w-2xl scroll-mt-24 lg:ml-auto lg:text-right">
-              <p className="section-kicker text-xs tracking-widest text-bronze uppercase">
-                Government & specialist applications
-              </p>
-              <h2 className="mt-3 font-display text-5xl leading-none sm:text-6xl">
-                A dedicated military pathway.
-              </h2>
-              <p className="mt-5 text-base leading-7 text-fg/90">
-                We are open to controlled discussions with government and defence organisations
-                about specialist vehicle needs and what a separate evaluation pathway would
-                require.
-              </p>
-              <p className="mt-6 font-display text-3xl text-bronze">Military unit pricing: POA</p>
-              <p className="mt-3 text-sm leading-6 text-fg/80">
-                This is an exploratory concept, not a fielded or certified defence product. Any
-                application requires its own engineering, safety and government review.
-              </p>
-              <a
-                href={`mailto:${EMAIL}?subject=${encodeURIComponent("SENTINEL-1 military application enquiry")}`}
-                className="mt-7 inline-flex min-h-11 items-center border border-fg/50 bg-bg/30 px-5 text-sm tracking-widest uppercase transition-colors hover:border-bronze hover:text-bronze"
-              >
-                Discuss a military application
-              </a>
-            </div>
+          <div className="absolute inset-0 -z-10 bg-bg/50" />
+          <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-8">
+            <p className="section-kicker text-xs tracking-widest text-bronze uppercase">
+              The SENTINEL-1 product family
+            </p>
+            <h2 className="mt-3 max-w-4xl font-display text-5xl leading-none sm:text-6xl">
+              One core concept. Separate application pathways.
+            </h2>
+            <p className="mt-5 max-w-3xl text-sm leading-6 text-fg/85">
+              These are planned product and application categories—not confirmed configurations,
+              approved installations or commercially available products.
+            </p>
           </div>
         </div>
-        <p className="photo-caption mx-auto max-w-7xl px-5 py-3 pl-4 text-xs leading-5 text-muted sm:px-8">
-          Illustrative AI-generated image; SENTINEL-1 is not installed on the depicted vehicle.
-        </p>
+        <div className="mx-auto grid max-w-7xl gap-px bg-border px-5 pb-12 sm:px-8 md:grid-cols-2">
+          {MODELS.map((model, index) => (
+            <article key={model.name} className="flex flex-col items-start bg-bg p-7 sm:p-9">
+              <p className="text-xs tracking-widest text-bronze uppercase">{model.label}</p>
+              <h3 className="mt-4 font-display text-3xl">{model.name}</h3>
+              <p className="mt-3 max-w-xl flex-1 text-sm leading-6 text-muted">{model.body}</p>
+              {index === 0 && (
+                <p className="mt-5 border-l-2 border-bronze pl-4 text-sm leading-6">
+                  Indicative target: <strong className="text-bronze">$795 + fitting</strong>
+                  <span className="block text-xs text-muted">
+                    Planning target only; not a current offer or confirmed retail price.
+                  </span>
+                </p>
+              )}
+              <a
+                href="#reserve"
+                className={`mt-6 inline-flex min-h-11 items-center px-5 text-xs tracking-widest uppercase ${
+                  index === 0
+                    ? "bg-bronze text-bg"
+                    : "border border-border text-fg hover:border-bronze hover:text-bronze"
+                }`}
+              >
+                {model.action}
+              </a>
+            </article>
+          ))}
+        </div>
+        <div className="relative isolate overflow-hidden">
+          <img
+            src="/img/military-application.png"
+            alt=""
+            aria-hidden="true"
+            className="photo-moody absolute inset-0 -z-20 h-full w-full object-cover object-center"
+          />
+          <div className="absolute inset-0 -z-10 bg-bg/50" />
+          <div className="relative mx-auto max-w-7xl px-5 py-16 sm:px-8">
+            <p className="text-xs tracking-widest text-bronze uppercase">
+              Exploratory applications
+            </p>
+            <h3 className="mt-3 max-w-3xl font-display text-4xl leading-tight sm:text-5xl">
+              Specialist and government pathways require their own assessment.
+            </h3>
+            <p className="mt-4 max-w-3xl text-sm leading-6 text-fg/85">
+              Any potential specialist or government use would require a separately defined,
+              properly governed engineering and evaluation programme.
+            </p>
+            <a
+              href="#reserve"
+              className="mt-6 inline-flex min-h-11 items-center border border-fg/50 px-5 text-xs tracking-widest uppercase transition-colors hover:border-bronze hover:text-bronze"
+            >
+              Discuss a specialist application
+            </a>
+          </div>
+        </div>
       </section>
 
-      <section id="safety" className="scroll-mt-20 border-b border-border">
+      <section id="engineering" className="scroll-mt-20 border-y border-border bg-surface">
         <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
+          <p className="section-kicker text-xs tracking-widest text-bronze uppercase">
+            Engineering approach
+          </p>
+          <h2 className="mt-3 max-w-4xl font-display text-5xl leading-none sm:text-6xl">
+            A product must earn confidence through evidence.
+          </h2>
+          <p className="mt-5 max-w-3xl text-base leading-7 text-muted">
+            The concept is being assessed across its mechanical design, vehicle interfaces, power,
+            controls, recovery and environmental durability. These are engineering topics for
+            development—not verified product features.
+          </p>
+          <ul className="mt-10 grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              [
+                "Mechanical security core",
+                "Assess the proposed enclosure and mechanical-restraint architecture.",
+              ],
+              [
+                "Vehicle-specific interface",
+                "Review mounting, geometry, access and interaction with each selected vehicle platform.",
+              ],
+              [
+                "Independent power concept",
+                "Establish operating requirements, fault behaviour and service needs through testing.",
+              ],
+              [
+                "Control and authorisation",
+                "Define the intended control and authorisation approach; verify status against physical state.",
+              ],
+              [
+                "Service and recovery",
+                "Plan authorised access, maintenance and fault recovery for exceptional conditions.",
+              ],
+              [
+                "Durability and documentation",
+                "Assess materials and operating environment; develop technical evidence for later review.",
+              ],
+            ].map(([title, body]) => (
+              <li key={title} className="bg-bg p-6 sm:p-8">
+                <h3 className="font-display text-2xl">{title}</h3>
+                <p className="mt-3 text-sm leading-6 text-muted">{body}</p>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-8 text-sm leading-6 text-muted">
+            Technical concept and planning materials support further assessment; they do not
+            establish that a finished product has passed testing.
+          </p>
+          <p className="mt-3 max-w-3xl text-sm leading-6 text-muted">
+            Detailed drawings and controlled technical material may be considered for qualified
+            parties under appropriate confidentiality arrangements.
+          </p>
+          <a
+            href="#partners"
+            className="mt-6 inline-flex min-h-11 items-center border border-bronze px-5 text-xs tracking-widest text-bronze uppercase"
+          >
+            Request a technical discussion
+          </a>
+        </div>
+      </section>
+
+      <section id="safety" className="relative isolate scroll-mt-20 overflow-hidden border-b border-border">
+        <img
+          src="/img/relay-attack.jpg"
+          alt=""
+          aria-hidden="true"
+          className="photo-moody absolute inset-0 -z-20 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 -z-10 bg-bg/60" />
+        <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-8">
           <p className="section-kicker text-xs tracking-widest text-bronze uppercase">Safety</p>
           <h2 className="mt-3 max-w-3xl font-display text-5xl leading-none sm:text-6xl">
             Safety is a gate, not a footnote.
@@ -879,53 +953,6 @@ function Home() {
         </div>
       </section>
 
-      <section id="operate" className="scroll-mt-20 bg-photo-surface text-photo-ink">
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 py-24 sm:px-8 lg:grid-cols-2">
-          <div>
-            <p className="section-kicker text-xs tracking-widest text-sage uppercase">
-              01 — Parked security
-            </p>
-            <img
-              src="/img/secure.jpg"
-              alt="A driver walking away from a parked car toward a lit front door at night"
-              className="photo-clarity photo-angle-left mt-6 mb-8 w-full object-cover object-[center_58%] outline outline-1 -outline-offset-1 outline-photo-border"
-            />
-            <p className="text-xs tracking-widest text-photo-bronze uppercase">
-              Intended mechanical restraint
-            </p>
-            <h2 className="mt-3 font-display text-5xl leading-none">
-              Designed for parked vehicles.
-            </h2>
-            <ol className="mt-6 space-y-3 text-sm leading-6 text-photo-muted">
-              {PARKED.map((step, i) => (
-                <li key={step}>
-                  <span className="mr-2 text-sage">0{i + 1}</span>
-                  {step}
-                </li>
-              ))}
-            </ol>
-          </div>
-          <div className="lg:pt-16">
-            <p className="text-xs tracking-widest text-photo-bronze uppercase">02 — Next-Stop</p>
-            <h2 className="mt-3 font-display text-5xl leading-none">
-              A new theft-response concept.
-            </h2>
-            <ol className="mt-6 space-y-3 text-sm leading-6 text-photo-muted">
-              {NEXT_STOP.map((step, i) => (
-                <li key={step}>
-                  <span className="mr-2 text-sage">0{i + 1}</span>
-                  {step}
-                </li>
-              ))}
-            </ol>
-            <p className="mt-8 border-l-2 border-sage pl-4 text-base leading-7 text-photo-muted">
-              Next-Stop is not available. Any further work requires independent automotive safety
-              validation; no moving-vehicle testing or public-road deployment is authorised.
-            </p>
-          </div>
-        </div>
-      </section>
-
       <section id="development" className="scroll-mt-20 border-y border-border">
         <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
           <p className="section-kicker text-xs tracking-widest text-bronze uppercase">
@@ -967,8 +994,13 @@ function Home() {
               ],
               [
                 "06",
-                "Prepare for production",
-                "Confirm design, manufacturing and safety evidence before any production decision.",
+                "Assess commercial readiness",
+                "Review manufacture, supply, quality, serviceability and commercial viability.",
+              ],
+              [
+                "07",
+                "Make a production decision",
+                "Consider readiness, compatibility, launch timing and final pricing only after evidence is available.",
               ],
             ].map(([number, title, body]) => (
               <li key={number} className="bg-surface p-6 sm:p-8">
@@ -981,40 +1013,16 @@ function Home() {
         </div>
       </section>
 
-      <section id="features" className="scroll-mt-20 border-y border-border bg-surface">
-        <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
-          <p className="section-kicker text-xs tracking-widest text-bronze uppercase">
-            The design principles
-          </p>
-          <h2 className="mt-3 max-w-3xl font-display text-5xl leading-none sm:text-6xl">
-            What the concept must prove.
-          </h2>
-          <p className="mt-5 max-w-3xl text-sm leading-6 text-muted">
-            These are the questions guiding development—not product features or security
-            guarantees.
-          </p>
-          <ul className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
-            {BENEFITS.map(([title, body]) => (
-              <li key={title}>
-                <h3 className="font-display text-2xl">{title}</h3>
-                <p className="mt-2 text-sm leading-6 text-muted">{body}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
       <section id="partners" className="scroll-mt-20 border-t border-border bg-surface">
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
-          <p className="text-xs tracking-widest text-bronze uppercase">
-            Build the programme with us
-          </p>
+          <p className="text-xs tracking-widest text-bronze uppercase">Development partners</p>
           <h2 className="mt-3 max-w-3xl font-display text-5xl leading-none sm:text-6xl">
             The right partners can turn this concept into evidence.
           </h2>
           <p className="mt-4 max-w-3xl text-sm leading-6 text-muted">
-            We’re looking for people and organisations who can help define the design, challenge
-            the assumptions and establish what it would take to validate SENTINEL-1 responsibly.
+            The next stage needs independent expertise, controlled testing, vehicle-specific
+            engineering and a clear commercial evaluation. We welcome organisations with relevant
+            capabilities.
           </p>
           <ul className="mt-8 grid gap-px bg-border md:grid-cols-2">
             {PARTNERS.map(([title, body]) => (
@@ -1024,6 +1032,11 @@ function Home() {
               </li>
             ))}
           </ul>
+          <p className="mt-7 max-w-3xl text-sm leading-6 text-muted">
+            These are structured discussions, not an assumption that the concept is proven. Any
+            proposed work should agree its scope, responsibilities, confidentiality, costs,
+            deliverables and decision gates before commitments are made.
+          </p>
           <a
             href="#programme-form"
             className="mt-7 inline-flex min-h-11 items-center bg-bronze px-6 text-sm tracking-widest text-bg uppercase"
@@ -1033,73 +1046,108 @@ function Home() {
         </div>
       </section>
 
-      <section id="reserve" className="scroll-mt-20 border-t border-border bg-surface">
-        <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
-          <div id="contact" className="grid gap-12 lg:grid-cols-2">
-            <div>
-              <p className="text-xs tracking-widest text-bronze uppercase">
-                For early supporters
+      <section id="reserve" className="relative isolate scroll-mt-20 overflow-hidden border-t border-border">
+        <img
+          src="/img/empty.jpg"
+          alt=""
+          aria-hidden="true"
+          className="photo-moody absolute inset-0 -z-20 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 -z-10 bg-bg/60" />
+        <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-8">
+          <div id="contact" className="grid gap-8 lg:grid-cols-5 lg:items-start">
+            <div className="min-w-0 lg:col-span-2">
+              <p className="inline-flex items-center gap-3 text-xs tracking-widest text-bronze uppercase">
+                <span className="h-px w-8 bg-bronze" aria-hidden="true" />
+                Pre-order requests and development enquiries
               </p>
-              <h2 className="mt-3 font-display text-5xl leading-none sm:text-6xl">
-                Help shape what comes next.
+              <h2 className="mt-4 font-display text-5xl leading-[0.95] sm:text-6xl">
+                Get involved in the first vehicle pathway.
               </h2>
               <p className="mt-5 max-w-xl text-sm leading-6 text-muted">
-                Tell us which vehicle or application matters to you. Expressions of interest help
-                us understand demand and prioritise future engineering work.
+                Passenger-vehicle owners can register interest while development continues. Your
+                response helps identify which vehicle applications should be assessed first. Fleet,
+                specialist and partner enquiries are considered through separate pathways.
               </p>
-              <p className="mt-3 max-w-xl text-sm leading-6 text-fg/80">
-                This is a non-binding expression of interest—not a pre-order or reservation. No
-                payment or purchase commitment is taken.
-              </p>
-              <h3 className="mt-8 font-display text-4xl text-bronze">
-                Target production price: $795 + fitting
-              </h3>
-              <p className="mt-1 text-base text-muted">Base commercial unit only.</p>
-              <p className="mt-4 max-w-xl text-sm leading-6 text-fg/80">
-                An indicative target only—not a current offer or confirmed price. Next-Stop, fleet,
-                military, HGV and government applications are POA and require separate assessment.
-              </p>
-              <h3 className="mt-8 font-display text-3xl">What happens next</h3>
-              <ol className="mt-4 grid gap-3 text-sm leading-6 text-muted sm:grid-cols-2">
-                <li>
-                  <strong className="text-bronze">01 — Tell us:</strong> Share the vehicle or
-                  partnership you have in mind.
-                </li>
-                <li>
-                  <strong className="text-bronze">02 — Understand:</strong> We review the use case
-                  and the questions it raises.
-                </li>
-                <li>
-                  <strong className="text-bronze">03 — Develop:</strong> Suitable concepts must
-                  pass engineering and safety gates.
-                </li>
-                <li>
-                  <strong className="text-bronze">04 — Decide:</strong> Availability, timing and
-                  final pricing follow validation—not before.
-                </li>
+              <div className="mt-6 border border-bronze/40 bg-bg/80 p-5 backdrop-blur-sm">
+                <p className="text-xs tracking-widest text-bronze uppercase">
+                  Indicative target · proposed base passenger-vehicle configuration
+                </p>
+                <p className="mt-2 font-display text-4xl text-fg">
+                  $795 <span className="text-2xl text-bronze">+ fitting</span>
+                </p>
+                <p className="mt-2 text-sm leading-6 text-muted">
+                  Planning target only—not a confirmed retail price or current offer. Fit,
+                  configuration, warranty, timing and availability remain unconfirmed. No
+                  production units are available, and this website takes no payment.
+                </p>
+              </div>
+              <ol className="mt-6 grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
+                {[
+                  ["01 — Register", "Share your vehicle or application details, if available."],
+                  ["02 — Review", "We assess the enquiry and may follow up where appropriate."],
+                  [
+                    "03 — Confirm",
+                    "Any future offer must confirm fit, final price, availability and terms before an order.",
+                  ],
+                ].map(([title, body]) => (
+                  <li
+                    key={title}
+                    className="border-l-2 border-bronze bg-bg/75 px-4 py-3 backdrop-blur-sm"
+                  >
+                    <p className="font-display text-xl text-bronze">{title}</p>
+                    <p className="mt-1 text-sm leading-5 text-fg/80">{body}</p>
+                  </li>
+                ))}
               </ol>
             </div>
-            <div id="programme-form" className="bg-bg p-6 sm:p-8">
-              <h3 className="font-display text-3xl">Register interest or start a conversation</h3>
-              <p className="mt-3 text-sm leading-6 text-muted">
-                Tell us what matters to you. No payment or purchase commitment is taken.
-              </p>
-              <InquiryForm />
+            <div
+              id="programme-form"
+              className="min-w-0 border border-border bg-bg/95 p-5 shadow-2xl shadow-black/20 sm:p-7 lg:col-span-3"
+            >
+              <div className="flex items-start gap-4">
+                <span className="mt-1 grid size-9 shrink-0 place-items-center border border-bronze/50 font-display text-xl text-bronze">
+                  01
+                </span>
+                <div>
+                  <h3 className="font-display text-3xl">Tell us what you’re interested in</h3>
+                  <p className="mt-2 text-sm leading-6 text-muted">
+                Tell us which vehicle or application interests you. All vehicle details are
+                optional; fleet, HGV, government and specialist requests are recorded for separate
+                assessment.
+                  </p>
+                </div>
+              </div>
+              <InquiryForm onPrivacy={() => setLegal("Privacy")} />
             </div>
           </div>
 
-          <div className="mt-12 border-t border-border pt-10">
-            <h3 className="font-display text-3xl">Frequently asked questions</h3>
-            <div className="mt-4 divide-y divide-border border-y border-border">
+          <div id="faq" className="mt-12 scroll-mt-20 border-t border-border pt-10">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="text-xs tracking-widest text-bronze uppercase">Before you enquire</p>
+                <h3 className="mt-2 font-display text-4xl">Frequently asked questions</h3>
+              </div>
+              <p className="max-w-lg text-sm leading-6 text-muted">
+                Clear answers about development status, pricing, fit and what happens next.
+              </p>
+            </div>
+            <div className="mt-6 grid gap-3 md:grid-cols-2">
               {FAQS.map(([question, answer]) => (
-                <details key={question} className="group">
-                  <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-5 py-4 text-sm font-medium">
+                <details
+                  key={question}
+                  className="group self-start border border-border bg-bg/80 px-5 transition-colors open:border-bronze/50 hover:border-bronze/40"
+                >
+                  <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-5 py-3 text-sm font-medium marker:hidden">
                     {question}
-                    <span className="text-bronze group-open:rotate-45" aria-hidden="true">
+                    <span
+                      className="grid size-7 shrink-0 place-items-center border border-border text-lg leading-none text-bronze transition-transform group-open:rotate-45"
+                      aria-hidden="true"
+                    >
                       +
                     </span>
                   </summary>
-                  <p className="pb-4 text-sm leading-6 text-muted">{answer}</p>
+                  <p className="max-w-2xl pb-5 text-sm leading-6 text-muted">{answer}</p>
                 </details>
               ))}
             </div>
@@ -1118,7 +1166,7 @@ function Home() {
           alt=""
           className="photo-clarity absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-bg/75" />
+        <div className="absolute inset-0 bg-bg/50" />
         <div className="relative mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-8 md:grid-cols-2">
           <div>
             <p className="font-word text-3xl tracking-widest text-bronze">SENTINEL-1</p>

@@ -26,6 +26,7 @@ function formatInquiry(input: InquiryInput) {
     `Name: ${input.name}`,
     `Email: ${input.email}`,
     `Phone: ${input.phone || "Not provided"}`,
+    `Country: ${input.country || "Not provided"}`,
     `Model: ${input.model || "Not specified"}`,
     `Vehicle: ${input.vehicle || "Not specified"}`,
     "",
@@ -33,7 +34,7 @@ function formatInquiry(input: InquiryInput) {
     input.message || "No additional message.",
   ];
   const text = lines.join("\n");
-  const html = `<h2>SENTINEL-1 ${subjectPrefix} enquiry</h2><dl><dt>Name</dt><dd>${escapeHtml(input.name)}</dd><dt>Email</dt><dd>${escapeHtml(input.email)}</dd><dt>Phone</dt><dd>${escapeHtml(input.phone || "Not provided")}</dd><dt>Model</dt><dd>${escapeHtml(input.model || "Not specified")}</dd><dt>Vehicle</dt><dd>${escapeHtml(input.vehicle || "Not specified")}</dd></dl><p><strong>Message</strong></p><p>${escapeHtml(input.message || "No additional message.").replace(/\n/g, "<br>")}</p>`;
+  const html = `<h2>SENTINEL-1 ${subjectPrefix} enquiry</h2><dl><dt>Name</dt><dd>${escapeHtml(input.name)}</dd><dt>Email</dt><dd>${escapeHtml(input.email)}</dd><dt>Phone</dt><dd>${escapeHtml(input.phone || "Not provided")}</dd><dt>Country</dt><dd>${escapeHtml(input.country || "Not provided")}</dd><dt>Model</dt><dd>${escapeHtml(input.model || "Not specified")}</dd><dt>Vehicle</dt><dd>${escapeHtml(input.vehicle || "Not specified")}</dd></dl><p><strong>Message</strong></p><p>${escapeHtml(input.message || "No additional message.").replace(/\n/g, "<br>")}</p>`;
   return { subject: `SENTINEL-1 ${subjectPrefix} enquiry`, text, html };
 }
 
