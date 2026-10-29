@@ -3,7 +3,7 @@ import { AuthProvider } from "@/lib/auth/provider";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import appCss from "../styles.css?url";
 
-const APP_NAME = "SENTINEL-1";
+const APP_NAME = "SENTINEL-1 | Mechanical Vehicle Security";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -11,11 +11,11 @@ export const Route = createRootRoute({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: APP_NAME },
-      { name: "theme-color", content: "#1c1d1f" },
+      { name: "theme-color", content: "#111416" },
       {
         name: "description",
         content:
-          "SENTINEL-1 — take control before they take your car. The first physically independent security layer for a world where electronic theft wins.",
+          "SENTINEL-1 is in final development ahead of pre-production, with Park Only and Park Only + Next Stop Function base models.",
       },
     ],
     links: [
@@ -31,7 +31,7 @@ export const Route = createRootRoute({
       },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Cinzel:wght@500;600&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Barlow+Condensed:wght@400;500;600;700&display=swap",
       },
     ],
   }),
