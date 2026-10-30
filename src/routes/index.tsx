@@ -50,6 +50,24 @@ const BASE_MODELS = [
     detail: "Parked-vehicle configuration",
     value: "SENTINEL-1 Park Only",
     distinction: "The Park Only base configuration, designed for use when the vehicle is parked.",
+    features: [
+      [
+        "Mechanical security",
+        "A mechanical restraint intended to add a physical security layer while parked.",
+      ],
+      [
+        "GPS location",
+        "GPS capability is a development target. The location functions and service requirements are not yet confirmed.",
+      ],
+      [
+        "Fob activation",
+        "The fob is intended to activate and deactivate the device. Exact controls and operating conditions remain to be confirmed.",
+      ],
+      [
+        "Vehicle systems",
+        "Designed to complement existing alarms, immobilisers and tracking; compatibility requires vehicle-specific assessment.",
+      ],
+    ],
   },
   {
     name: "SENTINEL-1 Park Only + Next Stop Function",
@@ -57,6 +75,32 @@ const BASE_MODELS = [
     value: "SENTINEL-1 Park Only + Next Stop Function",
     distinction:
       "The Park Only configuration with the additional Next Stop Function. Its operating sequence and conditions will be described in the confirmed product specification.",
+    features: [
+      [
+        "Mechanical security",
+        "A mechanical restraint intended to add a physical security layer while parked.",
+      ],
+      [
+        "GPS location",
+        "GPS capability is a development target. The location functions and service requirements are not yet confirmed.",
+      ],
+      [
+        "Fob activation",
+        "The fob is intended to activate and deactivate the device. Exact controls and operating conditions remain to be confirmed.",
+      ],
+      [
+        "Vehicle systems",
+        "Designed to complement existing alarms, immobilisers and tracking; compatibility requires vehicle-specific assessment.",
+      ],
+      [
+        "SIM connectivity",
+        "SIM-based connectivity is a development target. Coverage, service requirements and availability are not yet confirmed.",
+      ],
+      [
+        "Next Stop Function",
+        "Concept: a remote-requested, staged vehicle shutdown. Its conditions, trigger rules and safeguards remain under development and validation; safe operation has not been established.",
+      ],
+    ],
   },
 ] as const;
 
@@ -91,6 +135,63 @@ const BASE_MODEL_VALUES = new Set<string>(BASE_MODELS.map((model) => model.value
 
 function isBaseModelInterest(value: string) {
   return BASE_MODEL_VALUES.has(value);
+}
+
+function BaseModelCard({
+  model,
+  index,
+  onSelect,
+}: {
+  model: (typeof BASE_MODELS)[number];
+  index: number;
+  onSelect: (value: string) => void;
+}) {
+  return (
+    <article
+      id={index === 0 ? "base-model-park-only" : "base-model-next-stop"}
+      className={`s1-model-card s1-model-compare-card s1-model-compare-card-${index + 1} scroll-mt-24`}
+    >
+      <p className="s1-model-compare-kicker">Configuration 0{index + 1}</p>
+      <h4 className="s1-model-compare-title">{model.name}</h4>
+      <p className="s1-model-compare-description">{model.distinction}</p>
+      {index === 1 ? (
+        <>
+          <p className="s1-model-compare-includes">Includes all Park Only features, plus:</p>
+          <ul className="s1-model-feature-list s1-model-feature-list-additions">
+            {model.features.slice(4).map(([label, description]) => (
+              <li key={label}>
+                <strong>{label}</strong>
+                <span>{description}</span>
+              </li>
+            ))}
+          </ul>
+        </>
+      ) : (
+        <>
+          <h5 className="s1-model-feature-heading">Planned features</h5>
+          <ul className="s1-model-feature-list">
+            {model.features.map(([label, description]) => (
+              <li key={label}>
+                <strong>{label}</strong>
+                <span>{description}</span>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+      <p className="s1-model-compare-caveat">
+        Development targets only. Features, operating conditions, compatibility and safety must be
+        confirmed through engineering and validation before release.
+      </p>
+      <a
+        href="#programme-form"
+        onClick={() => onSelect(model.value)}
+        className="s1-model-compare-cta"
+      >
+        Register interest in this model
+      </a>
+    </article>
+  );
 }
 
 const FAQS = [
@@ -630,9 +731,10 @@ function Home() {
               <p className="section-kicker text-xs tracking-[0.2em] text-bronze uppercase">
                 Mechanical security · in development
               </p>
-              <h1 className="mt-5 max-w-4xl font-display text-[clamp(3rem,6vw,5.6rem)] leading-[0.88]">
-                Security beyond
-                <span className="block">the electronics.</span>
+              <h1 className="s1-hero-headline mt-5 max-w-4xl font-display">
+                <span>Security</span>
+                <span className="s1-hero-headline-accent">beyond the</span>
+                <span>electronics.</span>
               </h1>
               <p className="mt-6 max-w-2xl font-display text-xl leading-8 text-muted sm:text-2xl">
                 A considered mechanical layer for vehicles when they are parked and unattended.
@@ -683,8 +785,8 @@ function Home() {
             </div>
           </div>
           <img
-            src="/img/sentinel-vehicle-types-vertical.jpg"
-            alt="White icons representing a car, truck, bus, motorcycle, tractor and dump truck, with a UFO above"
+            src="/img/sentinel-hero-vehicle-types.jpeg?v=2"
+            alt="Metallic vehicle emblems for cars, trucks, buses, motorcycles, tractors and a tracked vehicle on a framed bronze background"
             className="s1-hero-vehicle-photo"
           />
         </div>
@@ -823,9 +925,7 @@ function Home() {
               <p className="section-kicker text-xs tracking-widest text-bronze uppercase">
                 Base models
               </p>
-              <h3 className="font-display text-2xl sm:text-3xl">
-                Two configurations. One platform.
-              </h3>
+              <h3 className="font-display text-2xl sm:text-3xl">Compare the configurations.</h3>
               <ul id="roadmap" className="s1-base-points mt-4 grid gap-x-10 sm:grid-cols-2">
                 {[
                   "A mechanical restraint intended to add a physical layer when the vehicle is parked.",
@@ -841,26 +941,12 @@ function Home() {
             </div>
             <div className="s1-model-grid mt-8 grid gap-3 md:grid-cols-2">
               {BASE_MODELS.map((model, index) => (
-                <article
+                <BaseModelCard
                   key={model.value}
-                  id={index === 0 ? "base-model-park-only" : "base-model-next-stop"}
-                  className="s1-model-card scroll-mt-24 transition-colors"
-                >
-                  <p className="text-xs tracking-[0.18em] text-bronze uppercase">
-                    Configuration 0{index + 1}
-                  </p>
-                  <h4 className="mt-2 font-display text-2xl sm:text-3xl">{model.name}</h4>
-                  <p className="mt-4 border-t border-border pt-3 text-sm leading-6 text-muted">
-                    {model.distinction}
-                  </p>
-                  <a
-                    href="#programme-form"
-                    onClick={() => setSelectedModel(model.value)}
-                    className="mt-5 inline-flex min-h-11 items-center border border-border px-4 text-xs tracking-widest uppercase transition-colors hover:border-bronze hover:text-bronze"
-                  >
-                    Pre-order this model
-                  </a>
-                </article>
+                  model={model}
+                  index={index}
+                  onSelect={setSelectedModel}
+                />
               ))}
             </div>
             <div className="s1-price-panel mt-10">
