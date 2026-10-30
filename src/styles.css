@@ -624,6 +624,7 @@ body {
 }
 
 .s1-hero-intended {
+  grid-column: 1 / -1;
   margin-inline: clamp(1.5rem, 3vw, 2.5rem);
 }
 
@@ -637,10 +638,12 @@ body {
 }
 
 .s1-hero-vehicle-photo {
+  align-self: start;
   display: block;
   width: 100%;
-  height: 100%;
-  min-height: 48rem;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 3 / 4;
   border-left: 3px solid #496d7b !important;
   object-fit: cover;
   object-position: center;

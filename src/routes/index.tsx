@@ -764,31 +764,31 @@ function Home() {
                 </a>
               </div>
             </div>
-            <div className="s1-hero-intended mt-8 border-t border-border pt-6">
-              <p className="text-xs tracking-widest text-muted uppercase">Intended use</p>
-              <h2 className="mt-3 font-display text-3xl leading-tight sm:text-4xl">
-                Leave your vehicle. Feel confident it will be there when you return.
-              </h2>
-              <p className="mt-4 text-sm leading-6 text-muted">
-                As vehicles become smarter, theft methods evolve too. SENTINEL-1 takes a step back
-                from that electronic arms race: an independent mechanical unit built around
-                fundamental vehicle principles. Drawing on experience developing a mechanical
-                anti-theft device, the project returns to a familiar automotive idea: keep it simple.
-                Its aim is to add a physical obstacle when parked—and greater confidence when you
-                return.
-              </p>
-              <p className="mt-4 border-l-2 border-bronze pl-3 font-display text-lg leading-tight text-fg">
-                Mechanical by principle.
-                <br />
-                Vehicle-specific by design.
-              </p>
-            </div>
           </div>
           <img
             src="/img/sentinel-hero-vehicle-types.jpeg?v=2"
             alt="Metallic vehicle emblems for cars, trucks, buses, motorcycles, tractors and a tracked vehicle on a framed bronze background"
             className="s1-hero-vehicle-photo"
           />
+          <div className="s1-hero-intended mt-8 border-t border-border pt-6">
+            <p className="text-xs tracking-widest text-muted uppercase">Intended use</p>
+            <h2 className="mt-3 font-display text-3xl leading-tight sm:text-4xl">
+              Leave your vehicle. Feel confident it will be there when you return.
+            </h2>
+            <p className="mt-4 text-sm leading-6 text-muted">
+              As vehicles become smarter, theft methods evolve too. SENTINEL-1 takes a step back
+              from that electronic arms race: an independent mechanical unit built around
+              fundamental vehicle principles. Drawing on experience developing a mechanical
+              anti-theft device, the project returns to a familiar automotive idea: keep it simple.
+              Its aim is to add a physical obstacle when parked—and greater confidence when you
+              return.
+            </p>
+            <p className="mt-4 border-l-2 border-bronze pl-3 font-display text-lg leading-tight text-fg">
+              Mechanical by principle.
+              <br />
+              Vehicle-specific by design.
+            </p>
+          </div>
         </div>
       </section>
 
