@@ -728,10 +728,8 @@ function Home() {
         <div className="s1-hero-layout relative mx-auto grid max-w-7xl">
           <div className="s1-hero-content">
             <div className="s1-hero-copy">
-              <p className="section-kicker text-xs tracking-[0.2em] text-bronze uppercase">
-                Mechanical security · in development
-              </p>
-              <h1 className="s1-hero-headline mt-5 max-w-4xl font-display">
+              <p className="s1-hero-brand">SENTINEL-1</p>
+              <h1 className="s1-hero-headline mt-4 max-w-4xl font-display">
                 <span>A</span>
                 <span className="s1-hero-headline-accent">new line</span>
                 <span>of defense.</span>
