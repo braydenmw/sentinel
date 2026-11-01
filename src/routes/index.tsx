@@ -594,7 +594,10 @@ function Home() {
         <div className="s1-hero-layout relative mx-auto grid max-w-7xl">
           <div className="s1-hero-content">
             <div className="s1-hero-copy">
-              <p className="s1-hero-brand">SENTINEL-1</p>
+              <div className="s1-hero-brand">
+                <img src="/logo.svg" alt="" aria-hidden="true" />
+                <span>SENTINEL-1</span>
+              </div>
               <h1 className="s1-hero-headline mt-4 max-w-4xl font-display">
                 <span>A</span>
                 <span className="s1-hero-headline-accent">new line</span>
