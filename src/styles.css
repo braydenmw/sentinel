@@ -637,16 +637,26 @@ body {
   line-height: 1.05;
 }
 
-.s1-hero-vehicle-photo {
-  align-self: start;
+.s1-hero-video-wrap {
+  align-self: stretch;
   display: block;
   width: 100%;
-  height: auto;
   min-height: 0;
+  overflow: hidden;
+  border-left: 3px solid #496d7b;
+  background: #090b0b;
+  box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.18);
+}
+
+.s1-hero-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
   aspect-ratio: 3 / 4;
-  border-left: 3px solid #496d7b !important;
   object-fit: cover;
   object-position: center;
+  background: #090b0b;
 }
 
 .s1-hero-content .s1-hero-headline {
