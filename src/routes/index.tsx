@@ -32,18 +32,6 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const NAV = [
-  ["Our background", "#proven-heritage"],
-  ["Base models", "#base-models"],
-  ["Architecture", "#the-architecture"],
-  ["Applications", "#applications"],
-  ["Safety & validation", "#safety-gates"],
-  ["Roadmap", "#roadmap"],
-  ["Partnerships", "#partner-portal"],
-  ["FAQ", "#faq"],
-  ["Register interest", "#programme-form"],
-] as const;
-
 const BASE_MODELS = [
   {
     name: "SENTINEL-1 Park Only",
@@ -597,134 +585,12 @@ function LegalDialog({ title, onClose }: { title: string; onClose: () => void })
 }
 
 function Home() {
-  const [pathwaysOpen, setPathwaysOpen] = useState(false);
   const [legal, setLegal] = useState<string | null>(null);
   const [selectedModel, setSelectedModel] = useState("");
 
   return (
     <main className="s1-site bg-bg text-fg">
-      <header className="s1-header fixed inset-x-0 top-0 z-20 bg-bg">
-        <div className="s1-announcement flex h-8 items-center justify-center px-4 text-[0.62rem] tracking-[0.2em] uppercase">
-          Final development · pre-production
-        </div>
-        <div className="s1-header-main relative mx-auto flex h-[5.25rem] max-w-7xl items-center justify-between px-5 sm:px-8">
-          <button
-            type="button"
-            className="s1-menu-toggle inline-flex min-h-12 items-center gap-3 text-sm tracking-[0.16em] uppercase transition-colors hover:text-bronze"
-            aria-expanded={pathwaysOpen}
-            aria-controls="pathways-menu"
-            aria-label={pathwaysOpen ? "Close menu" : "Open models and applications menu"}
-            onClick={() => setPathwaysOpen((value) => !value)}
-          >
-            <span className="s1-menu-mark" aria-hidden="true">
-              <span />
-              <span />
-            </span>
-            <span>{pathwaysOpen ? "Close" : "Explore"}</span>
-          </button>
-          <a
-            href="#top"
-            className="s1-wordmark absolute left-1/2 flex -translate-x-1/2 items-center gap-2"
-          >
-            <img src="/logo.svg" alt="" className="s1-brand-icon h-9 w-auto" />
-            <span className="flex flex-col items-center">
-              <span className="font-display text-xl font-medium tracking-[0.18em] transition-colors hover:text-bronze sm:text-2xl">
-                SENTINEL-1
-              </span>
-              <span className="hidden text-[0.62rem] tracking-[0.18em] uppercase sm:block">
-                Mechanical vehicle security
-              </span>
-            </span>
-          </a>
-          <a
-            href="#reserve"
-            className="s1-header-cta inline-flex min-h-12 items-center gap-2 px-2 text-xs tracking-[0.12em] uppercase transition-colors hover:text-bronze sm:border sm:border-border sm:px-5"
-          >
-            <span className="hidden sm:inline">Register interest</span>
-            <span className="sm:hidden">Register</span>
-            <span aria-hidden="true">→</span>
-          </a>
-        </div>
-        {pathwaysOpen && (
-          <div
-            id="pathways-menu"
-            className="absolute top-full right-3 z-30 max-h-[calc(100svh-5rem)] w-[min(52rem,calc(100vw-1.5rem))] overflow-y-auto border border-border bg-surface shadow-2xl sm:right-8"
-          >
-            <div className="grid md:grid-cols-[0.8fr_1.2fr]">
-              <section className="border-b border-border bg-bg/70 p-5 sm:p-7 md:border-r md:border-b-0">
-                <p className="text-xs tracking-widest text-bronze uppercase">The product</p>
-                <h2 className="mt-3 font-display text-2xl leading-tight sm:text-3xl">
-                  A mechanical layer for parked-vehicle security.
-                </h2>
-                <p className="mt-3 text-sm leading-6 text-muted">
-                  SENTINEL-1 is a mechanical vehicle-security product with two base models: Park
-                  Only and Park Only + Next Stop Function.
-                </p>
-                <p className="mt-4 border-l-2 border-bronze pl-3 text-xs leading-5 text-muted">
-                  Final development ahead of pre-production. Two base models are in development;
-                  final specifications, fit and release details are subject to confirmation.
-                </p>
-                <a
-                  href="#the-architecture"
-                  className="mt-5 inline-flex min-h-11 items-center text-xs tracking-widest text-fg uppercase transition-colors hover:text-bronze"
-                  onClick={() => setPathwaysOpen(false)}
-                >
-                  Explore the product{" "}
-                  <span className="ml-2" aria-hidden="true">
-                    →
-                  </span>
-                </a>
-              </section>
-              <section className="p-5 sm:p-7">
-                <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <h2 className="font-display text-xl sm:text-2xl">Two base models</h2>
-                  <span className="text-xs tracking-widest text-muted uppercase">
-                    Parked-vehicle configurations
-                  </span>
-                </div>
-                <div className="mt-4 grid gap-x-5 sm:grid-cols-2">
-                  {BASE_MODELS.map((model, index) => {
-                    return (
-                      <a
-                        key={model.value}
-                        href={index === 0 ? "#base-model-park-only" : "#base-model-next-stop"}
-                        className="group border-t border-border py-3 transition-colors hover:text-bronze"
-                        onClick={() => setPathwaysOpen(false)}
-                      >
-                        <span>
-                          <span className="block text-sm font-medium text-fg group-hover:text-bronze">
-                            {model.name}
-                          </span>
-                          <span className="mt-1 block text-xs leading-5 text-muted">
-                            {model.detail}
-                          </span>
-                        </span>
-                      </a>
-                    );
-                  })}
-                </div>
-              </section>
-            </div>
-            <nav
-              aria-label="Explore the site"
-              className="flex flex-wrap gap-x-5 gap-y-1 border-t border-border px-5 py-3 sm:px-7"
-            >
-              {NAV.map(([label, href]) => (
-                <a
-                  key={href}
-                  href={href}
-                  className="min-h-10 py-3 text-xs tracking-widest text-muted uppercase transition-colors hover:text-bronze"
-                  onClick={() => setPathwaysOpen(false)}
-                >
-                  {label}
-                </a>
-              ))}
-            </nav>
-          </div>
-        )}
-      </header>
-
-      <section id="top" className="s1-hero relative isolate scroll-mt-28 bg-bg pt-[7.25rem]">
+      <section id="top" className="s1-hero relative isolate bg-bg">
         <div className="s1-hero-layout relative mx-auto grid max-w-7xl">
           <div className="s1-hero-content">
             <div className="s1-hero-copy">
