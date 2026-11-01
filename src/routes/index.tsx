@@ -595,7 +595,7 @@ function Home() {
           <div className="s1-hero-content">
             <div className="s1-hero-copy">
               <div className="s1-hero-brand">
-                <img src="/logo.svg" alt="" aria-hidden="true" />
+                <img src="/img/sentinel-emblem.png" alt="SENTINEL shield emblem" />
                 <span>SENTINEL-1</span>
               </div>
               <h1 className="s1-hero-headline mt-4 max-w-4xl font-display">
