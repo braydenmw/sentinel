@@ -732,12 +732,12 @@ function Home() {
                 Mechanical security · in development
               </p>
               <h1 className="s1-hero-headline mt-5 max-w-4xl font-display">
-                <span>Security</span>
-                <span className="s1-hero-headline-accent">beyond the</span>
-                <span>electronics.</span>
+                <span>A</span>
+                <span className="s1-hero-headline-accent">new line</span>
+                <span>of defense.</span>
               </h1>
               <p className="mt-6 max-w-2xl font-display text-xl leading-8 text-muted sm:text-2xl">
-                A considered mechanical layer for vehicles when they are parked and unattended.
+                Security beyond the electronics.
               </p>
               <p className="mt-4 max-w-2xl text-sm leading-7 text-muted sm:text-base">
                 SENTINEL-1 is designed to work alongside a vehicle’s existing security. Operation,
@@ -765,11 +765,17 @@ function Home() {
               </div>
             </div>
           </div>
-          <img
-            src="/img/sentinel-hero-vehicle-types.jpeg?v=2"
-            alt="Metallic vehicle emblems for cars, trucks, buses, motorcycles, tractors and a tracked vehicle on a framed bronze background"
-            className="s1-hero-vehicle-photo"
-          />
+          <div className="s1-hero-video-wrap">
+            <video
+              className="s1-hero-video"
+              src="/video/sentinel-commercial.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              controls={false}
+            />
+          </div>
           <div className="s1-hero-intended mt-8 border-t border-border pt-6">
             <p className="text-xs tracking-widest text-muted uppercase">Intended use</p>
             <h2 className="mt-3 font-display text-3xl leading-tight sm:text-4xl">
