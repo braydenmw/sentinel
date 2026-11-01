@@ -45,6 +45,10 @@ export const Route = createRootRoute({
       { title: APP_NAME },
       { name: "theme-color", content: "#111416" },
       {
+        name: "google-site-verification",
+        content: "_VVZLnmVp9N00I3p7Is4aEsAYrrUn_rYaZv9_-uk9oA",
+      },
+      {
         name: "description",
         content:
           "SENTINEL-1 is in final development ahead of pre-production, with Park Only and Park Only + Next Stop Function base models.",
