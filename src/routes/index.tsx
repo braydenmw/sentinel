@@ -591,76 +591,47 @@ function Home() {
   return (
     <main className="s1-site bg-bg text-fg">
       <section id="top" className="s1-hero relative isolate bg-bg">
-        <div className="s1-hero-layout relative mx-auto grid max-w-7xl">
-          <div className="s1-hero-content">
-            <div className="s1-hero-copy">
-              <div className="s1-hero-brand">
-                <img src="/img/sentinel-emblem.png" alt="SENTINEL shield emblem" />
-                <span>SENTINEL-1</span>
-              </div>
-              <h1 className="s1-hero-headline mt-4 max-w-4xl font-display">
-                <span>A</span>
-                <span className="s1-hero-headline-accent">new line</span>
-                <span>of defense.</span>
-              </h1>
-              <p className="mt-6 max-w-2xl font-display text-xl leading-8 text-muted sm:text-2xl">
-                Security beyond the electronics.
-              </p>
-              <p className="mt-4 max-w-2xl text-sm leading-7 text-muted sm:text-base">
-                SENTINEL-1 is designed to work alongside a vehicle’s existing security. Operation,
-                safety and fitment remain subject to vehicle-specific confirmation.
-              </p>
-              <div className="mt-8 flex flex-wrap items-center gap-4">
-                <a
-                  href="#reserve"
-                  className="group inline-flex min-h-12 items-center gap-3 bg-bg px-6 text-xs tracking-widest text-white uppercase transition-colors hover:bg-white hover:text-bg"
-                >
-                  Register pre-order interest
-                  <span
-                    aria-hidden="true"
-                    className="text-base transition-transform group-hover:translate-x-1"
-                  >
-                    →
-                  </span>
-                </a>
-                <a
-                  href="#proven-heritage"
-                  className="inline-flex min-h-12 items-center border-b border-border px-1 text-xs tracking-widest text-fg uppercase transition-colors hover:border-bronze"
-                >
-                  Discover our background
-                </a>
-              </div>
+        <div className="s1-hero-intro">
+          <div className="s1-hero-intro-main">
+            <p className="s1-hero-kicker">A new line of defense</p>
+            <h1 className="s1-hero-headline font-display">SENTINEL-1</h1>
+            <p className="s1-hero-vehicle-types">
+              Cars <span>·</span> Trucks <span>·</span> Buses <span>·</span> Bikes
+            </p>
+          </div>
+          <div className="s1-hero-intro-aside">
+            <p className="s1-hero-lead font-display">Security beyond the electronics.</p>
+            <p className="s1-hero-description">
+              Designed to work alongside a vehicle’s existing security. Operation, safety and
+              fitment remain subject to vehicle-specific confirmation.
+            </p>
+            <div className="s1-hero-actions">
+              <a className="s1-hero-primary" href="#reserve">
+                Register pre-order interest <span aria-hidden="true">→</span>
+              </a>
+              <a className="s1-hero-secondary" href="#proven-heritage">
+                Discover our background
+              </a>
             </div>
           </div>
-          <div className="s1-hero-video-wrap">
-            <video
-              className="s1-hero-video"
-              src="/video/sentinel-commercial.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              controls={false}
-            />
-          </div>
-          <div className="s1-hero-intended mt-8 border-t border-border pt-6">
-            <p className="text-xs tracking-widest text-muted uppercase">Intended use</p>
-            <h2 className="mt-3 font-display text-3xl leading-tight sm:text-4xl">
-              Leave your vehicle. Feel confident it will be there when you return.
-            </h2>
-            <p className="mt-4 text-sm leading-6 text-muted">
-              As vehicles become smarter, theft methods evolve too. SENTINEL-1 takes a step back
-              from that electronic arms race: an independent mechanical unit built around
-              fundamental vehicle principles. Drawing on experience developing a mechanical
-              anti-theft device, the project returns to a familiar automotive idea: keep it simple.
-              Its aim is to add a physical obstacle when parked—and greater confidence when you
-              return.
-            </p>
-            <p className="mt-4 border-l-2 border-bronze pl-3 font-display text-lg leading-tight text-fg">
-              Mechanical by principle.
-              <br />
-              Vehicle-specific by design.
-            </p>
+        </div>
+
+        <div className="s1-hero-stage">
+          <img
+            className="s1-hero-image"
+            src="/img/sentinel-concept-pair.jpeg"
+            alt="A classic white sports car alongside a close-up of the SENTINEL mechanical security unit"
+            fetchPriority="high"
+          />
+          <p className="s1-hero-image-caption">
+            <span>01 / 02</span> Classic automotive character. A considered new safeguard.
+          </p>
+        </div>
+
+        <div className="s1-hero-intended">
+          <div className="s1-hero-intended-heading">
+            <p className="s1-hero-kicker">Intended use</p>
+            <h2>Leave your vehicle. Feel confident it will be there when you return.</h2>
           </div>
         </div>
       </section>
@@ -680,28 +651,23 @@ function Home() {
                 SENTINEL is being developed for parked-vehicle security across a broad range of
                 vehicle types. SENTINEL-1 is focused on passenger vehicles, fleets, buses, trucks,
                 agricultural and off-highway machinery; SENTINEL-2 is the separate motorcycle
-                development direction. The aim is to complement existing vehicle systems, with
-                every application requiring its own engineering, fitment and safety assessment.
-                Insurers, operators, vehicle specialists and manufacturing partners can help shape
-                the evidence and requirements. Compatibility across these vehicle types is not yet
+                development direction. The aim is to complement existing vehicle systems, with every
+                application requiring its own engineering, fitment and safety assessment. Insurers,
+                operators, vehicle specialists and manufacturing partners can help shape the
+                evidence and requirements. Compatibility across these vehicle types is not yet
                 confirmed.
               </p>
             </div>
           </div>
-          <div
-            id="specialist-pathway"
-            className="s1-specialist-panel scroll-mt-20"
-          >
-            <p className="text-xs tracking-widest uppercase">
-              Exploratory applications
-            </p>
+          <div id="specialist-pathway" className="s1-specialist-panel scroll-mt-20">
+            <p className="text-xs tracking-widest uppercase">Exploratory applications</p>
             <h3 className="mt-3 max-w-3xl font-display text-4xl leading-tight sm:text-5xl">
               Specialist and government pathways require their own assessment.
             </h3>
             <p className="mt-4 max-w-3xl text-sm leading-6">
               Any potential specialist or government use would require a separately defined,
-              properly governed engineering and evaluation programme. SENTINEL-1 is not a fielded
-              or certified military product; no operational capability, defence qualification or
+              properly governed engineering and evaluation programme. SENTINEL-1 is not a fielded or
+              certified military product; no operational capability, defence qualification or
               government endorsement is claimed.
             </p>
             <a
@@ -787,7 +753,7 @@ function Home() {
                   Mechanical by principle.
                   <span className="block text-bronze">Security when parked.</span>
                 </h2>
-                <p className="mt-6 max-w-3xl text-base leading-7 text-fg/85">
+                <p className="mt-6 max-w-3xl text-base leading-7 text-fg">
                   SENTINEL-1 is in final development ahead of pre-production. Compare the two
                   configurations below; specifications and operating details will be confirmed
                   before release.
@@ -806,7 +772,10 @@ function Home() {
                   "Vehicle compatibility, safe operation and recovery require platform-specific assessment and validation.",
                   "Specifications, manufacturing, pricing, delivery, warranty and customer support must be confirmed before paid orders open.",
                 ].map((point) => (
-                  <li key={point} className="border-t border-border py-3 text-sm leading-6 text-muted">
+                  <li
+                    key={point}
+                    className="border-t border-border py-3 text-sm leading-6 text-muted"
+                  >
                     {point}
                   </li>
                 ))}
@@ -980,7 +949,9 @@ function Home() {
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
           <div className="grid items-center gap-8 md:grid-cols-2 md:gap-12">
             <div>
-              <p className="text-xs tracking-widest text-bronze uppercase">Strategic partnerships</p>
+              <p className="text-xs tracking-widest text-bronze uppercase">
+                Strategic partnerships
+              </p>
               <h2 className="mt-3 max-w-3xl font-display text-5xl leading-none sm:text-6xl">
                 Build what comes next.
               </h2>
